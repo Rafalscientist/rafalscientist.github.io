@@ -3,8 +3,6 @@ layout: archive
 title: "Fizyka"
 permalink: /
 author_profile: true
-author:
-  avatar: "/images/rafal.jpg"
 redirect_from: 
   - /about/
   - /about.html
