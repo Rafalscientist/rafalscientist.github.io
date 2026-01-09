@@ -4,7 +4,7 @@ title: "Fizyka"
 permalink: /
 author_profile: true
 author:
-  avatar: "/assets/images/Rafal_github.jpg"
+  avatar: "/assets/images/rafal.jpg"
 redirect_from: 
   - /about/
   - /about.html
