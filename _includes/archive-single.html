@@ -16,13 +16,17 @@
       </span>
     {% endif %}
 
-  <!-- 2. TYTUŁ (Przecinek wewnątrz tagu h2 eliminuje spację) -->
-<h2 class="archive__item-title" itemprop="headline" style="font-size: 1.1em; margin: 0; display: inline;"><a href="{{ post.paperurl }}" rel="permalink" style="text-decoration: none;">{{ title }}</a>,</h2>
+    <!-- 2. TYTUŁ (Czysty tekst bez podkreślenia + PRZECINEK) -->
+    <h2 class="archive__item-title" itemprop="headline" style="font-size: 1.1em; margin: 0; display: inline; font-weight: normal;">
+      {{ title }},
+    </h2>
 
-    <!-- 3. CZASOPISMO, VOLUME, STRONA I ROK -->
+    <!-- 3. CZASOPISMO, VOLUME, STRONA I ROK (Jako hiperłącze) -->
     <span style="font-size: 1em; margin-left: 2px;">
       {% if post.collection == 'publications' %}
-        {{ post.venue }} <b>{{ post.volume }}</b>, {{ post.pages }} ({{ post.date | default: "1900-01-01" | date: "%Y" }})
+        <a href="{{ post.paperurl }}" rel="permalink" style="text-decoration: none;">
+          {{ post.venue }} <b>{{ post.volume }}</b>, {{ post.pages }} ({{ post.date | default: "1900-01-01" | date: "%Y" }})
+        </a>
       {% endif %}
     </span>
 
