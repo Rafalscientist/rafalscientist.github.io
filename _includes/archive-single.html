@@ -25,7 +25,7 @@
     <span style="font-size: 1em; margin-left: 2px;">
       {% if post.collection == 'publications' %}
         <a href="{{ post.paperurl }}" class="publication-link" rel="permalink">
-          {{ post.venue }} <b>{{ post.volume }}</b>, {{ post.pages }} ({{ post.date | default: "1900-01-01" | date: "%Y" }})
+          <i>{{ post.venue }}</i> <b>{{ post.volume }}</b>, {{ post.pages }} ({{ post.date | default: "1900-01-01" | date: "%Y" }})
         </a>
       {% endif %}
     </span>
