@@ -16,10 +16,10 @@
       </span>
     {% endif %}
 
-    <!-- 2. TYTUŁ (Podkreślony, jako hiperłącze + PRZECINEK) -->
+  <!-- 2. TYTUŁ (Jako jedyne hiperłącze, BEZ podkreślenia + PRZECINEK) -->
     <h2 class="archive__item-title" itemprop="headline" style="font-size: 1.1em; margin: 0; display: inline;">
-      <a href="{{ post.paperurl }}" rel="permalink" style="text-decoration: underline;">{{ title }}</a>
-    </h2>, <!-- Tutaj jest Twój przecinek -->
+      <a href="{{ post.paperurl }}" rel="permalink" style="text-decoration: none;">{{ title }}</a>
+    </h2>, 
 
     <!-- 3. CZASOPISMO, VOLUME, STRONA I ROK -->
     <span style="font-size: 1em; margin-left: 2px;">
