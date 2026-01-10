@@ -6,5 +6,5 @@ venue: "Optica Applicata"
 volume: 51
 pages: 135
 paperurl: "https://opticaapplicata.pwr.edu.pl/article.php?id=2021100135" # To będzie link w tytule
-citation: "<u>R. A. Bogaczewicz</u>, E. Popko, K. R. Gwóźdź" 
+citation: "<u>R. A. Bogaczewicz</u>, E. Popko and K. R. Gwóźdź" 
 ---
