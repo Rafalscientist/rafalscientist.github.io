@@ -1,5 +1,5 @@
 ---
-title: "Tytuł Twojej publikacji (np. o fizyce teoretycznej)"
+title: "Determination of the band structure diagram of semiconductor heterostructures applied in photovoltaics"
 collection: publications
 permalink: /publication/2026-moja-pierwsza-praca
 date: 2026-01-10
