@@ -11,8 +11,10 @@ author_profile: true
 {% assign count = posts | size %}
 
 {% for post in posts %}
-  <div class="list__item" style="display: flex; align-items: baseline; margin-bottom: 20px;">
-    <span style="font-weight: bold; min-width: 40px; color: #2d4f1e; font-family: sans-serif;">[{{ count }}]</span>
+  <div class="list__item" style="display: flex; align-items: baseline; margin-bottom: 12px;">
+    <span style="font-size: 0.85em; color: #2d4f1e; min-width: 45px; font-family: 'Roboto', sans-serif; opacity: 0.8;">
+      ({{ count }})
+    </span>
     <div style="flex: 1;">
       {% include archive-single.html %}
     </div>
