@@ -1,10 +1,10 @@
 ---
 title: "Determination of the band structure diagram of semiconductor heterostructures applied in photovoltaics"
 collection: publications
-permalink: /publication/2026-moja-pierwsza-praca
-date: 2026-01-10
+date: 2021-08-01
 venue: "Optica Applicata"
-paperurl: "arxiv.org"
-citation: "<b>R. A. Bogaczewicz</b>, E. Popko, K. R. Gwóźdź, <i>Nazwa Czasopisma</i>  (2026). 'Tytuł'. , 1(1)."
+volume: 51
+pages: 135
+paperurl: "https://opticaapplicata.pwr.edu.pl/article.php?id=2021100135" # To będzie link w tytule
+citation: "<u>R. A. Bogaczewicz</u>, E. Popko, K. R. Gwóźdź" 
 ---
-To jest moja pierwsza publikacja dodana do nowego systemu.
