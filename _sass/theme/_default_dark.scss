@@ -47,7 +47,7 @@ html[data-theme="dark"] {
     --global-fig-caption-color          : #{$light-gray};
     --global-link-color                 : #{$primary-color}; // ZAMIANA: linki będą szałwiowe
     --global-link-color-hover           : #b2cfb6;           // Jasna zieleń przy najechaniu
-    --global-link-color-visited         : #6b8e70;           // Zgaszona zieleń dla odwiedzonych
+    --global-link-color-visited         : #b2cfb6;           // Zgaszona zieleń dla odwiedzonych
     --global-masthead-link-color        : #{$text};
     --global-masthead-link-color-hover  : #{$primary-color};
     --global-text-color                 : #{$text};
