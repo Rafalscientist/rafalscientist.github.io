@@ -1,10 +1,7 @@
 ---
-title: "Tytuł Twojego wystąpienia"
-collection: conferences
-type: "talk"
-permalink: /conferences/2025-12-01-fizyka-test
-date: 2025-12-01
-venue: "Nazwa Uniwersytetu lub Konferencji"
-location: "Miasto, Kraj"
+title: "Nazwa Twojej Konferencji"
+link: "https://www.conference-website.edu" # Link do strony konferencji
+date: 2026-01-11                            # Format RRRR-MM-DD (do sortowania)
+date_display: "11-15 Jan 2026"              # To co faktycznie wyświetli się na stronie
+location: "Wrocław (Polska)"                # Miasto i Kraj
 ---
-Krótki opis wystąpienia lub abstrakt (opcjonalnie).
