@@ -41,3 +41,62 @@
     "vendor/font-awesome/solid",
     "vendor/font-awesome/brands"
 ;
+
+/* ==========================================================================
+   SYSTEMOWA NAPRAWA KOLORÓW I NAWIGACJI - 2026
+   ========================================================================== */
+
+/* 1. TWOJA ZIELEŃ DLA CAŁEJ STRONY */
+:root {
+  --moj-zielony: #2d4f1e;       /* Leśna zieleń (Dzień) */
+  --moj-hover: #006400;         /* Ciemna zieleń (Dzień) */
+}
+
+html[data-theme='dark'] {
+  --moj-zielony: #90EE90;       /* Jasna zieleń (Noc) */
+  --moj-hover: #00FFAB;         /* Neon miętowy (Noc) */
+}
+
+/* 2. NAPRAWA NAWIGACJI (Talks, Imię, Ikony Social Media) */
+.greedy-nav a:hover,
+.site-title:hover,
+.masthead__menu-item a:hover,
+.author__urls-wrapper a:hover,
+.author__urls-wrapper a:hover * {
+  color: var(--moj-hover) !important;
+  background: transparent !important;
+  opacity: 1 !important;
+  text-decoration: none !important;
+}
+
+/* Kolor aktywnej zakładki */
+.masthead__menu-item--active a {
+  color: var(--moj-zielony) !important;
+  font-weight: bold !important;
+}
+
+/* 3. NAPRAWA PUBLIKACJI (Linki bibliograficzne) */
+.publication-link, 
+.publication-link:visited,
+.publication-link i, 
+.publication-link b {
+  color: var(--moj-zielony) !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
+.publication-link:hover,
+.publication-link:hover i, 
+.publication-link:hover b {
+  color: var(--moj-hover) !important;
+  text-decoration: underline !important;
+}
+
+/* 4. BLOKADA PODKREŚLANIA TYTUŁÓW PUBLIKACJI */
+.archive__item-title, 
+.title-static {
+  color: var(--global-text-color) !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+  pointer-events: none; 
+}
