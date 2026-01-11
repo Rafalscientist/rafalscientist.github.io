@@ -25,29 +25,30 @@ author_profile: true
 </div>
 
 <style>
-  /* 1. DEFINICJA KOLORÓW ZIELENI DLA OBU TRYBÓW */
+  /* 1. KOLORY DEFINIOWANE JAKO ZMIENNE */
   :root {
-    --moje-czasopismo-jasny: #006400; /* Ciemnozielony (DarkGreen) na dzień */
-    --moje-czasopismo-ciemny: #90EE90; /* Jasnozielony (LightGreen) na noc */
+    --zielony-akcent: #006400; /* Domyślnie ciemny (dla trybu jasnego) */
   }
 
-  /* 2. TYTUŁ STRONY I LINKI CZASOPISM - TRYB JASNY (DOMYŚLNY) */
-  .page__title, 
-  h1.page__title,
-  .publication-link {
-    color: var(--moje-czasopismo-jasny) !important;
-  }
-
-  /* 3. TRYB CIEMNY - AUTOMATYCZNA ZMIANA NA JASNOZIELONY */
+  /* 2. JEŚLI STRONA MA WŁĄCZONY TRYB CIEMNY (przez atrybut lub system) */
+  html[data-theme='dark'] :root,
+  [data-theme='dark'],
   @media (prefers-color-scheme: dark) {
-    .page__title, 
-    h1.page__title,
-    .publication-link {
-      color: var(--moje-czasopismo-ciemny) !important;
+    :root {
+      --zielony-akcent: #90EE90; /* Zmiana na jasnozielony w nocy */
     }
   }
 
-  /* 4. PRZYWRÓCENIE KONTRASTU DLA TEKSTU (AUTORZY I TYTUŁY) */
+  /* 3. ZASTOSOWANIE KOLORU DO TYTUŁU I CZASOPISM */
+  .page__title, 
+  h1.page__title,
+  .publication-link,
+  .publication-link i,
+  .publication-link b {
+    color: var(--zielony-akcent) !important;
+  }
+
+  /* 4. KONTRAST DLA TEKSTU STATYCZNEGO (Autorzy i Tytuły prac) */
   .publications-list, 
   .archive__item-citation, 
   .title-static {
