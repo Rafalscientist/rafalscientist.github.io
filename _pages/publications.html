@@ -25,41 +25,52 @@ author_profile: true
 </div>
 
 <style>
-  /* 1. KOLORY DEFINIOWANE JAKO ZMIENNE */
+  /* 1. DEFINICJA TWOJEJ ZIELENI DLA OBU TRYBÓW */
   :root {
-    --zielony-akcent: #006400; /* Domyślnie ciemny (dla trybu jasnego) */
+    --moj-zielony: #006400;       /* Ciemny zielony w dzień */
+    --moj-zielony-hover: #008000; /* Trochę jaśniejszy na hover w dzień */
   }
 
-  /* 2. JEŚLI STRONA MA WŁĄCZONY TRYB CIEMNY (przez atrybut lub system) */
-  html[data-theme='dark'] :root,
-  [data-theme='dark'],
+  /* Tryb ciemny (systemowy i wymuszony przez atrybut) */
   @media (prefers-color-scheme: dark) {
     :root {
-      --zielony-akcent: #90EE90; /* Zmiana na jasnozielony w nocy */
+      --moj-zielony: #90EE90;       /* Jasny zielony w nocy */
+      --moj-zielony-hover: #ADFF2F; /* Jaskrawy zielony na hover w nocy */
     }
   }
+  html[data-theme='dark'] {
+    --moj-zielony: #90EE90;
+    --moj-zielony-hover: #ADFF2F;
+  }
 
-  /* 3. ZASTOSOWANIE KOLORU DO TYTUŁU I CZASOPISM */
-  .page__title, 
-  h1.page__title,
-  .publication-link,
-  .publication-link i,
+  /* 2. TYTUŁ STRONY (Napis Publications) */
+  .page__title {
+    color: var(--moj-zielony) !important;
+  }
+
+  /* 3. STYL DLA LINKU (Czasopismo, Rok, Strony) */
+  .publication-link, 
+  .publication-link i, 
   .publication-link b {
-    color: var(--zielony-akcent) !important;
+    color: var(--moj-zielony) !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease;
   }
 
-  /* 4. KONTRAST DLA TEKSTU STATYCZNEGO (Autorzy i Tytuły prac) */
-  .publications-list, 
-  .archive__item-citation, 
+  /* 4. HOVER - TERAZ CAŁY LINK ZMIENIA KOLOR JEDNOCZEŚNIE */
+  .publication-link:hover,
+  .publication-link:hover i,
+  .publication-link:hover b {
+    color: var(--moj-zielony-hover) !important;
+    text-decoration: underline !important;
+  }
+
+  /* 5. BLOKADA PODKREŚLEŃ DLA TYTUŁU PRACY */
   .title-static {
-    color: var(--global-text-color) !important;
-    opacity: 1 !important;
+    color: var(--global-text-color); /* Tytuł zostaje standardowo czarny/biały */
   }
-
-  /* 5. ESTETYKA LISTY */
-  .publications-list h2.archive__item-title {
-    font-size: 1em !important;
-    margin: 0 !important;
-    font-weight: normal;
+  
+  .archive__item:hover .title-static {
+    text-decoration: none !important;
   }
 </style>
