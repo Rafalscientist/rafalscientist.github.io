@@ -25,28 +25,40 @@ author_profile: true
 </div>
 
 <style>
-  /* 1. TYTUŁ STRONY: Ma być zielony jak czasopisma */
-  .page__title, h1.page__title {
-    color: var(--global-link-color) !important;
+  /* 1. DEFINICJA KOLORÓW ZIELENI DLA OBU TRYBÓW */
+  :root {
+    --moje-czasopismo-jasny: #006400; /* Ciemnozielony (DarkGreen) na dzień */
+    --moje-czasopismo-ciemny: #90EE90; /* Jasnozielony (LightGreen) na noc */
   }
 
-  /* 2. TYTUŁY ARTYKUŁÓW I AUTORZY: Przywracamy standardowy kolor tekstu (czarny/biały) */
+  /* 2. TYTUŁ STRONY I LINKI CZASOPISM - TRYB JASNY (DOMYŚLNY) */
+  .page__title, 
+  h1.page__title,
+  .publication-link {
+    color: var(--moje-czasopismo-jasny) !important;
+  }
+
+  /* 3. TRYB CIEMNY - AUTOMATYCZNA ZMIANA NA JASNOZIELONY */
+  @media (prefers-color-scheme: dark) {
+    .page__title, 
+    h1.page__title,
+    .publication-link {
+      color: var(--moje-czasopismo-ciemny) !important;
+    }
+  }
+
+  /* 4. PRZYWRÓCENIE KONTRASTU DLA TEKSTU (AUTORZY I TYTUŁY) */
   .publications-list, 
   .archive__item-citation, 
   .title-static {
     color: var(--global-text-color) !important;
-    opacity: 1 !important; /* Wyraźny czarny/biały, bez szarości */
+    opacity: 1 !important;
   }
 
-  /* 3. LISTA: Rozmiar czcionki i odstępy */
+  /* 5. ESTETYKA LISTY */
   .publications-list h2.archive__item-title {
-    font-size: 1em !important; 
+    font-size: 1em !important;
     margin: 0 !important;
     font-weight: normal;
-  }
-
-  /* 4. LICZNIK (np. 25): Może zostać lekko przygaszony, by nie odciągać uwagi */
-  .publications-list span:not(.publication-link) {
-    opacity: 0.7;
   }
 </style>
