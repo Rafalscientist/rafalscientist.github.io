@@ -47,13 +47,14 @@ author_profile: true
   .page__title {
     color: var(--moj-zielony) !important;
   }
-
-  /* 3. STYL DLA LINKU (Czasopismo, Rok, Strony) */
+  
+/* 3. STYL DLA LINKU (Czasopismo, Rok, Strony) */
   .publication-link, 
   .publication-link i, 
   .publication-link b {
     color: var(--moj-zielony) !important;
     text-decoration: none !important;
+    border-bottom: none !important; /* DODAJ TĘ LINIĘ */
     transition: all 0.2s ease;
   }
 
@@ -66,11 +67,20 @@ author_profile: true
   }
 
   /* 5. BLOKADA PODKREŚLEŃ DLA TYTUŁU PRACY */
-  .title-static {
-    color: var(--global-text-color); /* Tytuł zostaje standardowo czarny/biały */
+  /* Celujemy w nagłówek h2, aby wyłączyć podkreślenie z motywu */
+  .publications-list h2.archive__item-title,
+  .publications-list .title-static {
+    text-decoration: none !important;
+    border-bottom: none !important;
+    color: var(--global-text-color) !important;
   }
   
-  .archive__item:hover .title-static {
+  /* To wyłącza podkreślenie, gdy kursor jest nad całym wpisem */
+  .publications-list .archive__item:hover h2.archive__item-title,
+  .publications-list .archive__item:hover .title-static {
     text-decoration: none !important;
+    border-bottom: none !important;
   }
+
+  
 </style>
