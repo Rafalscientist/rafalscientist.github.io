@@ -47,24 +47,26 @@ author_profile: true
   .page__title {
     color: var(--moj-zielony) !important;
   }
-  
-/* 3. STYL DLA LINKU (Czasopismo, Rok, Strony) */
-  .publication-link, 
-  .publication-link i, 
-  .publication-link b {
-    color: var(--moj-zielony) !important;
-    text-decoration: none !important;
-    border-bottom: none !important; /* DODAJ TĘ LINIĘ */
-    transition: all 0.2s ease;
-  }
+ 
+/* 3. STYL DLA LINKU - Blokujemy zgniłą zieleń dla odwiedzonych linków */
+.publication-link, 
+.publication-link:visited, 
+.publication-link i, 
+.publication-link b {
+  color: var(--moj-zielony) !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+  transition: all 0.2s ease;
+}
 
-  /* 4. HOVER - TERAZ CAŁY LINK ZMIENIA KOLOR JEDNOCZEŚNIE */
-  .publication-link:hover,
-  .publication-link:hover i,
-  .publication-link:hover b {
-    color: var(--moj-zielony-hover) !important;
-    text-decoration: underline !important;
-  }
+/* 4. HOVER - Wymuszamy nowy kolor, nawet jeśli link był odwiedzony */
+.publication-link:hover,
+.publication-link:hover:visited, /* KLUCZ: To zabije zgniłą zieleń przy najechaniu */
+.publication-link:hover i,
+.publication-link:hover b {
+  color: #00FFAB !important; /* Tutaj Twój nowy, atrakcyjny kolor (np. Neon Mint) */
+  text-decoration: underline !important;
+}
 
   /* 5. BLOKADA PODKREŚLEŃ DLA TYTUŁU PRACY */
   /* Celujemy w nagłówek h2, aby wyłączyć podkreślenie z motywu */
