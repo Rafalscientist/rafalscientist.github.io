@@ -13,12 +13,25 @@ author_profile: true
 <div class="publications-list" style="font-size: 0.85em;"> 
   
   {% for post in posts %}
-    <div class="list__item" style="display: flex; align-items: baseline; margin-bottom: 10px; line-height: 1.4;">
+    <div class="list__item" style="display: flex; align-items: baseline; margin-bottom: 12px; line-height: 1.4;">
+      
+      <!-- Numeracja analogiczna do publikacji -->
       <span style="color: var(--global-text-color); min-width: 40px; font-weight: bold; opacity: 0.7;">
         ({{ count }})
       </span>
+
       <div style="flex: 1;">
-        {% include archive-single.html %}
+        <!-- Nazwa konferencji jako hiperłącze -->
+        {% if post.link %}
+          <a href="{{ post.link }}" style="text-decoration: none; font-weight: bold; color: #2980b9;">{{ post.title }}</a>
+        {% else %}
+          <strong style="color: var(--global-text-color);">{{ post.title }}</strong>
+        {% endif %}
+
+        <!-- Czas trwania i lokalizacja (z zachowaniem stylu i uniknięciem błędów kolorów) -->
+        <div style="font-size: 0.9em; margin-top: 2px; color: #555;">
+          <span>{{ post.date_display }}</span> | <span>{{ post.location }}</span>
+        </div>
       </div>
     </div>
     {% assign count = count | minus: 1 %}
