@@ -78,4 +78,23 @@ author_profile: true
   .archive__item-title:hover {
     text-decoration: none !important;
   }
+
+  /* POPRAWKA NAWIGACJI I PROFILU DLA TRYBU CIEMNEGO */
+  html[data-theme='dark'] .masthead__menu-item a:hover,
+  html[data-theme='dark'] .site-title:hover,
+  html[data-theme='dark'] .author__urls a:hover {
+  color: var(--pub-hover) !important; /* Użyje Twojego neonowego zielonego #00FFAB */
+  opacity: 1;
+}
+
+/* Kolor nazwy w sidebarze (Twoje Imię i Nazwisko) */
+  html[data-theme='dark'] .author__name {
+  color: var(--global-text-color);
+}
+
+/* Opcjonalnie: kolor aktywnych linków w menu, żeby nie "gasły" */
+  html[data-theme='dark'] .masthead__menu-item.active a {
+  color: var(--pub-zielony) !important;
+}
+  
 </style>
