@@ -47,34 +47,35 @@ author_profile: true
   .page__title {
     color: var(--pub-zielony) !important;
   }
-
-  /* 4. LINKI W PUBLIKACJACH (Czasopismo, tom, rok) */
+/* 4. STYL DLA LINKÓW */
   .publication-link, 
-  .publication-link:visited,
-  .publication-link i, 
-  .publication-link b {
+  .publication-link:visited {
     color: var(--pub-zielony) !important;
     text-decoration: none !important;
     border-bottom: none !important;
     transition: all 0.2s ease;
   }
 
-  /* 5. HOVER - Teraz inteligentnie dobiera kolor do tła */
+  /* 5. HOVER - TYLKO DLA LINKU */
   .publication-link:hover,
-  .publication-link:hover:visited,
-  .publication-link:hover i,
-  .publication-link:hover b {
-    color: var(--pub-hover) !important; /* Tutaj dzieje się magia rozdziału kolorów */
-    text-decoration: underline !important;
+  .publication-link:hover:visited {
+    color: var(--pub-hover) !important;
+    text-decoration: underline !important; /* Podkreślamy tylko to, co jest wewnątrz <a> */
   }
 
-  /* 6. TYTUŁ PRACY */
+  /* 6. BLOKADA PODKREŚLENIA DLA TYTUŁU PUBLIKACJI */
+  /* Celujemy w h2 i span, żeby upewnić się, że hover na linku ich nie "zarazi" */
+  .archive__item-title,
   .title-static {
     color: var(--global-text-color) !important;
+    text-decoration: none !important; /* Całkowity brak podkreślenia */
+    border-bottom: none !important;
     font-weight: 500;
   }
 
-  .archive__item-title {
-    border-bottom: none !important;
+  /* Dodatkowe zabezpieczenie: gdy najedziesz na link, tytuł ma zostać czysty */
+  .archive__item:hover .title-static,
+  .archive__item-title:hover {
+    text-decoration: none !important;
   }
 </style>
