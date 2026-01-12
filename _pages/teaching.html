@@ -29,25 +29,25 @@ author_profile: true
 
 <hr style="opacity: 0.2; clear: both;">
 
-<!-- Lista zajęć - ZMIANY TYLKO TUTAJ -->
+<!-- Lista zajęć - z dynamicznym kolorem zielonym (var(--link-color)) -->
 <div class="teaching-list" style="font-size: 0.85em; clear: both;"> 
   {% assign posts = site.teaching | sort: 'date' | reverse %}
   
   {% for post in posts %}
-    <div class="list__item" style="margin-bottom: 15px; line-height: 1.4;">
+    <div class="list__item" style="margin-bottom: 25px; line-height: 1.4;">
       
       {% if post.title contains "doktoranckich" or post.title contains "Archive" %}
-        <!-- OPCJA A: Dla archiwum - Zielony link "Poprzednie semestry" -->
+        <!-- LINK ARCHIWUM: Kolor identyczny jak czasopisma w obu trybach -->
         <a href="{{ post.permalink }}" style="color: var(--link-color); font-size: 1.3em; font-weight: normal; text-decoration: underline;">
           Poprzednie semestry / Past semesters
         </a>
       {% else %}
-        <!-- OPCJA B: Dla aktualnego semestru - Większy napis bez przecinka -->
-        <span style="font-size: 1.3em; color: var(--global-text-color); font-weight: normal;">
+        <!-- AKTUALNY SEMESTR -->
+        <div style="font-size: 1.3em; color: var(--global-text-color); font-weight: normal; margin-bottom: 5px;">
           {{ post.title | remove: "," }}
-        </span>
-        <div style="margin-top: 5px; opacity: 0.8;">
-          W obecnym semestrze nie prowadzę zajęć dydaktycznych.
+        </div>
+        <div style="opacity: 0.8; font-size: 1em;">
+          W obecnym semestrze nie prowadzę zajęć dydaktycznych. / No teaching assignments this semester.
         </div>
       {% endif %}
       
