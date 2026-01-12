@@ -1,4 +1,4 @@
-<!-- 1. Biblioteka silnika 3D - MUSI BYĆ PEŁNY LINK DO PLIKU .js -->
+<!-- 1. Biblioteka silnika 3D - PEŁNY ADRES DO PLIKU JS -->
 <script src="cdn.jsdelivr.net"></script>
 
 <script>
@@ -19,7 +19,7 @@
 
       try {
         const world = Globe()(elem)
-          // 2. MUSI BYĆ PEŁNY LINK DO PLIKU .jpg (tekstura kontynentów)
+          // 2. PEŁNY ADRES DO TEKSTURY (bez tego kula jest matematycznie przezroczysta)
           .globeImageUrl('unpkg.com')
           .backgroundColor('rgba(0,0,0,0)')
           .showAtmosphere(true)
@@ -31,7 +31,7 @@
 
         world.controls().enableZoom = false;
         
-        // Dopasowanie rozmiaru do Twojego czarnego prostokąta
+        // Dopasowanie rozmiaru do czarnego prostokąta
         world.width(elem.offsetWidth);
         world.height(elem.offsetHeight);
 
