@@ -1,12 +1,44 @@
 ---
 layout: archive
-title: "Teaching"
+title: "Dydaktyka / Teaching"
 permalink: /teaching/
 author_profile: true
 ---
 
 {% include base_path %}
 
-{% for post in site.teaching reversed %}
-  {% include archive-single.html %}
-{% endfor %}
+<!-- Sekcja z wartościami - spójna z minimalizmem publikacji -->
+<div class="values-header" style="font-size: 0.85em; margin-bottom: 30px; border-left: 2px solid var(--global-text-color); padding-left: 15px; opacity: 0.9;">
+  <p style="font-style: italic; margin-bottom: 5px;">
+    „Musicie od siebie wymagać, nawet gdyby inni od was nie wymagali.”
+  </p>
+  <span style="font-weight: bold; opacity: 0.7;">— św. Jan Paweł II</span>
+</div>
+
+<div class="teaching-intro" style="font-size: 0.85em; margin-bottom: 20px; line-height: 1.4;">
+  <p>
+    W pracy dydaktycznej kładę nacisk na rzetelność naukową oraz formowanie postawy odpowiedzialności. 
+    Wierzę, że studiowanie fizyki teoretycznej to nie tylko zdobywanie wiedzy, ale przede wszystkim 
+    ćwiczenie charakteru i intelektualna uczciwość w poszukiwaniu prawdy.
+  </p>
+</div>
+
+<hr style="opacity: 0.2;">
+
+<!-- Lista zajęć - identyczna struktura jak w publikacjach -->
+<div class="teaching-list" style="font-size: 0.85em;"> 
+  {% assign posts = site.teaching | sort: 'date' | reverse %}
+  {% assign count = posts | size %}
+  
+  {% for post in posts %}
+    <div class="list__item" style="display: flex; align-items: baseline; margin-bottom: 10px; line-height: 1.4;">
+      <span style="color: var(--global-text-color); min-width: 40px; font-weight: bold; opacity: 0.7;">
+        ({{ count }})
+      </span>
+      <div style="flex: 1;">
+        {% include archive-single.html %}
+      </div>
+    </div>
+    {% assign count = count | minus: 1 %}
+  {% endfor %}
+</div>
