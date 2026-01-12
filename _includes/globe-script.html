@@ -1,4 +1,4 @@
-<!-- 1. Biblioteka silnika Globe.gl -->
+<!-- OSTATECZNA WERSJA - NIE ZMIENIAĆ LINKÓW -->
 <script src="cdn.jsdelivr.net"></script>
 
 <script>
@@ -6,12 +6,10 @@
     function init() {
       const elem = document.getElementById('globeViz');
       if (!elem) {
-        // Jeśli szablon jeszcze nie narysował prostokąta, ponów próbę
         setTimeout(init, 500);
         return;
       }
 
-      // Dane Twoich konferencji
       const myData = [
         { city: "Münster", lat: 51.96, lng: 7.62, events: [{ name: "NOEKS 15", id: "noeks-15", nr: "15" }] },
         { city: "Kraków", lat: 50.06, lng: 19.94, events: [{ name: "Konferencja", id: "krakow-2024", nr: "12" }] },
@@ -20,7 +18,6 @@
 
       try {
         const world = Globe()(elem)
-          // Tekstura Ziemi (niezbędna do widoczności kontynentów)
           .globeImageUrl('unpkg.com')
           .backgroundColor('rgba(0,0,0,0)')
           .showAtmosphere(true)
@@ -31,10 +28,7 @@
           .pointLabel(d => `<div style="background:black;padding:8px;border:1px solid #444;color:white;font-family:sans-serif;">${d.city}</div>`)
           .pointOfView({ lat: 52, lng: 19, altitude: 2.5 });
 
-        // Ustawienia interakcji
         world.controls().enableZoom = false;
-        
-        // Dopasowanie rozmiaru do czarnego prostokąta
         world.width(elem.offsetWidth);
         world.height(elem.offsetHeight);
 
@@ -44,7 +38,6 @@
       }
     }
 
-    // Uruchom po załadowaniu strony
     if (document.readyState === 'complete') {
       init();
     } else {
