@@ -7,33 +7,39 @@ author_profile: true
 
 {% include base_path %}
 
-<!-- Sekcja z cytatem JP2 - trzy odcienie szarości -->
+<style>
+  /* Kolorowanie systemowego tytułu strony na zielono */
+  .page__title {
+    color: var(--link-color) !important;
+  }
+</style>
+
+<!-- Sekcja z cytatem JP2 - trzy odcienie szarości (1, 0.75, 0.55) -->
 <div class="values-header" style="font-size: 0.8em; margin-bottom: 35px; border-left: 2px solid var(--global-text-color); padding-left: 15px; line-height: 1.3;">
   
-  <!-- 1. Tekst PL (Opacity 1) -->
+  <!-- 1. Tekst polski (Najciemniejszy) -->
   <div style="font-style: italic; margin: 0; color: var(--global-text-color); opacity: 1;">
     „Musicie od siebie wymagać, nawet gdyby inni od was nie wymagali”.
   </div>
   
-  <!-- 2. Tekst EN (Opacity 0.75) -->
+  <!-- 2. Tekst angielski (Średnia szarość) -->
   <div style="font-style: italic; margin-top: 2px; margin-bottom: 0; color: var(--global-text-color); opacity: 0.75;">
     "You must demand of yourselves even if others do not demand of you."
   </div>
 
-  <!-- 3. Podpis (Opacity 0.55) -->
+  <!-- 3. Podpis (Najjaśniejsza szarość) -->
   <div style="font-weight: bold; margin-top: 2px; color: var(--global-text-color); opacity: 0.55;">
     — Jan Paweł II / John Paul II
   </div>
 </div>
 
-<!-- NAGŁÓWEK ZIELONY -->
-<h1 style="color: var(--link-color); font-size: 1.5em; margin-bottom: 20px;">Dydaktyka / Teaching</h1>
-
 <hr style="opacity: 0.2; clear: both;">
 
+<!-- Lista zajęć - ZABEZPIECZENIE: clear: both; chroni przed nachodzeniem na sidebar -->
 <div class="teaching-list" style="font-size: 0.85em; clear: both;"> 
   {% assign posts = site.teaching | sort: 'date' | reverse %}
   {% assign count = posts | size %}
+  
   {% for post in posts %}
     <div class="list__item" style="display: flex; align-items: baseline; margin-bottom: 10px; line-height: 1.4;">
       <span style="color: var(--global-text-color); min-width: 40px; font-weight: bold; opacity: 0.7;">
