@@ -1,36 +1,52 @@
-<!-- 1. Pełny adres do biblioteki (musi być konkretny plik JS) -->
-<script src="unpkg.com" crossorigin="anonymous"></script>
+<!-- 1. Biblioteka silnika 3D -->
+<script src="cdn.jsdelivr.net"></script>
 
 <script>
-  window.onload = function() {
-    console.log("Inicjalizacja globusa...");
-    
-    const elem = document.getElementById('globeViz');
-    if (!elem) return;
+  // Zamknięcie w funkcji, aby nie zepsuć reszty strony (tzw. IIFE)
+  (function() {
+    function init() {
+      const elem = document.getElementById('globeViz');
+      if (!elem) {
+        console.log("Czekam na kontener #globeViz...");
+        setTimeout(init, 500); // Ponów jeśli szablon jeszcze go nie wyrenderował
+        return;
+      }
 
-    const myData = [
-      { city: "Münster", lat: 51.96, lng: 7.62, events: [{ name: "NOEKS 15", id: "noeks-15", nr: "15" }] },
-      { city: "Kraków", lat: 50.06, lng: 19.94, events: [{ name: "Konferencja", id: "krakow-2024", nr: "12" }] },
-      { city: "Warszawa", lat: 52.22, lng: 21.01, events: [{ name: "Theory Day", id: "warsaw-2021", nr: "3" }] }
-    ];
+      // Twoje dane wejściowe
+      const myData = [
+        { city: "Münster", lat: 51.96, lng: 7.62, events: [{ name: "NOEKS 15", id: "noeks-15", nr: "15" }] },
+        { city: "Kraków", lat: 50.06, lng: 19.94, events: [{ name: "Konferencja", id: "krakow-2024", nr: "12" }] },
+        { city: "Warszawa", lat: 52.22, lng: 21.01, events: [{ name: "Theory Day", id: "warsaw-2021", nr: "3" }] }
+      ];
 
-    try {
-      const world = Globe()(elem)
-        // 2. Pełny adres do obrazu tekstury (musi być plik .jpg)
-        .globeImageUrl('unpkg.com')
-        .backgroundColor('rgba(0,0,0,0)') 
-        .pointsData(myData)
-        .pointColor(() => '#ffffff')
-        .pointRadius(0.7)
-        .pointLabel(d => `<div style="background:rgba(0,0,0,0.8);padding:5px;border-radius:3px;color:white">${d.city}</div>`)
-        .pointOfView({ lat: 52, lng: 19, altitude: 2 }, 0);
+      try {
+        const world = Globe()(elem)
+          .globeImageUrl('unpkg.com')
+          .backgroundColor('rgba(0,0,0,0)')
+          .showAtmosphere(true)
+          .pointsData(myData)
+          .pointColor(() => '#ffffff')
+          .pointRadius(0.8)
+          .pointLabel(d => `<div style="background:black;padding:8px;border:1px solid #444;color:white;font-family:sans-serif;">${d.city}</div>`)
+          .pointOfView({ lat: 52, lng: 19, altitude: 2 });
 
-      world.width(elem.offsetWidth);
-      world.height(elem.offsetHeight);
-      
-      console.log("Sukces: Silnik Globe.gl załadowany.");
-    } catch (err) {
-      console.error("Błąd: Sprawdź połączenie z internetem lub adresy URL.", err);
+        world.controls().enableZoom = false;
+
+        // Dopasowanie do czarnego prostokąta
+        world.width(elem.offsetWidth);
+        world.height(elem.offsetHeight);
+
+        console.log("Globus zainicjowany pomyślnie.");
+      } catch (e) {
+        console.log("Błąd inicjalizacji globusa:", e);
+      }
     }
-  };
+
+    // Uruchom po załadowaniu całej strony
+    if (document.readyState === 'complete') {
+      init();
+    } else {
+      window.addEventListener('load', init);
+    }
+  })();
 </script>
