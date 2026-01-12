@@ -1,37 +1,33 @@
+<!-- Musisz dodać tę linię na samym początku -->
+<script src="unpkg.com"></script>
+
 <script>
-  // Tu wpisz swoje konferencje
   const myData = [
     { 
       city: "Münster (Germany)", 
       lat: 51.96, lng: 7.62, 
-      events: [
-        { name: "NOEKS 15", id: "noeks-15", nr: "15" }
-      ] 
+      events: [{ name: "NOEKS 15", id: "noeks-15", nr: "15" }] 
     },
     { 
       city: "Kraków (Poland)", 
       lat: 50.06, lng: 19.94, 
-      events: [
-        { name: "Konferencja Fizyki", id: "krakow-2024", nr: "12" }
-      ] 
+      events: [{ name: "Konferencja Fizyki", id: "krakow-2024", nr: "12" }] 
     },
     { 
       city: "Warsaw (Poland)", 
       lat: 52.22, lng: 21.01, 
-      events: [
-        { name: "Warsaw Theory Day", id: "warsaw-2021", nr: "3" }
-      ] 
+      events: [{ name: "Warsaw Theory Day", id: "warsaw-2021", nr: "3" }] 
     }
   ];
 
   const world = Globe()
     (document.getElementById('globeViz'))
-    .globeImageUrl('//unpkg.com') // Ciemna, elegancka tekstura
+    // POPRAWIONY ADRES OBRAZU:
+    .globeImageUrl('unpkg.com')
     .pointsData(myData)
-    .pointColor(() => '#ffffff') // Białe punkty (fizyka/minimalizm)
+    .pointColor(() => '#ffffff')
     .pointRadius(0.5)
     .pointLabel(d => {
-      // To się wyświetli po najechaniu myszką
       const links = d.events.map(e => 
         `<a href="#${e.id}" style="color: #4da6ff; text-decoration: none;">
           <span style="color: #888;">[${e.nr}]</span> ${e.name}
@@ -41,15 +37,17 @@
               </div>`;
     })
     .onPointClick(d => {
-      // Jeśli jest jedna konferencja, kliknięcie od razu tam przenosi
+      // Poprawione odwołanie do ID (dodane [0])
       if (d.events.length === 1) {
         window.location.hash = d.events[0].id;
       }
     });
 
-  // Ustawienie widoku na Europę (2026 standard)
   world.pointOfView({ lat: 52, lng: 19, altitude: 1.8 });
-  
-  // Wyłączenie zoomu kółkiem myszy (żeby nie przeszkadzało w przewijaniu strony)
   world.controls().enableZoom = false;
+
+  // Automatyczne dopasowanie rozmiaru do Twojego czarnego prostokąta
+  const container = document.getElementById('globeViz');
+  world.width(container.offsetWidth);
+  world.height(container.offsetHeight);
 </script>
