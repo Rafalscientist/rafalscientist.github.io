@@ -23,7 +23,7 @@ repository               : "rafal-a-bogaczewicz/rafal-a-bogaczewicz.github.io"
 
 author:
   name   : "Twój Imię i Nazwisko"
-
+  avatar : "profilowe.jpg"
   bio    : "Fizyk teoretyk" # Możesz tu wpisać specjalizację
   location: "Wrocław, Poland"
   
