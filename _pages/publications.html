@@ -8,17 +8,19 @@ author_profile: true
 {% include base_path %}
 
 <style>
-  /* WYMUSZENIE KOLORÓW TYTUŁU (Globalnie dla tej podstrony) */
-  /* Używamy selektorów, które Jekyll generuje NAD Twoim kontenerem */
+  /* 1. WYMUSZENIE KOLORÓW TYTUŁU (Dla trybu jasnego i ciemnego) */
   .page__title, .archive__title, h1 {
     color: #0e7a3a !important;
   }
 
-  /* --- TRYB CIEMNY DLA TYTUŁU --- */
+  /* Wykrywanie trybu ciemnego przez system, klasę .dark lub atrybut data-theme */
   @media (prefers-color-scheme: dark) {
-    .page__title, .archive__title, h1 {
-      color: #11ee4a !important;
-    }
+    .page__title, .archive__title, h1 { color: #11ee4a !important; }
+  }
+  html.dark .page__title, html.dark .archive__title, html.dark h1,
+  body.dark .page__title, body.dark .archive__title, body.dark h1,
+  [data-theme='dark'] .page__title, [data-theme='dark'] .archive__title, [data-theme='dark'] h1 {
+    color: #11ee4a !important;
   }
 </style>
 
@@ -26,29 +28,38 @@ author_profile: true
 <div class="page-publications">
   
   <style>
-    /* STYLE DLA LINKÓW WEWNĄTRZ LISTY */
+    /* 2. STYLE DLA LINKÓW - TRYB JASNY */
     .page-publications .publications-list a, 
     .page-publications .publications-list a * {
       color: #0e7a3a !important; 
       text-decoration: underline !important;
     }
-
     .page-publications .publications-list a:hover, 
     .page-publications .publications-list a:hover * {
       color: #0eab3a !important;
     }
 
+    /* STYLE DLA LINKÓW - TRYB CIEMNY (Wszystkie metody wykrywania) */
     @media (prefers-color-scheme: dark) {
       .page-publications .publications-list a, 
-      .page-publications .publications-list a * {
-        color: #11ee4a !important; 
-      }
+      .page-publications .publications-list a * { color: #11ee4a !important; }
       .page-publications .publications-list a:hover, 
-      .page-publications .publications-list a:hover * {
-        color: #11ee88 !important;
-      }
+      .page-publications .publications-list a:hover * { color: #11ee88 !important; }
     }
 
+    html.dark .page-publications .publications-list a, 
+    html.dark .page-publications .publications-list a *,
+    body.dark .page-publications .publications-list a,
+    [data-theme='dark'] .page-publications .publications-list a {
+      color: #11ee4a !important;
+    }
+    
+    html.dark .page-publications .publications-list a:hover,
+    [data-theme='dark'] .page-publications .publications-list a:hover {
+      color: #11ee88 !important;
+    }
+
+    /* Styl cytatu */
     .page-publications .values-header {
       font-size: 0.8em; 
       margin-bottom: 35px; 
@@ -88,4 +99,4 @@ author_profile: true
     {% endfor %}
   </div>
 
-</div>
+</div> <!-- KONIEC .page-publications -->
