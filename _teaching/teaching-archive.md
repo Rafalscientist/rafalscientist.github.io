@@ -6,9 +6,9 @@ author_profile: true
 ---
 
 {% include base_path %}
+
 <style>
-  /* 1. ATOMOWE WYMUSZENIE MENU - POGRUBIENIE I PODKREŚLENIE (RESET KOLORU) */
-  /* Ten punkt zostawiamy bez zmian, skoro działa idealnie */
+  /* 1. ATOMOWE WYMUSZENIE MENU - POGRUBIENIE I PODKREŚLENIE (KOLOR STANDARD) */
   .masthead__menu-item a[href*="/teaching"],
   .masthead__menu-item--active a,
   nav.visible a[href*="/teaching"],
@@ -33,30 +33,66 @@ author_profile: true
     }
   }
 
-  /* 2. ATOMOWE WYMUSZENIE JASNEJ ZIELENI DLA TYTUŁU - OPCJA TOTALNA */
-  /* To podmieniamy, aby napis obok zdjęcia profilowego "rozjaśniał" się w trybie ciemnym */
-  .page__title, .archive__title, h1, .page-teaching h1, .page__inner-wrap .page__title {
+  /* 2. NUKLEARNE WYMUSZENIE ZIELENI DLA TYTUŁU (OBOK ZDJĘCIA I NA STRONIE) */
+  
+  /* Jasny tryb - Standardowa zieleń */
+  :root {
+    --primary-color: #0e7a3a;
+  }
+  h1, .page__title, .archive__title, [class*="page__inner"] h1 {
     color: #0e7a3a !important;
   }
 
+  /* Bezlitosne wymuszenie dla trybu ciemnego 2026 */
   @media (prefers-color-scheme: dark) {
-    html.dark .page__title, 
-    [data-theme='dark'] .page__title,
-    html.dark .archive__title,
-    [data-theme='dark'] .archive__title,
-    html.dark h1,
-    [data-theme='dark'] h1,
-    .page__content h1,
+    /* Nadpisujemy globalne zmienne koloru motywu */
+    html, body, #main, [class*="page__inner"], article, .masthead {
+      --primary-color: #11ee4a !important;
+      --title-color: #11ee4a !important;
+      --link-color: #11ee4a !important;
+    }
+
+    /* Celujemy w każdy możliwy tag h1 i tytuł, usuwając filtry przyciemniające */
+    h1, .page__title, .archive__title, 
+    [class*="page__inner"] h1, 
+    [class*="page__title"],
     #main h1,
-    .page__inner-wrap .page__title {
+    .page__content h1,
+    h1[itemprop="headline"] {
       color: #11ee4a !important;
       -webkit-text-fill-color: #11ee4a !important;
-      filter: none !important;
       opacity: 1 !important;
+      filter: none !important;
+      filter: brightness(100%) contrast(100%) !important;
     }
   }
-</style>
 
+  /* Ostateczne uderzenie w klasy aktywne specyficzne dla motywów Jekyll 2026 */
+  html.dark h1, [data-theme='dark'] h1,
+  html.dark .page__title, [data-theme='dark'] .page__title {
+    color: #11ee4a !important;
+  }
+
+  /* 3. LINKI W TREŚCI (Szczegóły przedmiotu) - ZIELONE */
+  .page-teaching .teaching-list a,
+  .page-teaching .teaching-list a * {
+    color: #0e7a3a !important;
+    text-decoration: none !important;
+    border-bottom: 1px solid transparent !important;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    html.dark .page-teaching .teaching-list a,
+    [data-theme='dark'] .page-teaching .teaching-list a,
+    html.dark .page-teaching .teaching-list a * {
+      color: #11ee4a !important;
+    }
+  }
+
+  .page-teaching .teaching-list a:hover {
+    border-bottom: 1px solid currentColor !important;
+  }
+</style>
 
 <div class="page-teaching">
   <!-- Twój cytat JP2 -->
