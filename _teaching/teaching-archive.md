@@ -8,18 +8,27 @@ author_profile: true
 {% include base_path %}
 
 <style>
-  /* Pancerne style tytułu */
-  .page__title, .archive__title, h1, .page-teaching h1 { color: #0e7a3a !important; }
+  /* 
+     WYMUSZENIE PODŚWIETLENIA MENU GÓRNEGO
+     Celujemy w link, którego adres zawiera "/teaching"
+  */
+  .masthead__menu-item a[href*="/teaching"] {
+    font-weight: bold !important;
+    color: #0e7a3a !important; /* Twoja zieleń */
+    border-bottom: 2px solid #0e7a3a !important; /* Podkreślenie jak przy aktywnym linku */
+  }
+
+  /* Tryb ciemny dla menu */
   @media (prefers-color-scheme: dark) {
-    .page__title, .archive__title, h1, .page-teaching h1 { color: #11ee4a !important; }
+    .masthead__menu-item a[href*="/teaching"] {
+      color: #11ee4a !important;
+      border-bottom-color: #11ee4a !important;
+    }
   }
   
-  /* Pancerne style linków w archiwum */
-  .page-teaching .teaching-list a { color: #0e7a3a !important; text-decoration: none !important; border-bottom: 1px solid transparent !important; }
-  @media (prefers-color-scheme: dark) {
-    .page-teaching .teaching-list a { color: #11ee4a !important; }
-  }
-  .page-teaching .teaching-list a:hover { color: #11ee88 !important; border-bottom: 1px solid #11ee88 !important; }
+  /* Poniżej wklej resztę swoich stylów dla tytułu i linków (te, które już masz) */
+  .page__title, .archive__title, h1, .page-teaching h1 { color: #0e7a3a !important; }
+  /* ...itd. */
 </style>
 
 <div class="page-teaching">
