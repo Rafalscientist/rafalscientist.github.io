@@ -8,49 +8,121 @@ author_profile: true
 {% include base_path %}
 
 <style>
-  /* Kolorowanie systemowego tytułu strony na zielono */
-  .page__title {
-    color: var(--link-color) !important;
+  /* 1. TYTUŁ STRONY (Dydaktyka / Teaching) */
+  .page__title, .archive__title, h1, .page-teaching h1 {
+    color: #0e7a3a !important;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .page__title, .archive__title, h1, .page-teaching h1 { color: #11ee4a !important; }
+  }
+  html.dark .page__title, html.dark .archive__title, html.dark h1,
+  [data-theme='dark'] .page__title, [data-theme='dark'] .archive__title, [data-theme='dark'] h1 {
+    color: #11ee4a !important;
+  }
+
+  /* 2. LINKI W DYDAKTYCE (np. Archiwum) */
+  .page-teaching .teaching-list a,
+  .page-teaching .teaching-list a * {
+    color: #0e7a3a !important;
+    text-decoration: none !important;
+    border-bottom: 1px solid transparent !important;
+    transition: border-color 0.2s ease-in-out;
+  }
+
+  /* TRYB CIEMNY DLA LINKÓW */
+  @media (prefers-color-scheme: dark) {
+    .page-teaching .teaching-list a,
+    .page-teaching .teaching-list a * { color: #11ee4a !important; }
+  }
+  html.dark .page-teaching .teaching-list a,
+  html.dark .page-teaching .teaching-list a *,
+  [data-theme='dark'] .page-teaching .teaching-list a,
+  [data-theme='dark'] .page-teaching .teaching-list a * {
+    color: #11ee4a !important;
+  }
+
+  /* 3. EFEKT HOVER DLA LINKÓW */
+  .page-teaching .teaching-list a:hover,
+  .page-teaching .teaching-list a:hover * {
+    color: #0eab3a !important;
+    border-bottom: 1px solid #0eab3a !important;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .page-teaching .teaching-list a:hover,
+    .page-teaching .teaching-list a:hover * { 
+      color: #11ee88 !important; 
+      border-bottom: 1px solid #11ee88 !important;
+    }
+  }
+  html.dark .page-teaching .teaching-list a:hover,
+  html.dark .page-teaching .teaching-list a:hover *,
+  [data-theme='dark'] .page-teaching .teaching-list a:hover,
+  [data-theme='dark'] .page-teaching .teaching-list a:hover * {
+    color: #11ee88 !important;
+    border-bottom: 1px solid #11ee88 !important;
+  }
+
+  /* 4. OCHRONA NAGŁÓWKÓW I TEKSTU */
+  .page-teaching .values-header {
+    font-size: 0.8em; 
+    margin-bottom: 35px; 
+    border-left: 2px solid var(--global-text-color); 
+    padding-left: 15px; 
+    line-height: 1.3;
+  }
+  
+  .page-teaching .semester-title {
+    font-size: 1.3em; 
+    color: var(--global-text-color); 
+    font-weight: normal; 
+    margin-bottom: 5px;
   }
 </style>
 
-<!-- Sekcja z cytatem JP2 -->
-<div class="values-header" style="font-size: 0.8em; margin-bottom: 35px; border-left: 2px solid var(--global-text-color); padding-left: 15px; line-height: 1.3;">
-  <div style="font-style: italic; margin: 0; color: var(--global-text-color); opacity: 1;">
-    „Musicie od siebie wymagać, nawet gdyby inni od was nie wymagali”.
-  </div>
-  <div style="font-style: italic; margin-top: 2px; margin-bottom: 0; color: var(--global-text-color); opacity: 0.75;">
-    "You must demand of yourselves even if others do not demand of you."
-  </div>
-  <div style="font-weight: bold; margin-top: 2px; color: var(--global-text-color); opacity: 0.55;">
-    — Jan Paweł II / John Paul II
-  </div>
-</div>
-
-<hr style="opacity: 0.2; clear: both;">
-
-<!-- Lista zajęć - Wymuszony dynamiczny kolor zielony -->
-<div class="teaching-list" style="font-size: 0.85em; clear: both;"> 
-  {% assign posts = site.teaching | sort: 'date' | reverse %}
+<div class="page-teaching">
   
-  {% for post in posts %}
-    <div class="list__item" style="margin-bottom: 25px; line-height: 1.4;">
-      
-      {% if post.title contains "doktoranckich" or post.title contains "Archive" %}
-        <!-- LINK ARCHIWUM: Wymuszony kolor zielony za pomocą !important -->
-        <a href="{{ post.permalink }}" style="color: var(--link-color) !important; font-size: 1.3em; font-weight: normal; text-decoration: underline !important;">
-          Poprzednie semestry / Past semesters
-        </a>
-      {% else %}
-        <!-- AKTUALNY SEMESTR -->
-        <div style="font-size: 1.3em; color: var(--global-text-color); font-weight: normal; margin-bottom: 5px;">
-          {{ post.title | remove: "," }}
-        </div>
-        <div style="opacity: 0.8; font-size: 1em;">
-          W obecnym semestrze nie prowadzę zajęć dydaktycznych. / No teaching assignments this semester.
-        </div>
-      {% endif %}
-      
+  <!-- Sekcja z cytatem JP2 -->
+  <div class="values-header">
+    <div style="font-style: italic; margin: 0; color: var(--global-text-color); opacity: 1;">
+      „Musicie od siebie wymagać, nawet gdyby inni od was nie wymagali”.
     </div>
-  {% endfor %}
+    <div style="font-style: italic; margin-top: 2px; margin-bottom: 0; color: var(--global-text-color); opacity: 0.75;">
+      "You must demand of yourselves even if others do not demand of you."
+    </div>
+    <div style="font-weight: bold; margin-top: 2px; color: var(--global-text-color); opacity: 0.55;">
+      — Jan Paweł II / John Paul II
+    </div>
+  </div>
+
+  <hr style="opacity: 0.2; clear: both;">
+
+  <div class="teaching-list" style="font-size: 0.85em; clear: both;"> 
+    {% assign posts = site.teaching | sort: 'date' | reverse %}
+    
+    {% for post in posts %}
+      <div class="list__item" style="margin-bottom: 25px; line-height: 1.4;">
+        
+        {% if post.title contains "doktoranckich" or post.title contains "Archive" %}
+          <!-- LINK ARCHIWUM -->
+          <h2 style="margin: 0; font-size: 1em; font-weight: normal;">
+            <a href="{{ post.permalink }}" style="font-size: 1.3em;">
+              Poprzednie semestry / Past semesters
+            </a>
+          </h2>
+        {% else %}
+          <!-- AKTUALNY SEMESTR -->
+          <div class="semester-title">
+            {{ post.title | remove: "," }}
+          </div>
+          <div style="opacity: 0.8; font-size: 1em; color: var(--global-text-color);">
+            W obecnym semestrze nie prowadzę zajęć dydaktycznych. / No teaching assignments this semester.
+          </div>
+        {% endif %}
+        
+      </div>
+    {% endfor %}
+  </div>
+
 </div>
