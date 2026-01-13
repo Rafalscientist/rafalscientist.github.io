@@ -10,76 +10,45 @@ author_profile: true
 <style>
   /* 1. ATOMOWE WYMUSZENIE MENU - POGRUBIENIE I PODKREŚLENIE (KOLOR STANDARD) */
   .masthead__menu-item a[href*="/teaching"],
-  .masthead__menu-item--active a,
-  .masthead__menu-item a[href*="/teaching"] span {
+  .masthead__menu-item.active a,
+  .masthead__menu-item--active a {
     font-weight: 900 !important;
     color: inherit !important;
     border-bottom: 3px solid currentColor !important;
     opacity: 1 !important;
   }
 
-  @media (prefers-color-scheme: dark) {
-    html.dark .masthead__menu-item a[href*="/teaching"],
-    [data-theme='dark'] .masthead__menu-item a[href*="/teaching"] {
-      color: #ffffff !important;
-      border-bottom-color: #ffffff !important;
-    }
-  }  /* 2. NUKLEARNE WYMUSZENIE JASNEJ ZIELENI DLA TYTUŁU - OPCJA TOTALNA */
-
-  /* Jasny tryb - standard */
-  h1, .page__title, .archive__title, #page-title {
-    color: #0e7a3a !important;
+  /* 2. NUKLEARNE WYMUSZENIE JEDNEJ MORSKIEJ ZIELENI DLA TYTUŁU (DLA OBU TRYBÓW) */
+  /* Nadpisujemy zmienne globalne motywu jednym uniwersalnym kolorem */
+  :root, html, body, #main, [class*="page__inner"] {
+    --primary-color: #16a085 !important;
+    --title-color: #16a085 !important;
   }
 
-  /* Bezlitosny tryb ciemny - uderzamy w ID i zmienne globalne */
-  @media (prefers-color-scheme: dark) {
-    /* Nadpisujemy zmienne na każdym możliwym poziomie */
-    :root, html, body, #main, article {
-      --primary-color: #11ee4a !important;
-      --title-color: #11ee4a !important;
-      --main-color: #11ee4a !important;
-    }
-
-    /* Celujemy bezpośrednio w ID tytułu i każdą możliwą klasę nagłówkową */
-    #page-title, 
-    .page__title, 
-    .archive__title, 
-    h1[itemprop="headline"],
-    header h1,
-    .page__inner-wrap h1 {
-      color: #11ee4a !important;
-      -webkit-text-fill-color: #11ee4a !important;
-      text-shadow: none !important;
-      filter: none !important;
-      opacity: 1 !important;
-    }
+  /* Celujemy w ID i klasy nagłówka - najwyższy priorytet */
+  h1, .page__title, .archive__title, #page-title, [class*="page__inner"] h1 {
+    color: #16a085 !important;
+    -webkit-text-fill-color: #16a085 !important;
+    filter: none !important;
+    opacity: 1 !important;
   }
 
-  /* Wymuszenie dla ręcznych przełączników trybu (klasa .dark) */
-  html.dark #page-title,
-  html.dark .page__title,
-  [data-theme='dark'] #page-title,
-  [data-theme='dark'] .page__title {
-    color: #11ee4a !important;
-  }
-
-  /* 3. LINKI W TREŚCI - ZIELONE */
+  /* 3. LINKI W TREŚCI ARCHIWUM - MORSKA ZIELEŃ */
   .page-teaching .teaching-list a,
   .page-teaching .teaching-list a * {
-    color: #0e7a3a !important;
+    color: #16a085 !important;
     text-decoration: none !important;
-  }
-  @media (prefers-color-scheme: dark) {
-    html.dark .page-teaching .teaching-list a,
-    [data-theme='dark'] .page-teaching .teaching-list a {
-      color: #11ee4a !important;
-    }
-  }
-  .page-teaching .teaching-list a:hover {
-    border-bottom: 1px solid currentColor !important;
+    border-bottom: 1px solid transparent !important;
   }
 
-  /* 4. ODSTĘPY I TEKST */
+  /* 4. HOVER - JASNA ZIELEŃ DLA OBU TRYBÓW */
+  .page-teaching .teaching-list a:hover,
+  .page-teaching .teaching-list a:hover * {
+    color: #2ecc71 !important;
+    border-bottom: 1px solid #2ecc71 !important;
+  }
+
+  /* 5. ODSTĘPY I TEKST */
   .page-teaching .semester-title {
     font-size: 1.3em;
     font-weight: normal;
