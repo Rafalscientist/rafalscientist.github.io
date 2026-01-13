@@ -8,64 +8,46 @@ author_profile: true
 {% include base_path %}
 
 <style>
-  /* 1. TYTUŁ STRONY (Dydaktyka / Teaching) */
-  .page__title, .archive__title, h1, .page-teaching h1 {
-    color: #0e7a3a !important;
+  /* 1. ATOMOWE WYMUSZENIE MENU - POGRUBIENIE I PODKREŚLENIE (KOLOR STANDARD) */
+  .masthead__menu-item a[href*="/teaching"],
+  .masthead__menu-item.active a,
+  .masthead__menu-item--active a {
+    font-weight: 900 !important;
+    color: inherit !important;
+    border-bottom: 3px solid currentColor !important;
+    opacity: 1 !important;
   }
 
-  @media (prefers-color-scheme: dark) {
-    .page__title, .archive__title, h1, .page-teaching h1 { color: #11ee4a !important; }
-  }
-  html.dark .page__title, html.dark .archive__title, html.dark h1,
-  [data-theme='dark'] .page__title, [data-theme='dark'] .archive__title, [data-theme='dark'] h1 {
-    color: #11ee4a !important;
+  /* 2. UNIWERSALNA ZIELEŃ DLA TYTUŁU (DLA OBU TRYBÓW) */
+  :root, html, body, #main, [class*="page__inner"] {
+    --primary-color: #16a085 !important;
+    --title-color: #16a085 !important;
   }
 
-  /* 2. LISTA DYDAKTYKI - KOLORY LINKÓW (Poprzednie semestry) */
+  h1, .page__title, .archive__title, #page-title, [class*="page__inner"] h1 {
+    color: #16a085 !important;
+    -webkit-text-fill-color: #16a085 !important;
+    filter: none !important;
+    opacity: 1 !important;
+  }
+
+  /* 3. LISTA DYDAKTYKI - UNIWERSALNE KOLORY LINKÓW */
   .page-teaching .teaching-list a,
   .page-teaching .teaching-list a * {
-    color: #0e7a3a !important;
+    color: #16a085 !important;
     text-decoration: none !important;
     border-bottom: 1px solid transparent !important;
     transition: border-color 0.2s ease-in-out;
   }
 
-  /* TRYB CIEMNY DLA LINKÓW */
-  @media (prefers-color-scheme: dark) {
-    .page-teaching .teaching-list a,
-    .page-teaching .teaching-list a * { color: #11ee4a !important; }
-  }
-  html.dark .page-teaching .teaching-list a, 
-  html.dark .page-teaching .teaching-list a *,
-  body.dark .page-teaching .teaching-list a,
-  [data-theme='dark'] .page-teaching .teaching-list a,
-  [data-theme='dark'] .page-teaching .teaching-list a * {
-    color: #11ee4a !important;
-  }
-
-  /* 3. EFEKT HOVER */
+  /* 4. UNIWERSALNY HOVER - JASNA ZIELEŃ DLA OBU TRYBÓW */
   .page-teaching .teaching-list a:hover,
   .page-teaching .teaching-list a:hover * {
-    color: #0eab3a !important;
-    border-bottom: 1px solid #0eab3a !important;
+    color: #2ecc71 !important;
+    border-bottom: 1px solid #2ecc71 !important;
   }
 
-  @media (prefers-color-scheme: dark) {
-    .page-teaching .teaching-list a:hover,
-    .page-teaching .teaching-list a:hover * { 
-      color: #11ee88 !important; 
-      border-bottom: 1px solid #11ee88 !important;
-    }
-  }
-  html.dark .page-teaching .teaching-list a:hover,
-  html.dark .page-teaching .teaching-list a:hover *,
-  [data-theme='dark'] .page-teaching .teaching-list a:hover,
-  [data-theme='dark'] .page-teaching .teaching-list a:hover * {
-    color: #11ee88 !important;
-    border-bottom: 1px solid #11ee88 !important;
-  }
-
-  /* 4. OCHRONA TEKSTU */
+  /* 5. OCHRONA TEKSTU */
   .page-teaching .semester-title {
     font-size: 1.3em; 
     color: var(--global-text-color); 
@@ -101,7 +83,7 @@ author_profile: true
     <div class="list__item" style="margin-bottom: 30px; line-height: 1.5;">
       <div class="semester-title">Semestr zimowy 2025/2026</div>
       <div style="opacity: 0.9; font-size: 1em; color: var(--global-text-color);">
-        W obecnym semestrze nie prowadzę zajęć dydaktycznych.
+        W obecnym semestrze nie prowadzę zajęć dydaktycznych. / No teaching assignments this semester.
       </div>
     </div>
 
