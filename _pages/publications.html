@@ -16,8 +16,9 @@ author_profile: true
       color: var(--link-color) !important;
     }
 
-    /* Zabezpieczenie linków wewnątrz listy publikacji */
-    .page-publications .publications-list a {
+    /* Wymuszenie koloru dla całego linku i WSZYSTKICH elementów w jego środku */
+    .page-publications .publications-list a, 
+    .page-publications .publications-list a * {
       color: var(--link-color) !important;
       text-decoration: underline !important;
     }
