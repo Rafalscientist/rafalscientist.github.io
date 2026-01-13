@@ -8,71 +8,48 @@ author_profile: true
 {% include base_path %}
 
 <style>
-  /* 1. TYTUŁ STRONY (Konferencje / Conferences) */
-  .page__title, .archive__title, h1, .page-conferences h1 {
-    color: #0e7a3a !important;
+  /* 1. NUKLEARNE WYMUSZENIE JEDNEJ MORSKIEJ ZIELENI DLA TYTUŁU (UNIWERSALNY 2026) */
+  /* Nadpisujemy zmienne globalne motywu, aby wymusić stały kontrast */
+  :root, html, body, #main, [class*="page__inner"] {
+    --primary-color: #16a085 !important;
+    --title-color: #16a085 !important;
+    --link-color: #16a085 !important;
   }
 
-  @media (prefers-color-scheme: dark) {
-    .page__title, .archive__title, h1, .page-conferences h1 { color: #11ee4a !important; }
-  }
-  html.dark .page__title, html.dark .archive__title, html.dark h1,
-  [data-theme='dark'] .page__title, [data-theme='dark'] .archive__title, [data-theme='dark'] h1 {
-    color: #11ee4a !important;
+  /* Wymuszamy kolor na wszystkich nagłówkach i tytułach - najwyższy priorytet */
+  h1, .page__title, .archive__title, #page-title, [class*="page__inner"] h1 {
+    color: #16a085 !important;
+    -webkit-text-fill-color: #16a085 !important;
+    filter: none !important;
+    opacity: 1 !important;
   }
 
-  /* 2. LISTA KONFERENCJI - KOLORY LINKÓW */
+  /* 2. LISTA KONFERENCJI - UNIWERSALNE KOLORY LINKÓW */
   .page-conferences .publications-list a,
   .page-conferences .publications-list a * {
-    color: #0e7a3a !important;
+    color: #16a085 !important;
     text-decoration: none !important;
     border-bottom: 1px solid transparent !important;
     transition: border-color 0.2s ease-in-out;
   }
 
-  /* TRYB CIEMNY DLA LINKÓW */
-  @media (prefers-color-scheme: dark) {
-    .page-conferences .publications-list a,
-    .page-conferences .publications-list a * { color: #11ee4a !important; }
-  }
-  html.dark .page-conferences .publications-list a,
-  html.dark .page-conferences .publications-list a *,
-  [data-theme='dark'] .page-conferences .publications-list a,
-  [data-theme='dark'] .page-conferences .publications-list a * {
-    color: #11ee4a !important;
-  }
-
-  /* 3. EFEKT HOVER */
+  /* 3. EFEKT HOVER - JASNA ZIELEŃ DLA OBU TRYBÓW */
   .page-conferences .publications-list a:hover,
   .page-conferences .publications-list a:hover * {
-    color: #0eab3a !important;
-    border-bottom: 1px solid #0eab3a !important;
+    color: #2ecc71 !important;
+    border-bottom: 1px solid #2ecc71 !important;
   }
 
-  @media (prefers-color-scheme: dark) {
-    .page-conferences .publications-list a:hover,
-    .page-conferences .publications-list a:hover * { 
-      color: #11ee88 !important; 
-      border-bottom: 1px solid #11ee88 !important;
-    }
-  }
-  html.dark .page-conferences .publications-list a:hover,
-  html.dark .page-conferences .publications-list a:hover *,
-  [data-theme='dark'] .page-conferences .publications-list a:hover,
-  [data-theme='dark'] .page-conferences .publications-list a:hover * {
-    color: #11ee88 !important;
-    border-bottom: 1px solid #11ee88 !important;
-  }
-
-  /* 4. OCHRONA TEKSTU (Daty, lokalizacje, numery) */
+  /* 4. OCHRONA TEKSTU (Daty, lokalizacje, numery - w kolorze bazowym strony) */
   .page-conferences .list__item,
   .page-conferences .list__item span,
   .page-conferences .list__item div {
+    color: var(--global-text-color);
     text-decoration: none !important;
     border-bottom: none !important;
   }
 
-  /* Styl cytatu Heisenberga */
+  /* 5. STYL CYTATU HEISENBERGA */
   .page-conferences .values-header {
     font-size: 0.8em; 
     margin-bottom: 35px; 
