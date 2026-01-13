@@ -1,42 +1,47 @@
 {% include base_path %}
 
 <style>
-  /* 1. ZAKŁADKI NA GÓRZE (Menu nawigacyjne) */
+  /* 1. GLOBALNY HOVER DLA MENU GÓRNEGO */
   .masthead__menu-item a:hover {
     color: #16a085 !important;
     opacity: 1 !important;
   }
 
-  /* 2. IKONA SŁOŃCA/KSIĘŻYCA (Toggle trybu) */
-  /* Celujemy w przycisk i samą ikonę */
-  .greedy-nav__toggle:hover,
-  #theme-toggle:hover,
-  .theme-toggle:hover i {
+  /* 2. ATOMOWE WYMUSZENIE DLA AKTYWNEJ ZAKŁADKI (Waga 900) */
+  /* To eliminuje asymetrię, którą zauważyłeś - teraz każda otwarta sekcja będzie tak samo potężna */
+  .masthead__menu-item--active a,
+  .masthead__menu-item.active a,
+  .masthead__menu-item--active span,
+  .masthead__menu-item.active span {
+    font-weight: 900 !important;
     color: #16a085 !important;
+    border-bottom: 3px solid #16a085 !important;
+    opacity: 1 !important;
   }
 
-  /* 3. LEWA KOLUMNA (Sidebar: Earth, Email, Scholar, ORCID itd.) */
-  /* W motywach typu Minimal Mistakes to są linki w klasie author__urls */
+  /* 3. LEWA KOLUMNA (Sidebar: Ikony i Linki) */
   .sidebar .author__urls-wrapper a:hover,
-  .sidebar .author__urls-wrapper a:hover span,
   .sidebar .author__urls-wrapper a:hover i,
-  .sidebar .author__urls-wrapper .author__urls a:hover {
+  .sidebar .author__urls-wrapper a:hover span {
     color: #16a085 !important;
+    opacity: 1 !important;
     text-decoration: none !important;
   }
 
-  /* Specyficzne wymuszenie dla ikon w sidebarze (np. FontAwesome) */
-  .author__urls i:hover, 
-  .author__urls span:hover {
+  /* 4. TOGGLE SŁOŃCE/KSIĘŻYC */
+  #theme-toggle:hover, .greedy-nav__toggle:hover {
     color: #16a085 !important;
   }
 
-  /* Dodatkowo: plynne przejście dla efektu High-Value */
-  a, .author__urls i, .author__urls span, .greedy-nav__toggle {
-    transition: color 0.2s ease-in-out !important;
+  /* 5. PŁYNNOŚĆ PRZEJŚCIA (High-Value Polish) */
+  a, .author__urls i, .author__urls span, .masthead__menu-item a {
+    transition: all 0.2s ease-in-out !important;
   }
 </style>
 
+<!-- start custom head snippets -->
+<link rel="stylesheet" href="{{ base_path }}/assets/css/academicons.css"/>
+<!-- favicon i reszta Twoich snippetów bez zmian poniżej... -->
 
 <!-- start custom head snippets -->
 
