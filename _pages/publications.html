@@ -8,16 +8,10 @@ author_profile: true
 {% include base_path %}
 
 <style>
-  /* ============================================================
-     1. TYTUŁ STRONY (Publikacje / Publications)
-     ============================================================ */
-  
-  /* TRYB JASNY */
+  /* 1. TYTUŁ STRONY - Zostaje bez zmian, bo działał */
   .page__title, .archive__title, h1, .page-publications h1 {
     color: #0e7a3a !important;
   }
-
-  /* TRYB CIEMNY (Wszystkie metody wykrywania) */
   @media (prefers-color-scheme: dark) {
     .page__title, .archive__title, h1, .page-publications h1 { color: #11ee4a !important; }
   }
@@ -26,53 +20,51 @@ author_profile: true
     color: #11ee4a !important;
   }
 
-  /* ============================================================
-     2. LISTA PUBLIKACJI (Linki, Czasopisma, Rok, Strony)
-     ============================================================ */
-
-  /* TRYB JASNY - Wymuszamy zielony na wszystkim wewnątrz listy */
-  .page-publications .publications-list,
-  .page-publications .publications-list * {
-    color: #0e7a3a !important;
-    text-decoration: underline; /* podkreślenie tylko dla linków w archiwum */
+  /* 2. LISTA PUBLIKACJI - PRECYZYJNE CELOWANIE W LINKI */
+  
+  /* Usuwamy globalne wymuszenie koloru z całej listy, by autorzy i (count) byli naturalni */
+  .page-publications .publications-list {
+    color: var(--global-text-color);
   }
-  /* Przywracamy brak podkreślenia dla tekstu, który nie jest linkiem (opcjonalnie) */
-  .page-publications .list__item span { text-decoration: none !important; }
 
-  /* TRYB CIEMNY - Opcja atomowa dla całej listy */
+  /* Kolorujemy TYLKO linki i to, co jest w ich środku (Tytuł, Czasopismo, Tom, Rok) */
+  .page-publications .publications-list a,
+  .page-publications .publications-list a * {
+    color: #0e7a3a !important;
+    text-decoration: underline !important;
+  }
+
+  /* TRYB CIEMNY DLA LINKÓW */
   @media (prefers-color-scheme: dark) {
-    .page-publications .publications-list,
-    .page-publications .publications-list * {
+    .page-publications .publications-list a,
+    .page-publications .publications-list a * {
       color: #11ee4a !important;
     }
   }
-  html.dark .page-publications .publications-list,
-  html.dark .page-publications .publications-list *,
-  [data-theme='dark'] .page-publications .publications-list * {
+  html.dark .page-publications .publications-list a,
+  html.dark .page-publications .publications-list a *,
+  [data-theme='dark'] .page-publications .publications-list a,
+  [data-theme='dark'] .page-publications .publications-list a * {
     color: #11ee4a !important;
   }
 
-  /* ============================================================
-     3. EFEKT HOVER (Po najechaniu myszką)
-     ============================================================ */
-  
-  /* JASNY */
+  /* 3. EFEKT HOVER */
   .page-publications .publications-list a:hover,
   .page-publications .publications-list a:hover * {
     color: #0eab3a !important;
   }
-
-  /* CIEMNY */
   @media (prefers-color-scheme: dark) {
     .page-publications .publications-list a:hover,
     .page-publications .publications-list a:hover * { color: #11ee88 !important; }
   }
-  html.dark .page-publications .publications-list a:hover,
-  html.dark .page-publications .publications-list a:hover * {
-    color: #11ee88 !important;
+
+  /* 4. CZYSZCZENIE - Autorzy i numery nie mogą być zielone ani podkreślone */
+  .page-publications .list__item span, 
+  .page-publications .list__item .author {
+    color: var(--global-text-color) !important;
+    text-decoration: none !important;
   }
 
-  /* Styl cytatu */
   .page-publications .values-header {
     font-size: 0.8em; 
     margin-bottom: 35px; 
