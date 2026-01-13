@@ -10,34 +10,55 @@ author_profile: true
 <!-- UNIKALNY KONTENER DLA TEJ PODSTRONY -->
 <div class="page-publications">
   
-  <style>
-    /* Kolor nagłówka "Publikacje" */
-    .page-publications .page__title {
-      color: #3498db !important;
-    }
+<style>
+  /* --- TRYB JASNY (Default) --- */
+    
+  /* Nagłówek strony */
+  .page-publications .page__title {
+    color: #2980b9 !important; /* Ciemniejszy niebieski dla jasnego tła */
+  }
 
-    /* WYMUSZENIE KOLORU DLA CAŁEGO LINKU (i wszystkiego w środku) */
+  /* Linki: stan normalny i wszystko w środku */
+  .page-publications .publications-list a, 
+  .page-publications .publications-list a * {
+    color: #258ad8 !important; 
+    text-decoration: underline !important;
+  }
+
+  /* Linki: po najechaniu kursoarem */
+  .page-publications .publications-list a:hover, 
+  .page-publications .publications-list a:hover * {
+    color: #1a5a8a !important;
+  }
+
+  /* --- TRYB CIEMNY (Automatyczne wykrywanie) --- */
+  @media (prefers-color-scheme: dark) {
+    /* Nagłówek strony w trybie ciemnym */
+    .page-publications .page__title {
+      color: #5dade2 !important; /* Jaśniejszy błękit, żeby nie zniknął na czarnym */
+    }
+     /* Linki w trybie ciemnym */
     .page-publications .publications-list a, 
     .page-publications .publications-list a * {
-      color: #3498db !important; /* To jest jasny niebieski - widoczny wszędzie */
-      text-decoration: underline !important;
+      color: #85c1e9 !important; 
     }
 
-    /* Efekt po najechaniu myszką - opcjonalnie, dla lepszego UX */
+    /* Linki po najechaniu w trybie ciemnym */
     .page-publications .publications-list a:hover, 
     .page-publications .publications-list a:hover * {
-      color: #2980b9 !important; /* Ciemniejszy niebieski przy najechaniu */
+      color: #ffffff !important; /* Biały przy najechaniu dla kontrastu */
     }
+  }
 
-    /* Styl cytatu */
-    .page-publications .values-header {
-      font-size: 0.8em; 
-      margin-bottom: 35px; 
-      border-left: 2px solid #555; 
-      padding-left: 15px; 
-      line-height: 1.3;
-    }
-  </style>
+  /* Izolacja stylu cytatu */
+  .page-publications .values-header {
+    font-size: 0.8em; 
+    margin-bottom: 35px; 
+    border-left: 2px solid var(--global-text-color); 
+    padding-left: 15px; 
+    line-height: 1.3;
+  }
+</style>
   
   <!-- Sekcja z cytatem o Mądrości -->
   <div class="values-header">
