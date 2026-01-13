@@ -8,40 +8,46 @@ author_profile: true
 {% include base_path %}
 
 <style>
-  /* 1. WYMUSZENIE STANDARDOWEGO KOLORU W MENU (Lek na kapryśność) */
+  /* 1. RESET KOLORU MENU - WYMUSZENIE KOLORU TEKSTU BAZOWEGO */
   
-  /* Tryb Jasny */
-  .masthead__menu-item a[href*="/teaching"] {
+  /* Celujemy w link i wszystkie jego stany, wymuszając kolor tekstu a nie linku */
+  .masthead__menu-item a[href*="/teaching"],
+  .masthead__menu-item.active a[href*="/teaching"],
+  .masthead__menu-item--active a[href*="/teaching"] {
     font-weight: bold !important;
-    color: #333 !important; /* Wymuszamy ciemnoszary/czarny zamiast zieleni */
-    border-bottom: 2px solid #333 !important; 
+    color: var(--primary-color, #333) !important; /* Próba pobrania koloru tekstu z systemu */
+    border-bottom: 2px solid currentColor !important; /* Podkreślenie w kolorze tekstu */
   }
 
-  /* Tryb Ciemny */
+  /* Specyficzna poprawka dla trybu ciemnego (wymuszenie bieli) */
   @media (prefers-color-scheme: dark) {
-    .masthead__menu-item a[href*="/teaching"] {
-      color: #fff !important; /* Wymuszamy biały zamiast zieleni */
-      border-bottom-color: #fff !important;
+    .masthead__menu-item a[href*="/teaching"],
+    html.dark .masthead__menu-item a[href*="/teaching"],
+    [data-theme='dark'] .masthead__menu-item a[href*="/teaching"] {
+      color: #ffffff !important; 
+      border-bottom-color: #ffffff !important;
     }
   }
 
-  /* Dodatkowe zabezpieczenie dla klas aktywnych motywu */
-  .masthead__menu-item--active a[href*="/teaching"],
-  .masthead__menu-item.active a[href*="/teaching"] {
-    color: #333 !important;
+  /* Dodatkowy reset, gdyby motyw wymuszał zieleń na samym elemencie <a> */
+  .masthead__menu-item a[href*="/teaching"] {
+    color: inherit !important; /* Kradniemy kolor z nadrzędnego elementu, który nie jest zielony */
   }
 
-  @media (prefers-color-scheme: dark) {
-    html.dark .masthead__menu-item--active a[href*="/teaching"],
-    [data-theme='dark'] .masthead__menu-item--active a[href*="/teaching"] {
-      color: #fff !important;
-    }
+  /* 2. ZIELONY TYTUŁ STRONY I LINKI W TREŚCI (To co ma działać) */
+  .page__title, .archive__title, h1, .page-teaching h1 { 
+    color: #0e7a3a !important; 
   }
-
-  /* RESZTA STYLÓW DLA TREŚCI (Tytuł i linki w tekście zostają zielone) */
-  .page__title, .archive__title, h1, .page-teaching h1 { color: #0e7a3a !important; }
   @media (prefers-color-scheme: dark) {
     .page__title, .archive__title, h1, .page-teaching h1 { color: #11ee4a !important; }
+  }
+  
+  /* Linki wewnątrz listy przedmiotów mają pozostać zielone */
+  .page-teaching .teaching-list a {
+    color: #0e7a3a !important;
+  }
+  @media (prefers-color-scheme: dark) {
+    .page-teaching .teaching-list a { color: #11ee4a !important; }
   }
 </style>
 
