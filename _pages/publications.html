@@ -7,46 +7,59 @@ author_profile: true
 
 {% include base_path %}
 
-<style>
-  /* Kolorowanie systemowego tytułu strony na zielono */
-  .page__title {
-    color: var(--link-color) !important;
-  }
-</style>
-
-<!-- Sekcja z cytatem o Mądrości - nowy układ (PL / EN / Podpis) -->
-<div class="values-header" style="font-size: 0.8em; margin-bottom: 35px; border-left: 2px solid var(--global-text-color); padding-left: 15px; line-height: 1.3;">
+<!-- UNIKALNY KONTENER DLA TEJ PODSTRONY -->
+<div class="page-publications">
   
-  <!-- 1. Tekst polski (Najciemniejszy) -->
-  <div style="font-style: italic; margin: 0; color: var(--global-text-color); opacity: 1;">
-    „Całe złoto w porównaniu z [Mądrością] jest garścią piasku, a srebro przy niej ma wartość błota”.
-  </div>
-  
-  <!-- 2. Tekst angielski (Średnia szarość) -->
-  <div style="font-style: italic; margin-top: 2px; margin-bottom: 0; color: var(--global-text-color); opacity: 0.75;">
-    "All gold, in view of [Wisdom], is a bit of sand, and before her, silver is to be accounted as clay".
-  </div>
+  <style>
+    /* Te style zadziałają TYLKO wewnątrz .page-publications */
+    .page-publications .page__title {
+      color: var(--link-color) !important;
+    }
 
-  <!-- 3. Podpis (Najjaśniejsza szarość) -->
-  <div style="font-weight: bold; margin-top: 2px; color: var(--global-text-color); opacity: 0.55;">
-    — Mdr 7, 9 / Wis 7, 9
-  </div>
-</div>
+    /* Zabezpieczenie linków wewnątrz listy publikacji */
+    .page-publications .publications-list a {
+      color: var(--link-color) !important;
+      text-decoration: underline !important;
+    }
 
-{% assign posts = site.publications | sort: 'date' | reverse %}
-{% assign count = posts | size %}
+    /* Izolacja stylu cytatu */
+    .page-publications .values-header {
+      font-size: 0.8em; 
+      margin-bottom: 35px; 
+      border-left: 2px solid var(--global-text-color); 
+      padding-left: 15px; 
+      line-height: 1.3;
+    }
+  </style>
 
-<!-- ZABEZPIECZENIE: clear: both; chroni przed nachodzeniem na sidebar -->
-<div class="publications-list" style="font-size: 0.85em; clear: both;"> 
-  {% for post in posts %}
-    <div class="list__item" style="display: flex; align-items: baseline; margin-bottom: 10px; line-height: 1.4;">
-      <span style="color: var(--global-text-color); min-width: 40px; font-weight: bold; opacity: 0.7;">
-        ({{ count }})
-      </span>
-      <div style="flex: 1;">
-        {% include archive-single.html %}
-      </div>
+  <!-- Sekcja z cytatem o Mądrości -->
+  <div class="values-header">
+    <div style="font-style: italic; margin: 0; color: var(--global-text-color); opacity: 1;">
+      „Całe złoto w porównaniu z [Mądrością] jest garścią piasku, a srebro przy niej ma wartość błota”.
     </div>
-    {% assign count = count | minus: 1 %}
-  {% endfor %}
-</div>
+    <div style="font-style: italic; margin-top: 2px; margin-bottom: 0; color: var(--global-text-color); opacity: 0.75;">
+      "All gold, in view of [Wisdom], is a bit of sand, and before her, silver is to be accounted as clay".
+    </div>
+    <div style="font-weight: bold; margin-top: 2px; color: var(--global-text-color); opacity: 0.55;">
+      — Mdr 7, 9 / Wis 7, 9
+    </div>
+  </div>
+
+  {% assign posts = site.publications | sort: 'date' | reverse %}
+  {% assign count = posts | size %}
+
+  <div class="publications-list" style="font-size: 0.85em; clear: both;"> 
+    {% for post in posts %}
+      <div class="list__item" style="display: flex; align-items: baseline; margin-bottom: 10px; line-height: 1.4;">
+        <span style="color: var(--global-text-color); min-width: 40px; font-weight: bold; opacity: 0.7;">
+          ({{ count }})
+        </span>
+        <div style="flex: 1;">
+          {% include archive-single.html %}
+        </div>
+      </div>
+      {% assign count = count | minus: 1 %}
+    {% endfor %}
+  </div>
+
+</div> <!-- KONIEC .page-publications -->
