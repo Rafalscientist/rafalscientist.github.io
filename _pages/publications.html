@@ -7,48 +7,83 @@ author_profile: true
 
 {% include base_path %}
 
-  <style>
-    /* 2. STYLE DLA LINKÓW - TRYB JASNY */
-    .page-publications .publications-list a, 
-    .page-publications .publications-list a * {
-      color: #0e7a3a !important; 
-      text-decoration: underline !important;
-    }
+<style>
+  /* ============================================================
+     1. TYTUŁ STRONY (Publikacje / Publications)
+     ============================================================ */
+  
+  /* TRYB JASNY */
+  .page__title, .archive__title, h1, .page-publications h1 {
+    color: #0e7a3a !important;
+  }
 
-    /* 3. STYLE DLA LINKÓW - TRYB CIEMNY (OPCJA ATOMOWA) */
-    
-    /* Wykrywanie przez systemowy Dark Mode */
-    @media (prefers-color-scheme: dark) {
-      .page-publications .publications-list,
-      .page-publications .publications-list *,
-      .page-publications .publications-list a, 
-      .page-publications .publications-list a * {
-        color: #11ee4a !important;
-      }
-    }
+  /* TRYB CIEMNY (Wszystkie metody wykrywania) */
+  @media (prefers-color-scheme: dark) {
+    .page__title, .archive__title, h1, .page-publications h1 { color: #11ee4a !important; }
+  }
+  html.dark .page__title, html.dark .archive__title, html.dark h1,
+  [data-theme='dark'] .page__title, [data-theme='dark'] .archive__title, [data-theme='dark'] h1 {
+    color: #11ee4a !important;
+  }
 
-    /* Wykrywanie przez klasy motywu (.dark lub data-theme) */
-    html.dark .page-publications .publications-list,
-    html.dark .page-publications .publications-list *,
-    body.dark .page-publications .publications-list *,
-    [data-theme='dark'] .page-publications .publications-list * {
+  /* ============================================================
+     2. LISTA PUBLIKACJI (Linki, Czasopisma, Rok, Strony)
+     ============================================================ */
+
+  /* TRYB JASNY - Wymuszamy zielony na wszystkim wewnątrz listy */
+  .page-publications .publications-list,
+  .page-publications .publications-list * {
+    color: #0e7a3a !important;
+    text-decoration: underline; /* podkreślenie tylko dla linków w archiwum */
+  }
+  /* Przywracamy brak podkreślenia dla tekstu, który nie jest linkiem (opcjonalnie) */
+  .page-publications .list__item span { text-decoration: none !important; }
+
+  /* TRYB CIEMNY - Opcja atomowa dla całej listy */
+  @media (prefers-color-scheme: dark) {
+    .page-publications .publications-list,
+    .page-publications .publications-list * {
       color: #11ee4a !important;
     }
+  }
+  html.dark .page-publications .publications-list,
+  html.dark .page-publications .publications-list *,
+  [data-theme='dark'] .page-publications .publications-list * {
+    color: #11ee4a !important;
+  }
 
-    /* Efekt Hover w trybie ciemnym */
-    @media (prefers-color-scheme: dark) {
-      .page-publications .publications-list a:hover, 
-      .page-publications .publications-list a:hover * {
-        color: #11ee88 !important;
-      }
-    }
-    html.dark .page-publications .publications-list a:hover *,
-    [data-theme='dark'] .page-publications .publications-list a:hover * {
-      color: #11ee88 !important;
-    }
-  </style>
+  /* ============================================================
+     3. EFEKT HOVER (Po najechaniu myszką)
+     ============================================================ */
+  
+  /* JASNY */
+  .page-publications .publications-list a:hover,
+  .page-publications .publications-list a:hover * {
+    color: #0eab3a !important;
+  }
 
-  <!-- Sekcja z cytatem -->
+  /* CIEMNY */
+  @media (prefers-color-scheme: dark) {
+    .page-publications .publications-list a:hover,
+    .page-publications .publications-list a:hover * { color: #11ee88 !important; }
+  }
+  html.dark .page-publications .publications-list a:hover,
+  html.dark .page-publications .publications-list a:hover * {
+    color: #11ee88 !important;
+  }
+
+  /* Styl cytatu */
+  .page-publications .values-header {
+    font-size: 0.8em; 
+    margin-bottom: 35px; 
+    border-left: 2px solid var(--global-text-color); 
+    padding-left: 15px; 
+    line-height: 1.3;
+  }
+</style>
+
+<div class="page-publications">
+  
   <div class="values-header">
     <div style="font-style: italic; margin: 0; color: var(--global-text-color); opacity: 1;">
       „Całe złoto w porównaniu z [Mądrością] jest garścią piasku, a srebro przy niej ma wartość błota”.
@@ -78,4 +113,4 @@ author_profile: true
     {% endfor %}
   </div>
 
-</div> <!-- KONIEC .page-publications -->
+</div>
