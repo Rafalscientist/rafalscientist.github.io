@@ -8,6 +8,7 @@ author_profile: true
 {% include base_path %}
 
 <style>
+  /* 1. ATOMOWE WYMUSZENIE MORSKIEJ ZIELENI DLA TYTUŁU */
   :root, html, body, #main, [class*="page__inner"] {
     --primary-color: #16a085 !important;
     --title-color: #16a085 !important;
@@ -18,6 +19,7 @@ author_profile: true
     -webkit-text-fill-color: #16a085 !important;
   }
 
+  /* 2. STYLIZACJA LINKU BIBLIOGRAFICZNEGO */
   .page-publications .pub-link {
     color: #16a085 !important;
     text-decoration: none !important;
@@ -29,21 +31,30 @@ author_profile: true
     border-bottom: 1px solid #2ecc71 !important;
   }
 
-  /* Styl dla Twojego nazwiska - High-Value Man Recognition */
-  .my-name {
+  /* 3. PODKREŚLENIE TWOJEGO NAZWISKA */
+  .my-name-underlined {
     text-decoration: underline !important;
     font-weight: 600 !important;
+  }
+
+  /* 4. STYL CYTATU O MĄDROŚCI */
+  .page-publications .values-header {
+    font-size: 0.8em; 
+    margin-bottom: 35px; 
+    border-left: 2px solid var(--global-text-color); 
+    padding-left: 15px; 
+    line-height: 1.3;
   }
 </style>
 
 <div class="page-publications">
   
-  <div class="values-header" style="font-size: 0.8em; margin-bottom: 35px; border-left: 2px solid var(--global-text-color); padding-left: 15px; line-height: 1.3;">
+  <div class="values-header">
     <div style="font-style: italic; margin: 0; color: var(--global-text-color); opacity: 1;">
       „Całe złoto w porównaniu z [mądrością] jest garścią piasku, a srebro przy niej ma wartość błota.”
     </div>
     <div style="font-style: italic; margin-top: 2px; margin-bottom: 0; color: var(--global-text-color); opacity: 0.75;">
-      "All gold, in view of [wisdom], is a bit of sand, and before her, silver is to be accounted as clay."
+      "In comparison with her [Wisdom] all gold is but a little sand, and before her silver shall be accounted as clay."
     </div>
     <div style="font-weight: bold; margin-top: 2px; color: var(--global-text-color); opacity: 0.55;">
       — Mdr 7, 9 / Wis 7, 9
@@ -55,29 +66,30 @@ author_profile: true
 
   <div class="publications-list" style="font-size: 0.85em; clear: both;"> 
     {% for post in posts %}
-      <div class="list__item" style="display: flex; align-items: baseline; margin-bottom: 15px; line-height: 1.4;">
+      <div class="list__item" style="display: flex; align-items: baseline; margin-bottom: 25px; line-height: 1.4;">
+        <!-- Numeracja (count) -->
         <span style="color: var(--global-text-color); min-width: 40px; font-weight: bold; opacity: 0.7;">
           ({{ count }})
         </span>
+        
         <div style="flex: 1;">
-          <div style="font-size: 1.1em; margin: 0; font-weight: normal; color: var(--global-text-color);">
+          <!-- Linia 1: Autorzy z podkreśleniem Twojego nazwiska -->
+          <div style="font-weight: normal; color: var(--global-text-color); opacity: 0.95;">
+            {% if post.content %}
+              {% capture authors_raw %}{{ post.content | strip_html | truncatewords: 25 }}{% endcapture %}
+              {{ authors_raw | replace: "Twoje Imię Nazwisko", "<span class='my-name-underlined'>Twoje Imię Nazwisko</span>" }}
+            {% endif %}
+          </div>
+
+          <!-- Linia 2: Tytuł pracy (wytłuszczony) -->
+          <div style="font-size: 1.1em; margin-top: 2px; font-weight: bold; color: var(--global-text-color);">
             {{ post.title }}
           </div>
           
-          <div style="font-size: 1em; margin-top: 3px; color: var(--global-text-color); opacity: 0.9;">
-            {% if post.citation %}
-              {% comment %} 
-                Zastąp "Twoje Nazwisko" swoim nazwiskiem, dokładnie tak jak jest w plikach .md 
-              {% endcomment %}
-              {{ post.citation | replace: "Twoje Nazwisko", "<span class='my-name'>Twoje Nazwisko</span>" }} | 
-            {% elsif post.authors %}
-              {{ post.authors | replace: "Twoje Nazwisko", "<span class='my-name'>Twoje Nazwisko</span>" }} |
-            {% endif %}
-            
+          <!-- Linia 3: Hiperłącze bibliograficzne (morska zieleń) -->
+          <div style="margin-top: 2px;">
             <a href="{{ post.url | default: post.paperurl }}" class="pub-link">
-              <i>{{ post.venue }}</i> 
-              {% if post.volume %}<b>{{ post.volume }}</b>{% endif %}{% if post.pages %}, {{ post.pages }}{% endif %} 
-              ({{ post.date | date: "%Y" }})
+              <i>{{ post.venue }}</i>{% if post.volume %} <b>{{ post.volume }}</b>{% endif %}{% if post.pages %}, {{ post.pages }}{% endif %} ({{ post.date | date: "%Y" }})
             </a>
           </div>
         </div>
@@ -85,4 +97,5 @@ author_profile: true
       {% assign count = count | minus: 1 %}
     {% endfor %}
   </div>
+
 </div>
