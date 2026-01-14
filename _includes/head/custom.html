@@ -37,7 +37,7 @@
     transition: all 0.2s ease-in-out !important;
   }
 
-  /* 6. ŚRODKOWANIE PROFILU I NAPRAWA WCIĘCIA LISTY */
+  /* 6. ŚRODKOWANIE PROFILU I NAPRAWA WYRÓWNANIA IKON PNG/SVG */
   .sidebar .author__profile {
     text-align: center !important;
   }
@@ -58,15 +58,31 @@
   }
 
   .author__urls {
-    display: inline-block !important; /* Lista jako zwarty blok na środku */
-    text-align: left !important;     /* Ale treść wewnątrz bloku od lewej */
-    padding-left: 0 !important;      /* KLUCZ: Usuwamy domyślne wcięcie kropkowe */
+    display: inline-flex !important; /* Zmiana na flex dla lepszej kontroli */
+    flex-direction: column !important;
+    text-align: left !important;     
+    padding-left: 0 !important;      
     margin-left: 0 !important;
     list-style-type: none !important;
   }
 
-  .author__urls li {
-    margin-bottom: 5px;
+  /* WYRÓWNANIE KAŻDEGO WIERSZA (IKONA + TEKST) */
+  .author__urls li a {
+    display: flex !important;
+    align-items: center !important; /* Centrowanie pionowe tekstu względem ikony */
+    gap: 12px !important;           /* Stały odstęp między ikoną a napisem */
+    padding: 4px 0 !important;      /* Równe odstępy między linkami */
+    text-decoration: none !important;
+  }
+
+  /* UJEDNOLICENIE ROZMIARU TWOICH OBRAZKÓW PNG/SVG */
+  .author__urls li img {
+    width: 20px !important;         /* Stała szerokość dla wszystkich ikon */
+    height: 20px !important;        /* Stała wysokość dla wszystkich ikon */
+    min-width: 20px !important;     /* Zapobiega zwężaniu ikon */
+    object-fit: contain !important; /* Zachowanie proporcji (nie rozciąga) */
+    display: block !important;
+    margin: 0 !important;           /* Resetuje marginesy */
   }
 
   /* 7. WYRÓWNANIE TREŚCI (PRAWA KOLUMNA) */
@@ -85,14 +101,7 @@
 
 <!-- start custom head snippets -->
 <link rel="stylesheet" href="{{ base_path }}/assets/css/academicons.css"/>
-<!-- favicony i reszta Twoich metadanych poniżej zostaje bez zmian -->
-
-<!-- start custom head snippets -->
-
-<!-- Support for Academicons -->
-<link rel="stylesheet" href="{{ base_path }}/assets/css/academicons.css"/>
-
-<!-- favicon from https://commons.wikimedia.org/wiki/File:OOjs_UI_icon_academic-progressive.svg -->
+<!-- favicon from commons.wikimedia.org -->
 <link rel="apple-touch-icon" sizes="180x180" href="{{ base_path }}/images/apple-touch-icon-180x180.png"/>
 <link rel="icon" type="image/svg+xml" href="{{ base_path }}/images/favicon.svg"/>
 <link rel="icon" type="image/png" href="{{ base_path }}/images/favicon-32x32.png" sizes="32x32"/>
@@ -101,5 +110,4 @@
 <link rel="icon" href="/images/favicon.ico"/>
 <meta name="theme-color" content="#ffffff"/>
 <meta name="google" content="notranslate">
-
 <!-- end custom head snippets -->
