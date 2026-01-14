@@ -7,19 +7,18 @@
     opacity: 1 !important;
   }
 
-  /* 2. SYMRETRIA I WAGA MENU (Twoja wybrana opcja) */
+  /* 2. SYMRETRIA I WAGA MENU */
   .masthead__menu-item--active a,
   .masthead__menu-item.active a {
     font-weight: 900 !important;
     color: #16a085 !important;
     border-bottom: 3px solid #16a085 !important;
     opacity: 1 !important;
-    /* Subtelna kalibracja optyczna */
     text-shadow: 0.25px 0 0.1px #16a085 !important;
     letter-spacing: 0.3px;
   }
 
-  /* 3. LEWA KOLUMNA (Sidebar: Earth, Email, Scholar, ORCID, GitHub itd.) */
+  /* 3. LEWA KOLUMNA - HOVER LINKÓW */
   .sidebar .author__urls-wrapper a:hover,
   .sidebar .author__urls-wrapper a:hover i,
   .sidebar .author__urls-wrapper a:hover span {
@@ -28,14 +27,54 @@
     text-decoration: none !important;
   }
 
-  /* 4. IKONA SŁOŃCA/KSIĘŻYCA (Toggle trybu) */
+  /* 4. IKONA SŁOŃCA/KSIĘŻYCA */
   #theme-toggle:hover, .greedy-nav__toggle:hover {
     color: #16a085 !important;
   }
 
-  /* 5. PŁYNNOŚĆ PRZEJŚCIA (High-Value Polish) */
+  /* 5. PŁYNNOŚĆ PRZEJŚCIA */
   a, .author__urls i, .author__urls span, .masthead__menu-item a {
     transition: all 0.2s ease-in-out !important;
+  }
+
+  /* 6. ŚRODKOWANIE PROFILU (LEWA KOLUMNA) */
+  .sidebar .author__profile {
+    text-align: center !important;
+  }
+
+  .author__avatar {
+    display: block !important;
+    text-align: center !important;
+  }
+
+  .author__avatar img {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    float: none !important;
+  }
+
+  .author__urls-wrapper {
+    text-align: center !important;
+  }
+
+  .author__urls {
+    text-align: left !important; /* Ikony z tekstem wewnątrz listy lepiej wyglądają od lewej */
+    display: inline-block !important; /* Ale sama lista jest wyśrodkowana */
+  }
+
+  /* 7. ŚRODKOWANIE I ESTETYKA TREŚCI (PRAWA KOLUMNA) */
+  .page__title {
+    text-align: center !important;
+  }
+
+  .page__content p {
+    text-align: justify !important; /* Wygląd jak w artykule naukowym */
+    hyphens: auto; /* Automatyczne dzielenie wyrazów dla lepszego justify */
+  }
+
+  .page__content {
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 </style>
 
