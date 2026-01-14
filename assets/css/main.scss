@@ -3,7 +3,7 @@
 
 /*
  * Jekyll Main SCSS - Rafał A. Bogaczewicz (2026)
- * KOMPLETNA WERSJA ATOMOWA: LOGOTYPY + BLOKADA HOVERÓW W SIDEBARZE
+ * POWRÓT DO WERSJI SUKCESU - PWr i IFT WIDOCZNE
  */
 
 @import
@@ -37,7 +37,7 @@
    PERSONALIZACJA RAFAŁ A. BOGACZEWICZ - 2026
    ========================================================================== */
 
-/* 1. ZMIENNE KOLORYSTYCZNE */
+/* 1. TWOJA ZIELEŃ DLA CAŁEJ STRONY */
 :root {
   --moj-zielony: #2d4f1e;       /* Leśna zieleń (Dzień) */
   --moj-hover: #006400;         /* Ciemna zieleń (Dzień) */
@@ -48,50 +48,25 @@ html[data-theme='dark'] {
   --moj-hover: #00FFAB;         /* Neon miętowy (Noc) */
 }
 
-/* 2. NAWIGACJA I TYTUŁY (BEZ SIDEBARA) */
+/* 2. NAPRAWA NAWIGACJI (Talks, Imię, Ikony Social Media) */
 .greedy-nav a:hover,
 .site-title:hover,
-.masthead__menu-item a:hover {
+.masthead__menu-item a:hover,
+.author__urls-wrapper a:hover,
+.author__urls-wrapper a:hover * {
   color: var(--moj-hover) !important;
   background: transparent !important;
-  text-decoration: none !important;
-}
-
-/* 3. BLOKADA ATOMOWA DLA SIDEBARA (LEWA KOLUMNA) */
-/* Uniemożliwia zmianę koloru całego wiersza na zielony przy najechaniu */
-aside.sidebar .author__urls-wrapper ul li a:hover,
-aside.sidebar .author__urls-wrapper ul li a:hover span {
-  color: inherit !important;
-  text-decoration: none !important;
   opacity: 1 !important;
+  text-decoration: none !important;
 }
 
-/* 4. SZTYWNE KOLORY IKON (NAWET PRZY HOVERZE) */
-aside.sidebar .author__urls-wrapper ul li a i.fa-orcid,
-aside.sidebar .author__urls-wrapper ul li a:hover i.fa-orcid {
-  color: #A6CE39 !important;
-  visibility: visible !important;
-}
-
-aside.sidebar .author__urls-wrapper ul li a i.fa-researchgate,
-aside.sidebar .author__urls-wrapper ul li a:hover i.fa-researchgate {
-  color: #00CCBB !important;
-  visibility: visible !important;
-}
-
-aside.sidebar .author__urls-wrapper ul li a i.fa-academia,
-aside.sidebar .author__urls-wrapper ul li a:hover i.fa-academia {
-  color: #212429 !important;
-  visibility: visible !important;
-}
-
-/* 5. KOLOR AKTYWNEJ ZAKŁADKI W MENU GÓRNYM */
+/* Kolor aktywnej zakładki */
 .masthead__menu-item--active a {
   color: var(--moj-zielony) !important;
   font-weight: bold !important;
 }
 
-/* 6. NAPRAWA PUBLIKACJI (Linki bibliograficzne) */
+/* 3. NAPRAWA PUBLIKACJI (Linki bibliograficzne) */
 .publication-link, 
 .publication-link:visited,
 .publication-link i, 
@@ -101,7 +76,7 @@ aside.sidebar .author__urls-wrapper ul li a:hover i.fa-academia {
   border-bottom: none !important;
 }
 
-/* 7. BLOKADA PODKREŚLANIA TYTUŁÓW PUBLIKACJI */
+/* 4. BLOKADA PODKREŚLANIA TYTUŁÓW PUBLIKACJI */
 .archive__item-title, 
 .title-static {
   color: var(--global-text-color) !important;
@@ -110,9 +85,9 @@ aside.sidebar .author__urls-wrapper ul li a:hover i.fa-academia {
   pointer-events: none; 
 }
 
-/* 8. PODMIANA IKON SIDEBARA NA LOGOTYPY (PWr & IFT) */
+/* 5. PODMIANA IKON SIDEBARA NA LOGOTYPY */
 
-/* Ukrywamy standardowe ikony FontAwesome dla lokalizacji i uniwersytetu */
+/* Ukrywamy standardowe ikony */
 .author__urls-wrapper i.fa-map-marker-alt,
 .author__urls-wrapper i.fa-location-dot,
 .author__urls-wrapper i.fa-university,
@@ -123,7 +98,7 @@ aside.sidebar .author__urls-wrapper ul li a:hover i.fa-academia {
   margin-right: 8px !important;
 }
 
-/* Przygotowanie miejsca pod PNG */
+/* Wstawiamy nasze logotypy PNG */
 .author__urls-wrapper i.fa-map-marker-alt::before,
 .author__urls-wrapper i.fa-location-dot::before,
 .author__urls-wrapper i.fa-university::before,
@@ -142,41 +117,22 @@ aside.sidebar .author__urls-wrapper ul li a:hover i.fa-academia {
   background-position: center;
 }
 
-/* Ścieżka do logotypu PWr */
+/* Ścieżka do Orzełka PWr */
 .author__urls-wrapper i.fa-map-marker-alt::before,
 .author__urls-wrapper i.fa-location-dot::before {
   background-image: url("/images/logopwr.png") !important;
 }
 
-/* Ścieżka do logotypu IFT */
+/* Ścieżka do Logo IFT */
 .author__urls-wrapper i.fa-university::before,
 .author__urls-wrapper i.fa-building-columns::before {
   background-image: url("/images/logoift.png") !important;
+  filter: drop-shadow(0px 0px 1px rgba(0,0,0,0.7));
 }
 
-/* Ochrona logotypów przed zmianami przy hoverze */
-.author__urls-wrapper a:hover i::before {
-  filter: none !important;
-}
-
-/* 9. DOSTOSOWANIE DO TRYBU CIEMNEGO (DARK MODE) */
+/* Dostosowanie do trybu ciemnego */
 html[data-theme='dark'] {
-  /* Ikona Academia na biało */
-  aside.sidebar .author__urls-wrapper ul li a i.fa-academia,
-  aside.sidebar .author__urls-wrapper ul li a:hover i.fa-academia {
-    color: #ffffff !important;
-  }
-
-  /* Logotypy PNG na biało (inwersja) */
-  .author__urls-wrapper i.fa-map-marker-alt::before,
-  .author__urls-wrapper i.fa-location-dot::before,
-  .author__urls-wrapper i.fa-university::before,
-  .author__urls-wrapper i.fa-building-columns::before {
-    filter: brightness(0) invert(1) !important;
-  }
-  
-  /* Ochrona logotypów przed resetem filtra przy hoverze w nocy */
-  .author__urls-wrapper a:hover i::before {
-    filter: brightness(0) invert(1) !important;
+  .author__urls-wrapper i.fa-map-marker-alt::before {
+    filter: brightness(0) invert(1);
   }
 }
