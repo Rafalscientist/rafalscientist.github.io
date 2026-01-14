@@ -3,7 +3,7 @@
 
 /*
  * Jekyll Main SCSS - Rafał A. Bogaczewicz (2026)
- * WERSJA FINALNA: CZERWONY ORZEŁEK + DWUKOLOROWE IFT Z KONTRASTEM
+ * WERSJA INWARIANTNA: ZACHOWANIE KOLORÓW IFT W OBU TRYBACH
  */
 
 @import
@@ -80,39 +80,39 @@ i.ai-academia { color: #212429 !important; }
   background-position: center !important;
 }
 
-/* Orzełek PWr */
+/* Orzełek PWr - Zawsze czerwony */
 .author__urls li i.fa-location-dot::before {
   background-image: url("/images/logopwr.png") !important;
 }
 
-/* Logo IFT - Tryb Jasny (Kontrast dla różu i czerni) */
+/* Logo IFT - Ustawienia bazowe (zachowanie kolorów) */
 .author__urls li i.fa-building-columns::before {
   background-image: url("/images/logoift.png") !important;
-  filter: drop-shadow(0px 0px 2px white) drop-shadow(0px 0px 1px rgba(0,0,0,0.3)) !important;
+  /* Delikatny cień, aby białe elementy IFT były widoczne na jasnym tle */
+  filter: drop-shadow(0px 0px 1px rgba(0,0,0,0.2)) !important;
 }
 
-/* 4. TRYB CIEMNY - ROZWIĄZANIE ATOMOWE DLA LOGOTYPÓW */
+/* 4. TRYB CIEMNY - CAŁKOWITE ZABLOKOWANIE INWERSJI DLA LOGO */
 html[data-theme='dark'] {
   i.ai-academia { color: #ffffff !important; }
 
-  /* LOGO IFT: Przywrócenie różu + kontrast w nocy */
+  /* LOGO IFT: ZERO INWERSJI. Zachowujemy różowy i biały tak jak w oryginale */
   .author__urls li i.fa-building-columns::before {
-    /* invert(1) robi czarne białym, hue-rotate(180deg) przywraca róż kropki */
-    filter: invert(1) hue-rotate(180deg) brightness(1.2) 
-            drop-shadow(0px 0px 1px rgba(255,255,255,0.8)) !important;
+    filter: brightness(1.1) !important; /* Tylko lekkie rozjaśnienie dla lepszej czytelności */
     mix-blend-mode: normal !important;
+    background-color: transparent !important;
   }
 
-  /* LOGO PWR: Czerwony orzełek bez kwadratu */
+  /* LOGO PWR: Czerwony orzełek bez zmian */
   .author__urls li i.fa-location-dot::before {
     filter: none !important;
     background-color: transparent !important;
+    /* Multiply usunie białe tło wokół orzełka na ciemnej stronie */
     mix-blend-mode: multiply !important;
-    opacity: 0.95;
   }
 }
 
-/* 5. PUBLIKACJE I CV - TWOJE USTALENIA */
+/* 5. PUBLIKACJE I CV */
 .publication-link, .publication-link:visited {
   color: var(--moj-zielony) !important;
   text-decoration: none !important;
