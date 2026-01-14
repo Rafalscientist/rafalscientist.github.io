@@ -3,7 +3,7 @@
 
 /*
  * Jekyll Main SCSS - Rafał A. Bogaczewicz (2026)
- * WERSJA FINALNA: NAPRAWA LOGO IFT (POŚWIATA) + LOGO PWR (BEZ KWADRATU)
+ * WERSJA ATOMOWA: FontAwesome + Academicons + PNG Recovery
  */
 
 @import
@@ -37,111 +37,89 @@
    PERSONALIZACJA RAFAŁ A. BOGACZEWICZ - 2026
    ========================================================================== */
 
-/* 1. TWOJA ZIELEŃ DLA CAŁEJ STRONY */
 :root {
-  --moj-zielony: #2d4f1e;       /* Leśna zieleń (Dzień) */
-  --moj-hover: #006400;         /* Ciemna zieleń (Dzień) */
+  --moj-zielony: #2d4f1e;
+  --moj-hover: #006400;
 }
 
 html[data-theme='dark'] {
-  --moj-zielony: #90EE90;       /* Jasna zieleń (Noc) */
-  --moj-hover: #00FFAB;         /* Neon miętowy (Noc) */
+  --moj-zielony: #90EE90;
+  --moj-hover: #00FFAB;
 }
 
-/* 2. NAPRAWA NAWIGACJI (Talks, Imię, Ikony Social Media) */
+/* 1. NAWIGACJA GÓRNA (ZACHOWUJE ZIELEŃ) */
 .greedy-nav a:hover,
 .site-title:hover,
-.masthead__menu-item a:hover,
-.author__urls-wrapper a:hover,
-.author__urls-wrapper a:hover * {
+.masthead__menu-item a:hover {
   color: var(--moj-hover) !important;
   background: transparent !important;
+}
+
+/* 2. BLOKADA ATOMOWA DLA SIDEBARA (LEWA KOLUMNA) */
+/* Chronimy tekst i wszystkie typy ikon przed zielonym hoverem */
+.author__urls-wrapper a:hover,
+.author__urls-wrapper a:hover i,
+.author__urls-wrapper a:hover span,
+.author__urls-wrapper li:hover {
+  color: inherit !important;
   opacity: 1 !important;
   text-decoration: none !important;
 }
 
-/* Kolor aktywnej zakładki */
-.masthead__menu-item--active a {
-  color: var(--moj-zielony) !important;
-  font-weight: bold !important;
-}
+/* Sztywne kolory ikon (zawsze aktywne, nawet przy najechaniu) */
+i.ai-orcid { color: #A6CE39 !important; }
+i.fa-researchgate { color: #00CCBB !important; }
+i.ai-academia { color: #212429 !important; }
 
-/* 3. NAPRAWA PUBLIKACJI (Linki bibliograficzne) */
-.publication-link, 
-.publication-link:visited,
-.publication-link i, 
-.publication-link b {
-  color: var(--moj-zielony) !important;
-  text-decoration: none !important;
-  border-bottom: none !important;
-}
-
-/* 4. BLOKADA PODKREŚLANIA TYTUŁÓW PUBLIKACJI */
-.archive__item-title, 
-.title-static {
-  color: var(--global-text-color) !important;
-  text-decoration: none !important;
-  border-bottom: none !important;
-  pointer-events: none; 
-}
-
-/* 5. PODMIANA IKON SIDEBARA NA LOGOTYPY */
-
-/* Ukrywamy standardowe ikony */
-.author__urls-wrapper i.fa-map-marker-alt,
-.author__urls-wrapper i.fa-location-dot,
-.author__urls-wrapper i.fa-university,
-.author__urls-wrapper i.fa-building-columns {
-  visibility: hidden !important;
-  position: relative;
-  width: 18px !important;
-  margin-right: 8px !important;
-}
-
-/* Wstawiamy nasze logotypy PNG */
-.author__urls-wrapper i.fa-map-marker-alt::before,
-.author__urls-wrapper i.fa-location-dot::before,
-.author__urls-wrapper i.fa-university::before,
-.author__urls-wrapper i.fa-building-columns::before {
+/* 3. WSTRZYKIWANIE LOGOTYPÓW PNG (PWr i IFT) */
+/* Używamy klas z Twojego pliku HTML: fa-location-dot oraz fa-building-columns */
+.author__urls i.fa-location-dot::before,
+.author__urls i.fa-building-columns::before {
   content: "" !important;
   visibility: visible !important;
   display: inline-block;
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 18px;
-  height: 18px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+  width: 18px !important;
+  height: 18px !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
 }
 
-/* Ścieżka do Orzełka PWr */
-.author__urls-wrapper i.fa-map-marker-alt::before,
-.author__urls-wrapper i.fa-location-dot::before {
+/* Orzełek PWr */
+.author__urls i.fa-location-dot::before {
   background-image: url("/images/logopwr.png") !important;
 }
 
-/* Ścieżka do Logo IFT - DODANO POŚWIATĘ DLA WIDOCZNOŚCI DETALI */
-.author__urls-wrapper i.fa-university::before,
-.author__urls-wrapper i.fa-building-columns::before {
+/* Logo IFT z poświatą (rozwiązuje problem różowej kropki i widoczności liter) */
+.author__urls i.fa-building-columns::before {
   background-image: url("/images/logoift.png") !important;
-  /* Podwójna poświata: biała wyciąga róż i litery, ciemna daje głębię */
-  filter: drop-shadow(0px 0px 2px rgba(255, 255, 255, 0.9)) drop-shadow(0px 0px 1px rgba(0,0,0,0.3)) !important;
+  filter: drop-shadow(0px 0px 2px white) drop-shadow(0px 0px 1px rgba(0,0,0,0.5)) !important;
 }
 
-/* 6. DOSTOSOWANIE DO TRYBU CIEMNEGO (DARK MODE) */
+/* 4. NAPRAWA TRYBU CIEMNEGO (KWADRAT PWR & KONTRAST) */
 html[data-theme='dark'] {
-  /* Logo PWr: Inwersja kolorów bez tła */
-  .author__urls-wrapper i.fa-map-marker-alt::before,
-  .author__urls-wrapper i.fa-location-dot::before {
+  /* Naprawa Academii (na biało) */
+  i.ai-academia { color: #ffffff !important; }
+
+  /* Logo PWr i IFT w nocy */
+  .author__urls i.fa-location-dot::before,
+  .author__urls i.fa-building-columns::before {
     filter: brightness(0) invert(1) !important;
   }
-
-  /* Logo IFT: Inwersja + mocniejszy glow, by białe litery IFT były ostre */
-  .author__urls-wrapper i.fa-university::before,
-  .author__urls-wrapper i.fa-building-columns::before {
-    filter: brightness(0) invert(1) drop-shadow(0px 0px 2px rgba(255, 255, 255, 0.5)) !important;
+  
+  /* Jeśli PWr nadal robi biały kwadrat, mix-blend-mode "wypali" tło */
+  .author__urls i.fa-location-dot::before {
+    mix-blend-mode: lighten !important;
   }
+}
+
+/* 5. PUBLIKACJE I RESZTA */
+.publication-link, .publication-link:visited {
+  color: var(--moj-zielony) !important;
+  text-decoration: none !important;
+}
+
+.archive__item-title {
+  color: var(--global-text-color) !important;
+  pointer-events: none; 
 }
