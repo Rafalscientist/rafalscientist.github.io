@@ -3,7 +3,7 @@
 
 /*
  * Jekyll Main SCSS - Rafał A. Bogaczewicz (2026)
- * Pełna konfiguracja: PWr, IFT oraz powiększone ikony sociali
+ * Pełna konfiguracja: PWr, IFT oraz powiększone ikony sociali (bez GitHuba)
  */
 
 @import
@@ -37,7 +37,7 @@
    PERSONALIZACJA RAFAŁ A. BOGACZEWICZ - 2026
    ========================================================================== */
 
-/* 1. TWOJA ZIELEŃ */
+/* 1. KOLORY TWOJEJ ZIELENI */
 :root {
   --moj-zielony: #2d4f1e;
   --moj-hover: #006400;
@@ -48,7 +48,7 @@ html[data-theme='dark'] {
   --moj-hover: #00FFAB;
 }
 
-/* 2. NAWIGACJA */
+/* 2. NAPRAWA NAWIGACJI I MENU */
 .greedy-nav a:hover,
 .site-title:hover,
 .masthead__menu-item a:hover,
@@ -65,7 +65,7 @@ html[data-theme='dark'] {
   font-weight: bold !important;
 }
 
-/* 3. PUBLIKACJE */
+/* 3. LINKI W PUBLIKACJACH */
 .publication-link, 
 .publication-link:visited,
 .publication-link i, 
@@ -82,7 +82,7 @@ html[data-theme='dark'] {
   text-decoration: underline !important;
 }
 
-/* 4. TYTUŁY BEZ PODKREŚLEŃ */
+/* 4. BLOKADA PODKREŚLEŃ TYTUŁÓW */
 .archive__item-title, 
 .title-static {
   color: var(--global-text-color) !important;
@@ -93,7 +93,7 @@ html[data-theme='dark'] {
 
 /* 5. LOGOTYPY PWr I IFT ORAZ SKALOWANIE IKON */
 
-/* Ujednolicenie szerokości ikon dla równej linii tekstu */
+/* Standaryzacja kontenerów ikon - idealna pionowa linia tekstu */
 .author__urls-wrapper i, 
 .author__urls-wrapper span.ai,
 .author__urls-wrapper .fab,
@@ -107,26 +107,29 @@ html[data-theme='dark'] {
 }
 
 /* Powiększenie ikon społecznościowych (Orcid, ResearchGate, Academia) */
-.author__urls-wrapper i:not(.fa-map-marker-alt):not(.fa-location-dot):not(.fa-university):not(.fa-building-columns),
+.author__urls-wrapper i:not(.fa-map-marker-alt):not(.fa-location-dot):not(.fa-university):not(.fa-building-columns):not(.fa-landmark),
 .author__urls-wrapper .ai, 
 .author__urls-wrapper .fab {
   font-size: 18px !important;
   line-height: 1 !important;
 }
 
-/* Ukrycie ikon dla PWr i IFT pod logotypy PNG */
+/* Ukrycie standardowych ikon dla PWr i IFT */
 .author__urls-wrapper i.fa-map-marker-alt,
 .author__urls-wrapper i.fa-location-dot,
 .author__urls-wrapper i.fa-university,
-.author__urls-wrapper i.fa-building-columns {
+.author__urls-wrapper i.fa-building-columns,
+.author__urls-wrapper i.fa-landmark {
   visibility: hidden !important;
   position: relative;
 }
 
+/* Wstawienie logotypów PNG w miejsce ukrytych ikon */
 .author__urls-wrapper i.fa-map-marker-alt::before,
 .author__urls-wrapper i.fa-location-dot::before,
 .author__urls-wrapper i.fa-university::before,
-.author__urls-wrapper i.fa-building-columns::before {
+.author__urls-wrapper i.fa-building-columns::before,
+.author__urls-wrapper i.fa-landmark::before {
   content: "" !important;
   visibility: visible !important;
   display: inline-block;
@@ -134,8 +137,8 @@ html[data-theme='dark'] {
   left: 0;
   top: 52%; 
   transform: translateY(-50%);
-  width: 21px; 
-  height: 21px;
+  width: 22px; 
+  height: 22px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -147,19 +150,24 @@ html[data-theme='dark'] {
   background-image: url("/images/logopwr.png") !important;
 }
 
-/* Ścieżka do Logo IFT - Poprawna nazwa pliku */
+/* Ścieżka do Logo IFT (nazwa: logoift.png) */
 .author__urls-wrapper i.fa-university::before, 
-.author__urls-wrapper i.fa-building-columns::before {
+.author__urls-wrapper i.fa-building-columns::before,
+.author__urls-wrapper i.fa-landmark::before {
   background-image: url("/images/logoift.png") !important;
+  /* Delikatny cień dla białych elementów logo na jasnym tle */
   filter: drop-shadow(0px 0px 1px rgba(0,0,0,0.7));
 }
 
-/* Obsługa trybu ciemnego */
+/* Dostosowanie do trybu ciemnego */
 html[data-theme='dark'] {
+  /* Odwrócenie kolorów orzełka jeśli jest czarny */
   .author__urls-wrapper i.fa-map-marker-alt::before {
     filter: brightness(0) invert(1);
   }
-  .author__urls-wrapper i.fa-university::before {
+  /* Usunięcie cienia dla logo IFT w trybie nocnym */
+  .author__urls-wrapper i.fa-university::before,
+  .author__urls-wrapper i.fa-landmark::before {
     filter: none !important;
   }
 }
