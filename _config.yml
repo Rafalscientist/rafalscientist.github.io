@@ -18,12 +18,12 @@ author:
   avatar : "rafal.jpg"
   bio    : "Fizyk teoretyk z pasjami"
   
-  # Wyżej: Instytut (usuwamy ikonę 'employer' przez ustawienie jej na pustą, jeśli motyw wspiera 'icon')
-  employer: '<a href="www.kft.pwr.edu.pl" target="_blank" style="color: inherit; text-decoration: none;">Instytut Fizyki Teoretycznej PWr</a>'
+  # Wyżej: To pole wyświetla się obok "trójkątnego dachu"
+  employer: '<a href="https://pwr.edu.pl" target="_blank" style="color: inherit; text-decoration: none;">Politechnika Wrocławska</a>'
   
-  # Niżej: PWr z Twoim własnym logo zamiast pinezki
-  location: '<img src="pwr.edu.pl" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px; margin-left: -20px;"><a href="pwr.edu.pl" target="_blank" style="color: inherit; text-decoration: none;">Politechnika Wrocławska</a>'
-  location_url: "pwr.edu.pl"
+  # Niżej: To pole wyświetla się pod spodem (zazwyczaj z ikoną lokalizacji)
+  location: "Instytut Fizyki Teoretycznej PWr"
+  location_url: "www.kft.pwr.edu.pl"
   # Linki naukowe
   orcid:         "orcid.org"
   researchgate:  "www.researchgate.net"
