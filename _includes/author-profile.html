@@ -67,9 +67,15 @@
       {% if author.academia %}
         <li>
           <a href="{{ author.academia }}" target="_blank" rel="noopener noreferrer">
+            <style>
+              /* Ten styl lokalny wymusi biały kolor tylko w trybie ciemnym */
+              html[data-theme='dark'] .img-ac { 
+                filter: invert(1) brightness(2) !important; 
+              }
+            </style>
             <img src="{{ '/images/logoac.svg' | relative_url }}" 
-                 class="logo-academia" 
-                 style="width:16px; height:16px; margin-right:8px; vertical-align:middle;">Academia
+                 class="img-ac"
+                 style="width:16px; height:16px; margin-right:8px; vertical-align:middle; filter:none;">Academia
           </a>
         </li>
       {% endif %}
