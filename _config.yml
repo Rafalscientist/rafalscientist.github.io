@@ -4,7 +4,7 @@
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default"
-title                    : "Rafał A. Bogaczewicz" # Zmienione, by nie dublować nazwiska w kolumnie
+title                    : "Home" # Zmienione, by nie dublować nazwiska w kolumnie
 title_separator          : "-"
 name                     : &name "Rafał A. Bogaczewicz"
 description              : &description "Academic portfolio of Rafał A. Bogaczewicz"
