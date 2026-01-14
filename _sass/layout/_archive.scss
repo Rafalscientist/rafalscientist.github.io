@@ -10,8 +10,8 @@
   }
 
   @include breakpoint($large) {
-    @include span(8 of 12 last); /* Zmiana z 10 na 8 */
-    @include prefix(0.5 of 12);  /* Bez zmian */
+    @include span(7.5 of 12 last); /* Zmiana z 10 na 7.5 */
+    @include prefix(1.0 of 12);  /* Bez zmian */
     @include suffix(0.5 of 12);  /* Dodajemy suffix dla symetrii */
   }
 
