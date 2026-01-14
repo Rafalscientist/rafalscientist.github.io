@@ -3,7 +3,7 @@
 
 /*
  * Jekyll Main SCSS - Rafał A. Bogaczewicz (2026)
- * POWRÓT DO WERSJI SUKCESU - PWr i IFT WIDOCZNE
+ * WERSJA FINALNA: NAPRAWA LOGO IFT (POŚWIATA) + LOGO PWR (BEZ KWADRATU)
  */
 
 @import
@@ -123,16 +123,25 @@ html[data-theme='dark'] {
   background-image: url("/images/logopwr.png") !important;
 }
 
-/* Ścieżka do Logo IFT */
+/* Ścieżka do Logo IFT - DODANO POŚWIATĘ DLA WIDOCZNOŚCI DETALI */
 .author__urls-wrapper i.fa-university::before,
 .author__urls-wrapper i.fa-building-columns::before {
   background-image: url("/images/logoift.png") !important;
-  filter: drop-shadow(0px 0px 1px rgba(0,0,0,0.7));
+  /* Podwójna poświata: biała wyciąga róż i litery, ciemna daje głębię */
+  filter: drop-shadow(0px 0px 2px rgba(255, 255, 255, 0.9)) drop-shadow(0px 0px 1px rgba(0,0,0,0.3)) !important;
 }
 
-/* Dostosowanie do trybu ciemnego */
+/* 6. DOSTOSOWANIE DO TRYBU CIEMNEGO (DARK MODE) */
 html[data-theme='dark'] {
-  .author__urls-wrapper i.fa-map-marker-alt::before {
-    filter: brightness(0) invert(1);
+  /* Logo PWr: Inwersja kolorów bez tła */
+  .author__urls-wrapper i.fa-map-marker-alt::before,
+  .author__urls-wrapper i.fa-location-dot::before {
+    filter: brightness(0) invert(1) !important;
+  }
+
+  /* Logo IFT: Inwersja + mocniejszy glow, by białe litery IFT były ostre */
+  .author__urls-wrapper i.fa-university::before,
+  .author__urls-wrapper i.fa-building-columns::before {
+    filter: brightness(0) invert(1) drop-shadow(0px 0px 2px rgba(255, 255, 255, 0.5)) !important;
   }
 }
