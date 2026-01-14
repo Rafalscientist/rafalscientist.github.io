@@ -3,7 +3,7 @@
 
 /*
  * Jekyll Main SCSS - Rafał A. Bogaczewicz (2026)
- * WERSJA ATOMOWA: FontAwesome + Academicons + PNG Recovery
+ * WERSJA ATOMOWA V2: CZERWONY ORZEŁEK W NOCY + NAPRAWA IFT
  */
 
 @import
@@ -37,6 +37,7 @@
    PERSONALIZACJA RAFAŁ A. BOGACZEWICZ - 2026
    ========================================================================== */
 
+/* 1. KOLORYSTYKA */
 :root {
   --moj-zielony: #2d4f1e;
   --moj-hover: #006400;
@@ -47,7 +48,7 @@ html[data-theme='dark'] {
   --moj-hover: #00FFAB;
 }
 
-/* 1. NAWIGACJA GÓRNA (ZACHOWUJE ZIELEŃ) */
+/* 2. NAWIGACJA GÓRNA */
 .greedy-nav a:hover,
 .site-title:hover,
 .masthead__menu-item a:hover {
@@ -55,24 +56,21 @@ html[data-theme='dark'] {
   background: transparent !important;
 }
 
-/* 2. BLOKADA ATOMOWA DLA SIDEBARA (LEWA KOLUMNA) */
-/* Chronimy tekst i wszystkie typy ikon przed zielonym hoverem */
+/* 3. BLOKADA HOVERÓW W SIDEBARZE (ORCID, RESEARCHGATE, ACADEMIA) */
 .author__urls-wrapper a:hover,
 .author__urls-wrapper a:hover i,
-.author__urls-wrapper a:hover span,
-.author__urls-wrapper li:hover {
+.author__urls-wrapper a:hover span {
   color: inherit !important;
   opacity: 1 !important;
   text-decoration: none !important;
 }
 
-/* Sztywne kolory ikon (zawsze aktywne, nawet przy najechaniu) */
+/* Stałe kolory dla ikon akademickich */
 i.ai-orcid { color: #A6CE39 !important; }
 i.fa-researchgate { color: #00CCBB !important; }
 i.ai-academia { color: #212429 !important; }
 
-/* 3. WSTRZYKIWANIE LOGOTYPÓW PNG (PWr i IFT) */
-/* Używamy klas z Twojego pliku HTML: fa-location-dot oraz fa-building-columns */
+/* 4. LOGOTYPY PNG (PWr i IFT) */
 .author__urls i.fa-location-dot::before,
 .author__urls i.fa-building-columns::before {
   content: "" !important;
@@ -85,35 +83,36 @@ i.ai-academia { color: #212429 !important; }
   background-position: center !important;
 }
 
-/* Orzełek PWr */
+/* Orzełek PWr - Ustawienia podstawowe */
 .author__urls i.fa-location-dot::before {
   background-image: url("/images/logopwr.png") !important;
 }
 
-/* Logo IFT z poświatą (rozwiązuje problem różowej kropki i widoczności liter) */
+/* Logo IFT - Podwójna poświata dla widoczności detali w trybie jasnym */
 .author__urls i.fa-building-columns::before {
   background-image: url("/images/logoift.png") !important;
   filter: drop-shadow(0px 0px 2px white) drop-shadow(0px 0px 1px rgba(0,0,0,0.5)) !important;
 }
 
-/* 4. NAPRAWA TRYBU CIEMNEGO (KWADRAT PWR & KONTRAST) */
+/* 5. SPECJALNE USTAWIENIA DLA TRYBU CIEMNEGO (DARK MODE) */
 html[data-theme='dark'] {
-  /* Naprawa Academii (na biało) */
+  /* Academia staje się biała */
   i.ai-academia { color: #ffffff !important; }
 
-  /* Logo PWr i IFT w nocy */
-  .author__urls i.fa-location-dot::before,
+  /* LOGO IFT: Zamieniamy na białe, żeby litery były widoczne */
   .author__urls i.fa-building-columns::before {
     filter: brightness(0) invert(1) !important;
   }
-  
-  /* Jeśli PWr nadal robi biały kwadrat, mix-blend-mode "wypali" tło */
+
+  /* LOGO PWR: Blokujemy inwersję, żeby orzełek został CZERWONY */
   .author__urls i.fa-location-dot::before {
-    mix-blend-mode: lighten !important;
+    filter: none !important;
+    /* Multiply usunie białe tło, jeśli plik PNG nie jest przezroczysty */
+    mix-blend-mode: multiply !important; 
   }
 }
 
-/* 5. PUBLIKACJE I RESZTA */
+/* 6. DODATKI I NAPRAWY */
 .publication-link, .publication-link:visited {
   color: var(--moj-zielony) !important;
   text-decoration: none !important;
