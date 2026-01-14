@@ -37,11 +37,11 @@
    PERSONALIZACJA RAFAŁ A. BOGACZEWICZ - 2026
    ========================================================================== */
 
-/* 1. TWOJA ZIELEŃ */
+/* 1. KOLORY TWOJEJ ZIELENI */
 :root {
   --moj-zielony: #2d4f1e;
   --moj-hover: #006400;
-  --moj-seledyn: #68d391; /* Jasny seledyn do efektu najechania */
+  --moj-seledyn: #68d391; /* Do efektu najechania na PNG */
 }
 
 html[data-theme='dark'] {
@@ -62,9 +62,24 @@ html[data-theme='dark'] {
   text-decoration: none !important;
 }
 
-/* 3. LOGOTYPY I SKALOWANIE IKON SIDEBARA */
+.masthead__menu-item--active a {
+  color: var(--moj-zielony) !important;
+  font-weight: bold !important;
+}
 
-/* Wspólne ustawienia dla kontenerów */
+/* 3. LINKI W PUBLIKACJACH */
+.publication-link, 
+.publication-link:visited,
+.publication-link i, 
+.publication-link b {
+  color: var(--moj-zielony) !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
+/* 4. LOGOTYPY PWr I IFT ORAZ SKALOWANIE IKON */
+
+/* Standaryzacja kontenerów ikon */
 .author__urls-wrapper i, 
 .author__urls-wrapper span.ai {
   width: 24px !important;        
@@ -72,16 +87,15 @@ html[data-theme='dark'] {
   text-align: center !important;
   display: inline-block !important;
   vertical-align: middle !important;
-  transition: all 0.2s ease-in-out; /* Płynne przejście koloru */
 }
 
-/* Powiększenie sociali */
+/* Powiększenie sociali (Orcid, ResearchGate, Academia) */
 .author__urls-wrapper i:not(.fa-map-marker-alt):not(.fa-location-dot):not(.fa-university):not(.fa-building-columns):not(.fa-landmark),
 .author__urls-wrapper .ai {
   font-size: 18px !important;
 }
 
-/* Podmiana PWr i IFT na PNG */
+/* Ukrycie standardowych ikon pod PNG */
 .author__urls-wrapper i.fa-map-marker-alt,
 .author__urls-wrapper i.fa-location-dot,
 .author__urls-wrapper i.fa-university,
@@ -91,6 +105,7 @@ html[data-theme='dark'] {
   position: relative;
 }
 
+/* Wstawienie logotypów PNG */
 .author__urls-wrapper i.fa-map-marker-alt::before,
 .author__urls-wrapper i.fa-location-dot::before,
 .author__urls-wrapper i.fa-university::before,
@@ -103,24 +118,29 @@ html[data-theme='dark'] {
   left: 0;
   top: 52%; 
   transform: translateY(-50%);
-  width: 21px; 
-  height: 21px;
+  width: 22px; 
+  height: 22px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  transition: filter 0.2s ease-in-out; /* Animacja poświaty */
+  transition: filter 0.2s ease-in-out;
 }
 
-/* Ścieżki */
-.author__urls-wrapper i.fa-map-marker-alt::before, .author__urls-wrapper i.fa-location-dot::before {
+/* Ścieżka do Orzełka PWr */
+.author__urls-wrapper i.fa-map-marker-alt::before, 
+.author__urls-wrapper i.fa-location-dot::before {
   background-image: url("/images/logopwr.png") !important;
 }
 
-.author__urls-wrapper i.fa-university::before, .author__urls-wrapper i.fa-building-columns::before, .author__urls-wrapper i.fa-landmark::before {
+/* Ścieżka do Logo IFT */
+.author__urls-wrapper i.fa-university::before, 
+.author__urls-wrapper i.fa-building-columns::before,
+.author__urls-wrapper i.fa-landmark::before {
   background-image: url("/images/logoift.png") !important;
+  filter: drop-shadow(0px 0px 1px rgba(0,0,0,0.7));
 }
 
-/* EFEKT HOVER DLA PNG - Seledynowa poświata jak przy sociali */
+/* EFEKT HOVER DLA LOGOTYPÓW PNG (Seledynowa aura) */
 .author__urls-wrapper a:hover i.fa-map-marker-alt::before,
 .author__urls-wrapper a:hover i.fa-location-dot::before,
 .author__urls-wrapper a:hover i.fa-university::before,
@@ -128,9 +148,16 @@ html[data-theme='dark'] {
   filter: drop-shadow(0 0 5px var(--moj-seledyn)) brightness(1.2) !important;
 }
 
-/* Dostosowanie do trybu ciemnego */
+/* 5. DOSTOSOWANIE DO TRYBU CIEMNEGO */
 html[data-theme='dark'] {
   .author__urls-wrapper i.fa-map-marker-alt::before {
     filter: brightness(0) invert(1);
+  }
+  .author__urls-wrapper a:hover i.fa-map-marker-alt::before {
+    filter: brightness(0) invert(1) drop-shadow(0 0 5px var(--moj-seledyn)) !important;
+  }
+  .author__urls-wrapper i.fa-university::before,
+  .author__urls-wrapper i.fa-landmark::before {
+    filter: none !important;
   }
 }
