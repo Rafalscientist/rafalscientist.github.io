@@ -17,11 +17,9 @@ author:
   name   : "Rafał A. Bogaczewicz"
   avatar : "rafal.jpg"
   bio    : "Fizyk teoretyk z pasjami"
-  
-  # Wyżej: To pole wyświetla się obok "trójkątnego dachu"
-  employer: '<a href="https://pwr.edu.pl" target="_blank" style="color: inherit; text-decoration: none;">Politechnika Wrocławska</a>'
-  
-  # Niżej: To pole wyświetla się pod spodem (zazwyczaj z ikoną lokalizacji)
+  employer: |
+    <a href="https://pwr.edu.pl" style="color: inherit; text-decoration: none;">Politechnika Wrocławska</a>
+  # Niżej: Instytut (obok lokalizacji)
   location: "Instytut Fizyki Teoretycznej PWr"
   location_url: "www.kft.pwr.edu.pl"
   # Linki naukowe
