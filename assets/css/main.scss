@@ -2,25 +2,19 @@
 ---
 
 /*
- * This file controls what is imported from /_sass
- *
- * Note that the files are processed in the order they are imported, so they are partly
-   sorted by the dependencies. Also, the first two lines of the file are required by Jekyll.
+ * Jekyll Main SCSS - Rafał A. Bogaczewicz (2026)
+ * Ścieżka: assets/css/main.scss
  */
 
 @import
     "vendor/breakpoint/breakpoint",
-
     "themes",
     "theme/{{ site.site_theme | default: 'default' | append: '_light' }}",
     "theme/{{ site.site_theme | default: 'default' | append: '_dark' }}",
-
     "include/mixins",
     "vendor/susy/susy",
-
     "layout/reset",
     "layout/base",
-
     "include/utilities",
     "layout/tables",
     "layout/buttons",
@@ -29,14 +23,11 @@
     "layout/navigation",
     "layout/footer",
     "syntax",
-
     "layout/forms",
-
     "layout/page",
     "layout/archive",
     "layout/sidebar",
     "layout/json_cv",
-
     "vendor/font-awesome/fontawesome",
     "vendor/font-awesome/solid",
     "vendor/font-awesome/brands"
@@ -103,52 +94,57 @@ html[data-theme='dark'] {
 
 /* 5. PODMIANA IKON SIDEBARA NA LOGOTYPY (PWr & IFT) */
 
-/* Ustawienia wspólne dla nowych ikon */
+/* Wspólne ustawienia ukrywające stare ikony i wstawiające obrazki */
 .author__urls-wrapper i.fa-map-marker-alt,
 .author__urls-wrapper i.fa-location-dot,
 .author__urls-wrapper i.fa-university,
 .author__urls-wrapper i.fa-building-columns {
-  visibility: hidden; /* Ukrywamy standardową ikonę FontAwesome */
+  visibility: hidden !important; /* Ukrywa starą pinezkę i dach */
   position: relative;
-  width: 20px;
-  margin-right: 8px;
+  width: 18px !important;
+  margin-right: 8px !important;
 }
 
 .author__urls-wrapper i.fa-map-marker-alt::before,
 .author__urls-wrapper i.fa-location-dot::before,
 .author__urls-wrapper i.fa-university::before,
 .author__urls-wrapper i.fa-building-columns::before {
-  visibility: visible; /* Pokazujemy nasz logotyp */
-  content: "";
+  content: "" !important;
+  visibility: visible !important; /* Pokazuje logotyp */
+  display: inline-block;
   position: absolute;
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
 
-/* Podmiana lokalizacji na Orzełka PWr */
+/* Ścieżka do Orzełka PWr - bez tagów Liquid dla bezpieczeństwa */
 .author__urls-wrapper i.fa-map-marker-alt::before,
 .author__urls-wrapper i.fa-location-dot::before {
-  background-image: url('{{ "/assets/images/logo-pwr.svg" | relative_url }}');
+  background-image: url("/images/logopwr.png") !important;
 }
 
-/* Podmiana pracodawcy na logo IFT */
+/* Ścieżka do Logo IFT */
 .author__urls-wrapper i.fa-university::before,
 .author__urls-wrapper i.fa-building-columns::before {
-  background-image: url('{{ "/assets/images/logo-ift.svg" | relative_url }}');
+  background-image: url("/images/logoift.png") !important;
+  filter: drop-shadow(0px 0px 1px rgba(0,0,0,0.8)); /* Widoczność białego logo na jasnym tle */
 }
 
-/* Inwersja kolorów dla trybu ciemnego (jeśli logotypy są czarne) */
+/* Automatyczne dostosowanie do trybu ciemnego */
 html[data-theme='dark'] {
-  .author__urls-wrapper i.fa-map-marker-alt::before,
-  .author__urls-wrapper i.fa-location-dot::before,
-  .author__urls-wrapper i.fa-university::before,
-  .author__urls-wrapper i.fa-building-columns::before {
+  /* Jeśli logotypy są czarne, odwracamy na białe */
+  .author__urls-wrapper i.fa-map-marker-alt::before {
     filter: brightness(0) invert(1);
+  }
+  
+  /* W trybie ciemnym usuwamy cień dla logo IFT */
+  .author__urls-wrapper i.fa-university::before {
+    filter: none !important;
   }
 }
