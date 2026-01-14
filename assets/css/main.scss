@@ -3,7 +3,7 @@
 
 /*
  * Jekyll Main SCSS - Rafał A. Bogaczewicz (2026)
- * POWRÓT DO SPRAWDZONEJ KONFIGURACJI: PWr + IFT widoczne
+ * WERSJA STABILNA: Przywrócenie PWr, IFT i zielonych sociali
  */
 
 @import
@@ -77,7 +77,7 @@ html[data-theme='dark'] {
 
 /* 4. LOGOTYPY PWr I IFT ORAZ SKALOWANIE IKON */
 
-/* Standaryzacja kontenerów ikon */
+/* Standaryzacja kontenerów ikon - powrót do width 24px dla równej linii tekstu */
 .author__urls-wrapper i, 
 .author__urls-wrapper span.ai {
   width: 24px !important;        
@@ -85,6 +85,7 @@ html[data-theme='dark'] {
   text-align: center !important;
   display: inline-block !important;
   vertical-align: middle !important;
+  color: inherit; /* Pozwala ikonkom fontowym zmieniać kolor na zielony przy hoverze */
 }
 
 /* Powiększenie sociali (Orcid, ResearchGate, Academia) */
@@ -103,7 +104,7 @@ html[data-theme='dark'] {
   position: relative;
 }
 
-/* Wstawienie logotypów PNG */
+/* Wstawienie logotypów PNG w miejsce ukrytych ikon */
 .author__urls-wrapper i.fa-map-marker-alt::before,
 .author__urls-wrapper i.fa-location-dot::before,
 .author__urls-wrapper i.fa-university::before,
@@ -114,7 +115,7 @@ html[data-theme='dark'] {
   display: inline-block;
   position: absolute;
   left: 0;
-  top: 52%; 
+  top: 50%; 
   transform: translateY(-50%);
   width: 22px; 
   height: 22px;
