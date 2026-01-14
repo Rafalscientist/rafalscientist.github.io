@@ -3,7 +3,7 @@
 
 /*
  * Jekyll Main SCSS - Rafał A. Bogaczewicz (2026)
- * Finalna kalibracja sidebara: PWr + IFT + Sociale
+ * Pełna konfiguracja: PWr, IFT oraz powiększone ikony sociali
  */
 
 @import
@@ -37,7 +37,7 @@
    PERSONALIZACJA RAFAŁ A. BOGACZEWICZ - 2026
    ========================================================================== */
 
-/* 1. KOLORY */
+/* 1. TWOJA ZIELEŃ */
 :root {
   --moj-zielony: #2d4f1e;
   --moj-hover: #006400;
@@ -82,7 +82,7 @@ html[data-theme='dark'] {
   text-decoration: underline !important;
 }
 
-/* 4. BLOKADA PODKREŚLEŃ */
+/* 4. TYTUŁY BEZ PODKREŚLEŃ */
 .archive__item-title, 
 .title-static {
   color: var(--global-text-color) !important;
@@ -91,22 +91,22 @@ html[data-theme='dark'] {
   pointer-events: none; 
 }
 
-/* 5. LOGOTYPY I SKALOWANIE IKON SIDEBARA */
+/* 5. LOGOTYPY PWr I IFT ORAZ SKALOWANIE IKON */
 
-/* Ujednolicenie wszystkich kontenerów dla równego startu tekstu */
+/* Ujednolicenie szerokości ikon dla równej linii tekstu */
 .author__urls-wrapper i, 
 .author__urls-wrapper span.ai,
 .author__urls-wrapper .fab,
 .author__urls-wrapper .fas,
 .author__urls-wrapper .ai {
-  width: 24px !important;        /* Stała szerokość kontenera ikony */
-  margin-right: 12px !important;  /* Stały odstęp od tekstu */
+  width: 24px !important;        
+  margin-right: 12px !important;  
   text-align: center !important;
   display: inline-block !important;
   vertical-align: middle !important;
 }
 
-/* Powiększenie ikon społecznościowych (z 13.5px do 18px) */
+/* Powiększenie ikon społecznościowych (Orcid, ResearchGate, Academia) */
 .author__urls-wrapper i:not(.fa-map-marker-alt):not(.fa-location-dot):not(.fa-university):not(.fa-building-columns),
 .author__urls-wrapper .ai, 
 .author__urls-wrapper .fab {
@@ -114,7 +114,7 @@ html[data-theme='dark'] {
   line-height: 1 !important;
 }
 
-/* Podmiana ikon PWr i IFT na PNG */
+/* Ukrycie ikon dla PWr i IFT pod logotypy PNG */
 .author__urls-wrapper i.fa-map-marker-alt,
 .author__urls-wrapper i.fa-location-dot,
 .author__urls-wrapper i.fa-university,
@@ -132,7 +132,7 @@ html[data-theme='dark'] {
   display: inline-block;
   position: absolute;
   left: 0;
-  top: 52%; /* Subtelna korekta pionowa dla logotypów */
+  top: 52%; 
   transform: translateY(-50%);
   width: 21px; 
   height: 21px;
@@ -141,19 +141,20 @@ html[data-theme='dark'] {
   background-position: center;
 }
 
-/* Ścieżki do plików graficznych w /images/ */
+/* Ścieżka do Orzełka PWr */
 .author__urls-wrapper i.fa-map-marker-alt::before, 
 .author__urls-wrapper i.fa-location-dot::before {
   background-image: url("/images/logopwr.png") !important;
 }
 
+/* Ścieżka do Logo IFT - Poprawna nazwa pliku */
 .author__urls-wrapper i.fa-university::before, 
 .author__urls-wrapper i.fa-building-columns::before {
-  background-image: url("/images/logoitp.png") !important;
+  background-image: url("/images/logoift.png") !important;
   filter: drop-shadow(0px 0px 1px rgba(0,0,0,0.7));
 }
 
-/* Dostosowanie do trybu ciemnego */
+/* Obsługa trybu ciemnego */
 html[data-theme='dark'] {
   .author__urls-wrapper i.fa-map-marker-alt::before {
     filter: brightness(0) invert(1);
