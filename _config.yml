@@ -20,11 +20,14 @@ author:
   avatar : "rafal.jpg"
   bio    : "Fizyk teoretyk z pasjami"
   employer: "Politechnika Wrocławska"
+  employer_url: "https://pwr.edu.pl/"
+  location: "Instytut Fizyki Teoretycznej PWr"
+  location_url: "https://www.kft.pwr.edu.pl/"
   
   # Linki naukowe
-  orcid:         "orcid.org"
-  researchgate:  "www.researchgate.net"
-  academia:      "pwr-wroc.academia.edu"
+  orcid:         "https://orcid.org/0000-0001-7148-5250"
+  researchgate:  "https://www.researchgate.net/profile/Rafal_Bogaczewicz"
+  academia:      "https://pwr-wroc.academia.edu/Rafa%C5%82Bogaczewicz"
   
   # Repositories and software development
   github           : "rafal-a-bogaczewicz"
