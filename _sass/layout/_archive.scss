@@ -10,8 +10,9 @@
   }
 
   @include breakpoint($large) {
-    @include span(10 of 12 last);
-    @include prefix(0.5 of 12);
+    @include span(8 of 12 last); /* Zmiana z 10 na 8 */
+    @include prefix(0.5 of 12);  /* Bez zmian */
+    @include suffix(0.5 of 12);  /* Dodajemy suffix dla symetrii */
   }
 
   a {
@@ -190,9 +191,9 @@
       }
 
       .archive__item-body {
-        @include span(7 of 12 last);
+        @include span(8 of 12 last);
         @include prefix(0.5 of 12);
-        @include suffix(1 of 12);
+        @include suffix(0.5 of 12);
       }
     }
   }
@@ -213,9 +214,9 @@
       }
 
       .archive__item-body {
-        @include span(7 of 12 last rtl);
+        @include span(8 of 12 last rtl);
         @include prefix(0.5 of 12);
-        @include suffix(1 of 12);
+        @include suffix(0.5 of 12);
       }
     }
   }
