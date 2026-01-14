@@ -48,22 +48,33 @@ html[data-theme='dark'] {
   --moj-hover: #00FFAB;         /* Neon miętowy (Noc) */
 }
 
-/* 2. NAPRAWA NAWIGACJI (Talks, Imię, Ikony Social Media) */
+/* 2. NAWIGACJA I TYTUŁY */
 .greedy-nav a:hover,
 .site-title:hover,
 .masthead__menu-item a:hover,
-.author__urls-wrapper a:hover,
-.author__urls-wrapper a:hover * {
+.author__urls-wrapper a:hover {
   color: var(--moj-hover) !important;
   background: transparent !important;
-  opacity: 1 !important;
   text-decoration: none !important;
 }
 
-/* Kolor aktywnej zakładki */
-.masthead__menu-item--active a {
-  color: var(--moj-zielony) !important;
-  font-weight: bold !important;
+/* OCHRONA IKON W SIDEBARZE PRZED ZMIANĄ KOLORU */
+/* Wykluczamy ikony marek (Orcid, Academia, RG) oraz nasze logotypy PWr/IFT */
+.author__urls-wrapper a:hover i.fab, 
+.author__urls-wrapper a:hover i.fa-brands,
+.author__urls-wrapper a:hover i.fa-map-marker-alt,
+.author__urls-wrapper a:hover i.fa-university {
+  color: inherit !important; /* Zachowuje oryginalny kolor ikony */
+  opacity: 1 !important;
+}
+
+/* Specyficzne kolory dla marek (opcjonalnie, jeśli chcesz by były kolorowe) */
+.fa-orcid { color: #A6CE39 !important; }
+.fa-researchgate { color: #00CCBB !important; }
+.fa-academia { color: #212429 !important; }
+
+html[data-theme='dark'] {
+  .fa-academia { color: #ffffff !important; } /* Widoczność na ciemnym tle */
 }
 
 /* 3. NAPRAWA PUBLIKACJI (Linki bibliograficzne) */
