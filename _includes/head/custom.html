@@ -37,7 +37,7 @@
     transition: all 0.2s ease-in-out !important;
   }
 
-  /* 6. ŚRODKOWANIE PROFILU I NAPRAWA WYRÓWNANIA IKON PNG/SVG */
+  /* 6. ŚRODKOWANIE PROFILU I DEFINITYWNA NAPRAWA PIONOWEJ LINII */
   .sidebar .author__profile {
     text-align: center !important;
   }
@@ -58,7 +58,7 @@
   }
 
   .author__urls {
-    display: inline-flex !important; /* Zmiana na flex dla lepszej kontroli */
+    display: inline-flex !important;
     flex-direction: column !important;
     text-align: left !important;     
     padding-left: 0 !important;      
@@ -66,23 +66,41 @@
     list-style-type: none !important;
   }
 
-  /* WYRÓWNANIE KAŻDEGO WIERSZA (IKONA + TEKST) */
+  /* KONTENER LINKU - TWORZY FUNDAMENT LINII PIONOWEJ */
   .author__urls li a {
     display: flex !important;
-    align-items: center !important; /* Centrowanie pionowe tekstu względem ikony */
-    gap: 12px !important;           /* Stały odstęp między ikoną a napisem */
-    padding: 4px 0 !important;      /* Równe odstępy między linkami */
+    align-items: center !important; /* Centrowanie pionowe */
+    justify-content: flex-start !important;
+    padding: 4px 0 !important;
     text-decoration: none !important;
   }
 
-  /* UJEDNOLICENIE ROZMIARU TWOICH OBRAZKÓW PNG/SVG */
+  /* USUNIĘCIE "DUCHÓW" FONT AWESOME (ukrywamy stare ikony, które psuły linię) */
+  .author__urls li a i, 
+  .author__urls li a span.fab, 
+  .author__urls li a span.fas, 
+  .author__urls li a span.ai {
+    display: none !important;
+    width: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* TWOJA IKONKA PNG/SVG - STAŁA RAMA */
   .author__urls li img {
-    width: 20px !important;         /* Stała szerokość dla wszystkich ikon */
-    height: 20px !important;        /* Stała wysokość dla wszystkich ikon */
-    min-width: 20px !important;     /* Zapobiega zwężaniu ikon */
-    object-fit: contain !important; /* Zachowanie proporcji (nie rozciąga) */
+    width: 20px !important;         /* Stała szerokość */
+    height: 20px !important;        /* Stała wysokość */
+    min-width: 20px !important;     /* Blokada zwężania */
+    margin-right: 12px !important;  /* STAŁY ODSTĘP OD TEKSTU */
+    object-fit: contain !important; 
     display: block !important;
-    margin: 0 !important;           /* Resetuje marginesy */
+    flex-shrink: 0 !important;
+  }
+
+  /* TEKST - TERAZ MUSI BYĆ RÓWNO */
+  .author__urls li a span {
+    display: block !important;
+    line-height: 1.2 !important;
+    margin: 0 !important;
   }
 
   /* 7. WYRÓWNANIE TREŚCI (PRAWA KOLUMNA) */
@@ -101,7 +119,6 @@
 
 <!-- start custom head snippets -->
 <link rel="stylesheet" href="{{ base_path }}/assets/css/academicons.css"/>
-<!-- favicon from commons.wikimedia.org -->
 <link rel="apple-touch-icon" sizes="180x180" href="{{ base_path }}/images/apple-touch-icon-180x180.png"/>
 <link rel="icon" type="image/svg+xml" href="{{ base_path }}/images/favicon.svg"/>
 <link rel="icon" type="image/png" href="{{ base_path }}/images/favicon-32x32.png" sizes="32x32"/>
