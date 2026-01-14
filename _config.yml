@@ -1,12 +1,10 @@
 # Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your entire site.
-# If you change this file, please restart the server process (jekyll serve).
+# Config for Rafał A. Bogaczewicz - 2026 Academic Portfolio
 
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default"
-title                    : "mgr inż. / MSc Rafał A. Bogaczewicz"
+title                    : "Personal Academic Website" # Zmienione, by nie dublować nazwiska w kolumnie
 title_separator          : "-"
 name                     : &name "Rafał A. Bogaczewicz"
 description              : &description "Academic portfolio of Rafał A. Bogaczewicz"
@@ -19,14 +17,18 @@ author:
   name   : "Rafał A. Bogaczewicz"
   avatar : "rafal.jpg"
   bio    : "Fizyk teoretyk z pasjami"
-  employer: '<img src="pwr.edu.pl" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px;"><a href="https://pwr.edu.pl" target="_blank" style="color: inherit; text-decoration: none; display: inline-block; vertical-align: middle;">Politechnika Wrocławska</a>'
+  
+  # Wyżej: Politechnika z Logo (zastępuje "trójkątny dach" w większości motywów)
+  employer: '<img src="pwr.edu.pl" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px;"><a href="https://pwr.edu.pl" target="_blank" style="color: inherit; text-decoration: none;">Politechnika Wrocławska</a>'
+  
+  # Niżej: Instytut Fizyki Teoretycznej
   location: "Instytut Fizyki Teoretycznej PWr"
-  location_url: "https://www.kft.pwr.edu.pl/"
+  location_url: "www.kft.pwr.edu.pl"
   
   # Linki naukowe
-  orcid:         "https://orcid.org/0000-0001-7148-5250"
-  researchgate:  "https://www.researchgate.net/profile/Rafal_Bogaczewicz"
-  academia:      "https://pwr-wroc.academia.edu/Rafa%C5%82Bogaczewicz"
+  orcid:         "orcid.org"
+  researchgate:  "www.researchgate.net"
+  academia:      "pwr-wroc.academia.edu"
   
   # Repositories and software development
   github           : "rafal-a-bogaczewicz"
