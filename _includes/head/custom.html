@@ -8,7 +8,7 @@
     color: #16a085 !important;
   }
 
-  /* SIDEBAR ALIGNMENT */
+  /* SIDEBAR ALIGNMENT - Stabilizacja wizerunku High Value */
   .sidebar .author__profile, .author__avatar {
     text-align: left !important;
   }
@@ -16,6 +16,34 @@
   .author__avatar img {
     margin-left: 0 !important;
     display: block !important;
+  }
+
+  /* RATUNEK NAWIGACJI - Wymuszenie paska dla długich nazw PL/EN */
+  @media (min-width: 1025px) {
+    .greedy-nav .visible-links {
+      display: flex !important;
+      visibility: visible !important;
+    }
+
+    .greedy-nav .visible-links li {
+      display: block !important;
+    }
+
+    .greedy-nav button {
+      display: none !important; /* Ukrywa 3 kreski na komputerze */
+    }
+
+    .greedy-nav a {
+      font-size: 0.85rem !important; /* Mniejszy font, by zmieścić patriotyczne napisy */
+      padding: 0.5rem 0.5rem !important;
+      white-space: nowrap !important;
+    }
+  }
+
+  /* Stabilizacja kontenera nagłówka */
+  .masthead__inner-wrap {
+    max-width: 100% !important;
+    padding: 0.5em 1em !important;
   }
 </style>
 
