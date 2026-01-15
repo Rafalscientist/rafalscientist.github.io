@@ -87,23 +87,23 @@ permalink: /
     </div>
   </div>
 
-  <!-- SEKCJA: BADANIA -->
-  <span class="cv-style-header">Badania / Research</span>
+  <!-- SEKCJA: ZAINTERESOWANIA NAUKOWE -->
+  <span class="cv-style-header">Zainteresowania naukowe / Scientific interests</span>
   <div class="cv-content-grid">
     <div class="lang-pl">
-      Główne obszary moich zainteresowań naukowych to:
+      Główne obszary moich poszukiwań to:
       <ul style="margin-top: 10px; padding-left: 18px;">
         <li>Optyka kwantowa ciała stałego</li>
-        <li>Dynamika fononów i&nbsp;emitery kwantowe</li>
-        <li>Modelowanie kwantowych układów otwartych</li>
+        <li>Dekoherencja i&nbsp;dynamika fononowa w&nbsp;układach kwantowych</li>
+        <li>Teoria kwantowych układów otwartych</li>
       </ul>
     </div>
     <div class="lang-en">
-      My primary research interests include:
+      My primary focus areas include:
       <ul style="margin-top: 10px; padding-left: 18px;">
         <li>Solid-state quantum optics</li>
-        <li>Phonon dynamics and&nbsp;quantum emitters</li>
-        <li>Open quantum systems modeling</li>
+        <li>Phonon-induced decoherence and&nbsp;quantum dynamics</li>
+        <li>Theory of&nbsp;open quantum systems</li>
       </ul>
     </div>
   </div>
