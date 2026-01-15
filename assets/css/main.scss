@@ -6,7 +6,7 @@
 
 /*
  * Jekyll Main SCSS - Rafał A. Bogaczewicz - 2026
- * WERSJA FINALNA: NAPRAWIONE MENU + KOLOROWE IKONY + ZDJĘCIE DO LEWEJ
+ * WERSJA: REAKTYWACJA KLIKALNOŚCI + ZDJĘCIE DO LEWEJ + KOLORY
  */
 
 @import
@@ -37,11 +37,11 @@
 ;
 
 /* ==========================================================================
-   1. FUNDAMENTY I STABILIZACJA MENU (GREEDY NAV)
+   1. FUNDAMENTY I STABILIZACJA MENU (KLIKALNOŚĆ)
    ========================================================================== */
 
 .masthead {
-  z-index: 20;
+  z-index: 50; /* Wysoki z-index, by menu było nad treścią */
   border-bottom: 1px solid var(--global-border-color);
   min-height: 2.85rem !important; 
 }
@@ -54,19 +54,30 @@
   align-items: center !important;
 }
 
-/* Przywrócenie działania menu i trzech kresek */
 .greedy-nav {
   display: flex !important;
-  overflow: visible !important;
+  overflow: visible !important; /* Pozwala linkom reagować na myszkę */
+  position: relative;
+  z-index: 51;
 }
 
 .greedy-nav .visible-links {
   display: flex !important;
 }
 
+/* PRZYWRÓCENIE KLIKALNOŚCI ZAKŁADEK */
+.greedy-nav .visible-links li,
+.masthead__menu-item a {
+  pointer-events: auto !important; /* Odblokowuje hiperłącza */
+  cursor: pointer !important;
+  position: relative;
+  z-index: 60 !important;
+}
+
 .greedy-nav button {
   display: block !important;
   visibility: visible !important;
+  cursor: pointer !important;
 }
 
 /* ==========================================================================
@@ -94,7 +105,7 @@
 
 /* Kolory: Ikony kolorowe, napisy czarno-białe */
 .author__urls-wrapper a {
-  color: var(--global-text-color) !important; /* Napis bierze kolor z motywu */
+  color: var(--global-text-color) !important;
   text-decoration: none !important;
 }
 
@@ -122,7 +133,6 @@ html[data-theme='dark'] i.ai-academia { color: #ffffff !important; }
    3. GEOMETRIA GŁÓWNA (ZOOM I SMARTFON)
    ========================================================================== */
 
-/* Blokada rozjeżdżania się kolumn przy małym zoomie */
 #main {
   margin-top: 1em !important;
   max-width: 1280px !important; 
@@ -134,7 +144,6 @@ html[data-theme='dark'] i.ai-academia { color: #ffffff !important; }
   #main { max-width: 100% !important; }
 }
 
-/* Responsywność sidebaru */
 @media screen and (max-width: 1440px) {
   .author__bio {
     display: block !important;
@@ -171,17 +180,14 @@ html[data-theme='dark'] i.ai-academia { color: #ffffff !important; }
    4. INNE POPRAWKI (FOLLOW, LINKI, TRYB CIEMNY)
    ========================================================================== */
 
-/* Usunięcie przycisku Follow */
 .author__urls-wrapper button, .author__urls-wrapper .btn {
   display: none !important;
 }
 
-/* Kolory linków w publikacjach */
 .publication-link, .publication-link:visited {
   color: var(--moj-zielony) !important;
 }
 
-/* Tryb ciemny dla logo */
 html[data-theme='dark'] {
   .author__urls li i.fa-building-columns::before,
   .author__urls li i.fa-location-dot::before {
