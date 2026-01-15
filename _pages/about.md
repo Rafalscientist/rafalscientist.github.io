@@ -61,7 +61,7 @@ permalink: /
   <!-- WSTĘP -->
   <div class="cv-content-grid" style="margin-top: 10px;">
     <div class="lang-pl">
-      Cześć, jestem fizykiem teoretykiem, doktorantem w&nbsp;<b>Instytucie Fizyki Teoretycznej PWr</b>. Pracuję w&nbsp;grupie naukowej <b>prof. dra hab. inż. Pawła Machnikowskiego</b>.
+      Cześć, jestem fizykiem teoretykiem, doktorantem w&nbsp;<b>Instytucie Fizyki Teoretycznej PWr</b>. Pracuję w&nbsp;grupie naukowej <b>prof. Pawła Machnikowskiego</b>.
     </div>
     <div class="lang-en">
       Hey, I am a&nbsp;theoretical physicist, a&nbsp;PhD student at the <b>Institute of Theoretical Physics (WUST)</b>. I work in the scientific group of <b>prof. Paweł Machnikowski</b>.
