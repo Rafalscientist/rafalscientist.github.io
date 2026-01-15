@@ -97,14 +97,14 @@ permalink: /
       <ul style="margin: 0; padding-left: 18px; list-style-type: square;">
         <li>Optyka kwantowa ciała stałego</li>
         <li>Dekoherencja i&nbsp;dynamika fononowa w&nbsp;układach kwantowych</li>
-        <li>Teoria kwantowych układów otwartych</li>
+        <li>Kwantowe układy otwarte</li>
       </ul>
     </div>
     <div class="lang-en">
       <ul style="margin: 0; padding-left: 18px; list-style-type: square;">
         <li>Solid-state quantum optics</li>
-        <li>Phonon-induced decoherence and&nbsp;quantum dynamics</li>
-        <li>Theory of&nbsp;open quantum systems</li>
+        <li>Decoherence and&nbsp;phonon dynamics in&nbsp;quantum systems</li>
+        <li>Open quantum systems</li>
       </ul>
     </div>
   </div>
