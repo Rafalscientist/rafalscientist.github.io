@@ -1,59 +1,68 @@
----
-layout: single
-title: "mgr inż. / MSc. Rafał A. Bogaczewicz"
-permalink: /
-author_profile: true
----
-
-{% include base_path %}
-
 <style>
-  /* 1. ATOMOWA ZIELEŃ I TYPOGRAFIA CV */
-  :root { --accent: #16a085; }
+  /* 1. TWOJA MARKA - NUKLEARNA MORSKA ZIELEŃ TYLKO DLA GŁÓWNEGO TYTUŁU */
+  :root, html, body, #main, [class*="page__inner"] {
+    --primary-color: #16a085 !important;
+  }
   
-  h1, .page__title { color: var(--accent) !important; }
+  /* Główny tytuł strony (Imię i Nazwisko) */
+  h1.page__title { 
+    color: #16a085 !important; 
+    margin-bottom: 30px !important;
+  }
 
-  /* Stylizacja nagłówków wzorowana na CV (Nagłówek + Linia) */
+  /* 2. ADAPTACYJNE NAGŁÓWKI SEKCJI (Czarny w Light / Biały w Dark) */
   .cv-style-header {
-    color: var(--accent) !important;
+    /* var(--global-text-color) to inteligentna zmienna Jekylla */
+    color: var(--global-text-color) !important;
     border-bottom: 1px solid #ccc;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    font-size: 1.4em;
+    margin-top: 35px;
+    margin-bottom: 15px;
+    font-size: 1.1em; /* Mniejsza czcionka, bardziej elegancka */
     font-weight: bold;
     display: block;
     width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
 
+  /* 3. SIATKA TREŚCI */
   .cv-content-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    gap: 25px;
     margin-bottom: 20px;
   }
 
-  .lang-pl { text-align: justify; font-size: 0.95em; }
-  .lang-en { text-align: justify; font-size: 0.85em; font-style: italic; opacity: 0.75; border-left: 1px solid #eee; padding-left: 15px; }
+  .lang-pl { text-align: justify; font-size: 0.9em; line-height: 1.5; }
+  .lang-en { 
+    text-align: justify; 
+    font-size: 0.85em; 
+    font-style: italic; 
+    opacity: 0.7; 
+    border-left: 1px solid #eee; 
+    padding-left: 15px; 
+  }
 
-  ul.cv-list { list-style-type: none; padding-left: 0; }
-  ul.cv-list li { margin-bottom: 10px; position: relative; padding-left: 20px; }
-  ul.cv-list li::before { content: "•"; color: var(--accent); position: absolute; left: 0; font-weight: bold; }
+  /* Kropki list w kolorze akcentu dla smaku */
+  ul.cv-list { list-style-type: none; padding-left: 0; margin: 0; }
+  ul.cv-list li { margin-bottom: 8px; position: relative; padding-left: 15px; }
+  ul.cv-list li::before { content: "•"; color: #16a085; position: absolute; left: 0; }
 </style>
 
 <div class="page-home">
 
-  <!-- SEKCJA 1: BIO -->
+  <!-- SEKCJA 1 -->
   <span class="cv-style-header">O mnie / About Me</span>
   <div class="cv-content-grid">
     <div class="lang-pl">
-      Jestem fizykiem teoretykiem i doktorantem na <b>Politechnice Wrocławskiej</b>. W moich badaniach łączę matematyczną rygorystyczność z opisem procesów kwantowych, wierząc, że nauka to nie tylko zawód, ale i formacja charakteru.
+      Jestem fizykiem teoretykiem i doktorantem na <b>Politechnice Wrocławskiej</b>. W badaniach dążę do matematycznej precyzji w opisie świata kwantowego, wierząc, że rzetelność jest fundamentem charakteru.
     </div>
     <div class="lang-en">
-      Theoretical physicist and PhD student at <b>Wrocław University of Science and Technology</b>. In my research, I combine mathematical rigor with quantum process descriptions, believing that science is both a profession and a character-building journey.
+      Theoretical physicist and PhD student at <b>Wrocław University of Science and Technology</b>. I strive for mathematical precision in describing the quantum world, believing that integrity is the foundation of character.
     </div>
   </div>
 
-  <!-- SEKCJA 2: EDUKACJA (Skrócona z CV) -->
+  <!-- SEKCJA 2 -->
   <span class="cv-style-header">Edukacja / Education</span>
   <div class="cv-content-grid">
     <div>
@@ -70,7 +79,7 @@ author_profile: true
     </div>
   </div>
 
-  <!-- SEKCJA 3: BADANIA / RESEARCH -->
+  <!-- SEKCJA 3 -->
   <span class="cv-style-header">Badania / Research</span>
   <div class="cv-content-grid">
     <div class="lang-pl">
@@ -81,18 +90,9 @@ author_profile: true
     </div>
   </div>
 
-  <!-- SEKCJA 4: PASJE (To, co przyciąga) -->
-  <span class="cv-style-header">Poza nauką / Beyond Science</span>
-  <div class="cv-content-grid">
-    <div class="lang-pl">
-      Pasjonat gór i wspinaczki. Szukam wyzwań wymagających dyscypliny i wierności zasadom – zarówno w równaniach, jak i na szlaku.
-    </div>
-    <div class="lang-en">
-      Mountain and climbing enthusiast. I seek challenges requiring discipline and integrity – both in equations and on the trail.
-    </div>
-  </div>
-
-  <div style="margin-top: 60px; text-align: center; opacity: 0.6; font-style: italic;">
+  <!-- STOPKA -->
+  <div style="margin-top: 50px; text-align: center; opacity: 0.6; font-style: italic; font-size: 0.85em;">
+    <hr style="width: 30%; margin: 20px auto; border-top: 1px solid #eee;">
     "Pasjonat odkrywania świata, zarówno w równaniach, jak i dosłownie ;)"
   </div>
 
