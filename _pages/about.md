@@ -1,23 +1,26 @@
+---
+layout: single
+author_profile: true
+title: "mgr inż. / MSc. Rafał A. Bogaczewicz"
+permalink: /
+---
+
+{% include base_path %}
+
 <style>
-  /* 1. TWOJA MARKA - NUKLEARNA MORSKA ZIELEŃ TYLKO DLA GŁÓWNEGO TYTUŁU */
-  :root, html, body, #main, [class*="page__inner"] {
-    --primary-color: #16a085 !important;
-  }
-  
-  /* Główny tytuł strony (Imię i Nazwisko) */
+  /* 1. TYTUŁ GŁÓWNY - NUKLEARNA MORSKA ZIELEŃ */
   h1.page__title { 
     color: #16a085 !important; 
     margin-bottom: 30px !important;
   }
 
-  /* 2. ADAPTACYJNE NAGŁÓWKI SEKCJI (Czarny w Light / Biały w Dark) */
+  /* 2. ADAPTACYJNE NAGŁÓWKI SEKCJI (Mniejsza czcionka, Czarny/Biały) */
   .cv-style-header {
-    /* var(--global-text-color) to inteligentna zmienna Jekylla */
     color: var(--global-text-color) !important;
     border-bottom: 1px solid #ccc;
     margin-top: 35px;
     margin-bottom: 15px;
-    font-size: 1.1em; /* Mniejsza czcionka, bardziej elegancka */
+    font-size: 1.1em; 
     font-weight: bold;
     display: block;
     width: 100%;
@@ -25,12 +28,17 @@
     letter-spacing: 0.5px;
   }
 
-  /* 3. SIATKA TREŚCI */
+  /* 3. SIATKA TREŚCI DWUJĘZYCZNEJ */
   .cv-content-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 25px;
     margin-bottom: 20px;
+  }
+
+  /* RWD: Na telefonach jedna kolumna */
+  @media (max-width: 600px) {
+    .cv-content-grid { grid-template-columns: 1fr; }
   }
 
   .lang-pl { text-align: justify; font-size: 0.9em; line-height: 1.5; }
@@ -43,7 +51,6 @@
     padding-left: 15px; 
   }
 
-  /* Kropki list w kolorze akcentu dla smaku */
   ul.cv-list { list-style-type: none; padding-left: 0; margin: 0; }
   ul.cv-list li { margin-bottom: 8px; position: relative; padding-left: 15px; }
   ul.cv-list li::before { content: "•"; color: #16a085; position: absolute; left: 0; }
@@ -51,7 +58,6 @@
 
 <div class="page-home">
 
-  <!-- SEKCJA 1 -->
   <span class="cv-style-header">O mnie / About Me</span>
   <div class="cv-content-grid">
     <div class="lang-pl">
@@ -62,7 +68,6 @@
     </div>
   </div>
 
-  <!-- SEKCJA 2 -->
   <span class="cv-style-header">Edukacja / Education</span>
   <div class="cv-content-grid">
     <div>
@@ -79,7 +84,6 @@
     </div>
   </div>
 
-  <!-- SEKCJA 3 -->
   <span class="cv-style-header">Badania / Research</span>
   <div class="cv-content-grid">
     <div class="lang-pl">
@@ -90,7 +94,6 @@
     </div>
   </div>
 
-  <!-- STOPKA -->
   <div style="margin-top: 50px; text-align: center; opacity: 0.6; font-style: italic; font-size: 0.85em;">
     <hr style="width: 30%; margin: 20px auto; border-top: 1px solid #eee;">
     "Pasjonat odkrywania świata, zarówno w równaniach, jak i dosłownie ;)"
