@@ -64,7 +64,7 @@ permalink: /
       Cześć, jestem fizykiem teoretykiem, doktorantem w&nbsp;<b>Instytucie Fizyki Teoretycznej PWr</b>. Pracuję w&nbsp;grupie naukowej <b>prof. Pawła Machnikowskiego</b>.
     </div>
     <div class="lang-en">
-      Hey, I am a&nbsp;theoretical physicist, a&nbsp;PhD student at the <b>Institute of Theoretical Physics (WUST)</b>. I work in the scientific group of <b>prof. Paweł Machnikowski</b>.
+      Hey, I am a&nbsp;theoretical physicist, a&nbsp;PhD student at the <b>Institute of Theoretical Physics (WUST)</b>. I&nbsp;work in the scientific group of <b>prof. Paweł Machnikowski</b>.
     </div>
   </div>
 
