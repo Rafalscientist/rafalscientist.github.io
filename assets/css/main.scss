@@ -138,7 +138,7 @@ html[data-theme='dark'] {
 }
 
 /* ==========================================================================
-   6. STABILIZACJA SIDEBARU (BIURKO & ZOOM) - PRÓG DO 1440px
+   6. STABILIZACJA SIDEBARU (BIURKO & ZOOM) - POPRAWKI RAFAŁA
    ========================================================================== */
 @media screen and (max-width: 1440px) {
   .author__avatar {
@@ -149,32 +149,39 @@ html[data-theme='dark'] {
   .author__content {
     display: flex !important;
     flex-direction: column !important;
-    align-items: center !important; 
+    align-items: flex-start !important; /* Zmiana z center na flex-start - linki do lewej */
     width: 100% !important;
   }
 
   .author__name {
     display: block !important;
     white-space: nowrap !important;
-    text-align: center !important;
-    margin: 10px auto !important;
+    text-align: left !important; /* Do lewej w trybie pionowym */
+    margin: 10px 0 !important;
   }
 
   .author__bio {
     display: block !important;
-    width: fit-content !important; 
-    max-width: 280px !important; /* Zwiększone z 240px dla oddechu po powiększeniu ikon */
+    width: 100% !important; 
+    max-width: 310px !important; /* Zwiększone, by emotka nie spadała (Pkt 2) */
     text-align: left !important;
-    margin-left: auto !important;  
-    margin-right: auto !important; 
-    text-wrap: pretty !important;
-    line-height: 1.4 !important;
+    margin-left: 0 !important; /* Do lewej (Pkt 3) */
+    margin-right: 0 !important; 
+    text-wrap: nowrap !important; /* Wymusza jedną linię w trybie górnym (Pkt 3) */
+  }
+
+  /* Naprawa łamania linii dla biogramu w trybie desktopowym (Pkt 2) */
+  @media (min-width: 1024px) {
+    .author__bio {
+       text-wrap: pretty !important; /* Pozwala na 2 linie przy sidebarze */
+       max-width: 300px !important; 
+    }
   }
 
   .author__urls-wrapper {
     width: 100% !important;
     display: flex !important;
-    justify-content: center !important;
+    justify-content: flex-start !important; /* Linki pod słowem "Lubię" (Pkt 3) */
   }
 }
 
