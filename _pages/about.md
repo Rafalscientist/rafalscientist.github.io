@@ -5,8 +5,6 @@ title: "mgr inż. / MSc. Rafał&nbsp;A.&nbsp;Bogaczewicz"
 permalink: /
 ---
 
-{% include base_path %}
-
 <style>
   /* 1. TYTUŁ GŁÓWNY - MORSKA ZIELEŃ */
   h1.page__title { 
