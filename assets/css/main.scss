@@ -50,44 +50,40 @@ html[data-theme='dark'] {
   --moj-hover: #00FFAB;
 }
 
-/* 1. STABILIZACJA WYSOKOŚCI MENU (GREEDY NAV FIX) */
-.masthead {
-  z-index: 10;
-  border-bottom: 1px solid var(--global-border-color);
-  min-height: 2.85rem !important; 
+/* ==========================================================================
+   OSTATECZNA STABILIZACJA - PRIORYTET NADRZĘDNY
+   ========================================================================== */
+
+/* 1. ZDJĘCIE DO LEWEJ (Zgodnie z wizerunkiem High Value Man) */
+.author__avatar {
+  text-align: left !important;
+}
+.author__avatar img {
+  margin-left: 0 !important; 
+  margin-right: auto !important;
 }
 
-.masthead__inner-wrap {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  min-height: 2.85rem !important;
+/* 2. STOP "TRZEM KRESKOM" - ZAKŁADKI MAJĄ BYĆ WIDOCZNE */
+.greedy-nav .visible-links {
   display: flex !important;
-  align-items: center !important;
+  visibility: visible !important;
+}
+.greedy-nav button {
+  display: none !important; /* Usuwamy przycisk, który chowa menu */
+}
+.greedy-nav {
+  overflow: visible !important; 
 }
 
-/* 2. NAWIGACJA GÓRNA - HOVER */
-.greedy-nav a:hover,
-.site-title:hover,
-.masthead__menu-item a:hover {
-  color: var(--moj-hover) !important;
-  background: transparent !important;
+/* 3. FIX DLA KONTAKTU (ABOUT.MD) NA SMARTFONIE */
+@media (max-width: 600px) {
+  .lang-en {
+    border-left: none !important;
+    padding-left: 0 !important;
+    margin-top: 10px;
+    display: block !important;
+  }
 }
-
-/* 3. KOLORY I LINKI W SIDEBARZE */
-.author__urls-wrapper a {
-  color: var(--global-text-color) !important;
-  text-decoration: none !important;
-}
-
-.author__urls-wrapper a:hover {
-  color: var(--moj-hover) !important;
-}
-
-/* Ikony brandingowe */
-i.ai-orcid { color: #A6CE39 !important; }
-i.fa-researchgate { color: #00CCBB !important; }
-i.ai-academia { color: #212429 !important; }
-html[data-theme='dark'] i.ai-academia { color: #ffffff !important; }
 
 /* 4. LOGOTYPY PNG (PWr i IFT) */
 .author__urls li i.fa-location-dot::before,
