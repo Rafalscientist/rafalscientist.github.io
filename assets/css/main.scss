@@ -133,45 +133,42 @@ html[data-theme='dark'] {
   pointer-events: none; 
 }
 
-/* ==========================================================================
-   FINALNA STABILIZACJA SIDEBARU - REAKCJA NA ZOOM 133%+ (Rafał A. Bogaczewicz)
-   ========================================================================== */
-@media screen and (max-width: 1440px) {
-  .author__avatar {
-    text-align: center !important;
-    img {
-      margin: 0 auto 15px auto !important; 
-    }
-  }
-
-  .author__content {
-    /* Ustawiamy kontener na środku paska bocznego */
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important; 
-  }
-
-  .author__name, 
-  .author__bio {
-    display: table !important;    /* Dopasowuje szerokość bloku do tekstu */
-    margin-left: auto !important; /* Centruje cały blok pod zdjęciem */
-    margin-right: auto !important;/* Centruje cały blok pod zdjęciem */
-    text-align: left !important;  /* NOWA LINIA ZACZYNA SIĘ W TYM SAMYM PIONIE */
-    
-    /* ZAPOBIEGANIE PRZEDWCZESNEMU ZWIJANIU IMIENIA */
-    white-space: nowrap !important; /* Imię i nazwisko będą w jednej linii tak długo, jak się da */
-    max-width: 100% !important;
-  }
-
-  .author__bio {
-    white-space: normal !important; /* Bio może się zwijać, imię niech trzyma linię */
-    text-wrap: balance !important;  /* Zapobiega sierotkom */
-    margin-top: 10px !important;
-  }
-    
-  .author__urls-wrapper {
+/* --- PANCERNA RESPONSYWNOŚĆ DLA RAFAŁA (SMARTFON) --- */
+@media screen and (max-width: 1024px) {
+  /* 1. Resetujemy szerokość kontenera głównego */
+  #main {
     width: 100% !important;
-    display: flex !important;
-    justify-content: center !important;
+    max-width: 100vw !important;
+    padding: 10px !important;
+    margin: 0 !important;
+    display: block !important;
+    overflow-x: hidden !important; // Zabija suwanie palcem na boki
+  }
+
+  /* 2. Sidebar (Twoje zdjęcie i bio) ląduje na górze */
+  .sidebar {
+    width: 100% !important;
+    float: none !important;
+    position: relative !important;
+    top: 0 !important;
+    margin-bottom: 20px !important;
+    padding: 0 !important;
+  }
+
+  /* 3. Treść strony (prawa kolumna) wskakuje pod spód */
+  .page, .archive {
+    width: 100% !important;
+    float: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    /* Usuwamy prefix(0.75), który spychałby treść poza ekran telefonu */
+    margin-left: 0 !important; 
+    left: 0 !important;
+  }
+
+  /* 4. Siatka z About.md (PL/EN) - na telefonie jeden pod drugim */
+  .cv-content-grid {
+    grid-template-columns: 1fr !important;
+    gap: 15px !important;
   }
 }
