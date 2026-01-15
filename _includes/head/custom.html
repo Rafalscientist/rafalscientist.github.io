@@ -8,7 +8,7 @@
     color: #16a085 !important;
   }
 
-  /* SIDEBAR ALIGNMENT - Stabilizacja wizerunku High Value */
+  /* SIDEBAR ALIGNMENT - Stabilizacja Twojego wizerunku */
   .sidebar .author__profile, .author__avatar {
     text-align: left !important;
   }
@@ -18,23 +18,33 @@
     display: block !important;
   }
 
-  /* RATUNEK NAWIGACJI - Wymuszenie paska dla długich nazw PL/EN */
+  /* RATUNEK NAWIGACJI - BLOKADA ZNIKANIA ZAKŁADEK (2026) */
   @media (min-width: 1025px) {
+    /* Wymuszamy, by lista linków była widoczna natychmiast i na stałe */
     .greedy-nav .visible-links {
       display: flex !important;
       visibility: visible !important;
+      opacity: 1 !important;
+      height: auto !important;
+      overflow: visible !important;
     }
 
+    /* Blokujemy próby ukrycia poszczególnych elementów przez skrypt JS */
     .greedy-nav .visible-links li {
-      display: block !important;
+      display: inline-block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
     }
 
-    .greedy-nav button {
-      display: none !important; /* Ukrywa 3 kreski na komputerze */
+    /* Ukrywamy przycisk trzech kresek na komputerze - nie jest potrzebny */
+    .greedy-nav button, 
+    .greedy-nav .hidden-links {
+      display: none !important;
     }
 
+    /* Optymalizacja pod długie, dwujęzyczne nazwy (Patriotyzm + Obycie) */
     .greedy-nav a {
-      font-size: 0.85rem !important; /* Mniejszy font, by zmieścić patriotyczne napisy */
+      font-size: 0.82rem !important; /* Mniejszy font pozwala zmieścić wszystko w linii */
       padding: 0.5rem 0.5rem !important;
       white-space: nowrap !important;
     }
@@ -43,7 +53,8 @@
   /* Stabilizacja kontenera nagłówka */
   .masthead__inner-wrap {
     max-width: 100% !important;
-    padding: 0.5em 1em !important;
+    display: flex !important;
+    justify-content: space-between !important;
   }
 </style>
 
