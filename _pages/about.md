@@ -74,15 +74,15 @@ permalink: /
   <!-- WSTĘP Z NOWĄ LINIĄ -->
   <div class="cv-content-grid" style="margin-top: 10px;">
     <div class="lang-pl">
-      Cześć, jestem fizykiem teoretykiem, doktorantem w&nbsp;<a href="www.kft.pwr.edu.pl" class="pub-link" target="_blank">Instytucie Fizyki Teoretycznej PWr</a>.
+      Cześć, jestem fizykiem teoretykiem, doktorantem w&nbsp;<a href="https://www.kft.pwr.edu.pl" class="pub-link" target="_blank">Instytucie Fizyki Teoretycznej PWr</a>.
       <span style="display: block; margin-top: 12px;">
-        Pracuję w&nbsp;grupie naukowej <a href="pm.kft.pwr.edu.pl" class="pub-link" target="_blank">prof.&nbsp;Pawła Machnikowskiego</a>.
+        Pracuję w&nbsp;grupie naukowej <a href="https://pm.kft.pwr.edu.pl" class="pub-link" target="_blank">prof.&nbsp;Pawła Machnikowskiego</a>.
       </span>
     </div>
     <div class="lang-en">
-      Hey, I&nbsp;am a&nbsp;theoretical physicist, a&nbsp;PhD student at&nbsp;the <a href="www.kft.pwr.edu.pl" class="pub-link" target="_blank">Institute of&nbsp;Theoretical Physics (WUST)</a>.
+      Hey, I&nbsp;am a&nbsp;theoretical physicist, a&nbsp;PhD student at&nbsp;the <a href="https://www.kft.pwr.edu.pl" class="pub-link" target="_blank">Institute of&nbsp;Theoretical Physics (WUST)</a>.
       <span style="display: block; margin-top: 12px;">
-        I&nbsp;work in&nbsp;the scientific group of&nbsp;<a href="pm.kft.pwr.edu.pl" class="pub-link" target="_blank">prof.&nbsp;Paweł Machnikowski</a>.
+        I&nbsp;work in&nbsp;the scientific group of&nbsp;<a href="https://pm.kft.pwr.edu.pl" class="pub-link" target="_blank">prof.&nbsp;Paweł Machnikowski</a>.
       </span>
     </div>
   </div>
@@ -109,20 +109,30 @@ permalink: /
     </div>
   </div>
   
-  <!-- SEKCJA: KONTAKT (JEDNA KOLUMNA, DWUJĘZYCZNA) -->
+  <!-- SEKCJA: KONTAKT (NAPRAWIONE RWD DLA SMARTFONA) -->
   <span class="cv-style-header" style="font-size: 1.15em; border-bottom: 1px solid #ccc; padding-bottom: 5px;">
     Kontakt / Contact
   </span>
   
-  <div style="margin-top: 15px; text-align: left; line-height: 1.8; font-size: 0.95em;">
+  <div style="margin-top: 15px; text-align: left; line-height: 1.6; font-size: 0.95em;">
     <div class="lang-pl" style="border: none; padding: 0; opacity: 1;">
       <b>e-mail:</b> <a href="mailto:rafal.bogaczewicz@pwr.edu.pl" class="pub-link">rafal.bogaczewicz@pwr.edu.pl</a><br>
       
-      Instytut Fizyki Teoretycznej <span style="opacity: 0.7;">&nbsp;|&nbsp; Institute of Theoretical Physics</span><br>
+      <!-- Kontener Flexbox zapobiegający błędnemu łamaniu słów -->
+      <div style="display: flex; flex-wrap: wrap; margin-top: 10px; gap: 0 15px;">
+        <div style="flex: 0 1 auto; white-space: nowrap; margin-bottom: 5px;">
+          Instytut Fizyki Teoretycznej<br>
+          Politechnika Wrocławska
+        </div>
+        <div style="flex: 1 1 auto; opacity: 0.7; border-left: 1px solid #eee; padding-left: 15px; min-width: 240px;">
+          Institute of Theoretical Physics<br>
+          Wrocław University of Science and Technology
+        </div>
+      </div>
       
-      Politechnika Wrocławska <span style="opacity: 0.7;">&nbsp;|&nbsp; Wrocław University of Science and Technology</span><br>
-      
-      Wybrzeże Wyspiańskiego 27, 50-370 Wrocław, Poland
+      <div style="margin-top: 10px;">
+        Wybrzeże Wyspiańskiego 27, 50-370 Wrocław, Poland
+      </div>
     </div>
   </div>
 </div>
