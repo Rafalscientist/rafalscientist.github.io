@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SIDEBAR - Rafał A. Bogaczewicz - Version 2026.01.15 (Stabilizacja Pionowa Bio)
+   SIDEBAR - Rafał A. Bogaczewicz - Version 2026.01.15 (Finalna Stabilizacja)
    ========================================================================== */
 
 .sidebar {
@@ -175,7 +175,7 @@
 }
 
 /* ==========================================================================
-   POPRAWKA DLA ZOOMU 133% - CENTROWANIE BLOKU Z ZACHOWANIEM LEWEGO PIONU
+   POPRAWKA DLA ZOOMU 133% - ELASTYCZNA SZEROKOŚĆ Z ZACHOWANIEM PIONU
    ========================================================================== */
 
 @media screen and (max-width: 1440px) {
@@ -187,22 +187,21 @@
   }
 
   .author__content {
-    /* Stabilizacja pionowa: blok na środku, tekst wewnątrz do lewej */
+    /* Ustawiamy kontener na środku paska bocznego */
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important; 
-    text-align: left !important;
   }
 
   .author__name, 
   .author__bio {
-    display: inline-block !important;
-    width: auto !important;
-    /* Szerokość dopasowana do zdjęcia, by utrzymać pionową linię */
-    max-width: 175px !important; 
-    text-align: left !important; 
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+    /* Pozwalamy tekstowi rosnąć, ale wewnątrz trzymamy wyrównanie do lewej */
+    display: block !important;
+    width: fit-content !important; // Kontener dopasuje się do długości tekstu
+    max-width: 100% !important;    // Ale nie wyjdzie poza ekran na smartfonie
+    text-align: left !important;   // PIONOWA LINIA STARTU ZACHOWANA
+    margin-left: auto !important;  // Te dwie linie centrują blok tekstu...
+    margin-right: auto !important; // ...zachowując wewnątrz wyrównanie do lewej.
   }
 
   .author__urls {
