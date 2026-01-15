@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SIDEBAR - Rafał A. Bogaczewicz - Version 2026.01.15 (Finalna Stabilizacja)
+   SIDEBAR - Rafał A. Bogaczewicz - Version 2026.01.15 (Poszerzona Stabilizacja)
    ========================================================================== */
 
 .sidebar {
@@ -108,11 +108,21 @@
   margin: 10px 0 20px 0;
   font-size: $type-size-6;
   text-align: left; 
+  
+  /* POSZERZONY BLOK BIO DLA TYPOGRAFII PL */
+  display: block;
+  width: fit-content;
+  max-width: 240px; 
+  margin-left: auto;
+  margin-right: auto;
 
   @media screen and (max-width: 1440px) {
-    text-align: center !important; 
+    text-align: left !important; 
     display: block !important;
-    width: 100% !important;
+    width: fit-content !important;
+    max-width: 240px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 }
 
@@ -175,7 +185,7 @@
 }
 
 /* ==========================================================================
-   POPRAWKA DLA ZOOMU 133% - ELASTYCZNA SZEROKOŚĆ Z ZACHOWANIEM PIONU
+   POPRAWKA DLA ZOOMU 133% - POSZERZONA SZEROKOŚĆ Z ZACHOWANIEM PIONU
    ========================================================================== */
 
 @media screen and (max-width: 1440px) {
@@ -187,7 +197,6 @@
   }
 
   .author__content {
-    /* Ustawiamy kontener na środku paska bocznego */
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important; 
@@ -195,13 +204,12 @@
 
   .author__name, 
   .author__bio {
-    /* Pozwalamy tekstowi rosnąć, ale wewnątrz trzymamy wyrównanie do lewej */
     display: block !important;
-    width: fit-content !important; // Kontener dopasuje się do długości tekstu
-    max-width: 100% !important;    // Ale nie wyjdzie poza ekran na smartfonie
-    text-align: left !important;   // PIONOWA LINIA STARTU ZACHOWANA
-    margin-left: auto !important;  // Te dwie linie centrują blok tekstu...
-    margin-right: auto !important; // ...zachowując wewnątrz wyrównanie do lewej.
+    width: fit-content !important; 
+    max-width: 240px !important; /* Dajemy więcej miejsca niż zdjęcie */
+    text-align: left !important;   
+    margin-left: auto !important;  
+    margin-right: auto !important; 
   }
 
   .author__urls {
