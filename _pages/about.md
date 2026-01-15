@@ -1,7 +1,7 @@
 ---
 layout: single
 author_profile: true
-title: "MSc Eng. Rafał&nbsp;A.&nbsp;Bogaczewicz"
+title: "mgr inż. / MSc. Rafał&nbsp;A.&nbsp;Bogaczewicz"
 permalink: /
 ---
 
@@ -69,10 +69,10 @@ permalink: /
   <!-- WSTĘP Z LINKAMI -->
   <div class="cv-content-grid" style="margin-top: 10px;">
     <div class="lang-pl">
-      Cześć, jestem fizykiem teoretykiem, doktorantem w&nbsp;<a href="ift.pwr.edu.pl" class="pub-link" target="_blank"><b>Instytucie Fizyki Teoretycznej PWr</b></a>. Pracuję w&nbsp;grupie naukowej <a href="pwr.edu.pl" class="pub-link" target="_blank"><b>prof.&nbsp;Pawła Machnikowskiego</b></a>, zajmując się fluorescencją rezonansową z&nbsp;kwantowego emitera oddziałującego z&nbsp;zaszumionym otoczeniem.
+      Cześć, jestem fizykiem teoretykiem, doktorantem w&nbsp;<a href="ift.pwr.edu.pl" class="pub-link" target="_blank"><b>Instytucie Fizyki Teoretycznej PWr</b></a>. Pracuję w&nbsp;grupie naukowej <a href="pwr.edu.pl" class="pub-link" target="_blank"><b>prof.&nbsp;Pawła Machnikowskiego</b></a>.
     </div>
     <div class="lang-en">
-      Hey, I&nbsp;am a&nbsp;theoretical physicist, a&nbsp;PhD student at&nbsp;the <a href="ift.pwr.edu.plen/" class="pub-link" target="_blank"><b>Institute of&nbsp;Theoretical Physics (WUST)</b></a>. I&nbsp;work in&nbsp;the scientific group of&nbsp;<a href="pwr.edu.pl" class="pub-link" target="_blank"><b>prof.&nbsp;Paweł Machnikowski</b></a>, focusing on&nbsp;the resonance fluorescence of&nbsp;a&nbsp;quantum emitter interacting with a&nbsp;noisy environment.
+      Hey, I&nbsp;am a&nbsp;theoretical physicist, a&nbsp;PhD student at&nbsp;the <a href="ift.pwr.edu.plen/" class="pub-link" target="_blank"><b>Institute of&nbsp;Theoretical Physics (WUST)</b></a>. I&nbsp;work in&nbsp;the scientific group of&nbsp;<a href="pwr.edu.pl" class="pub-link" target="_blank"><b>prof.&nbsp;Paweł Machnikowski</b></a>.
     </div>
   </div>
 
