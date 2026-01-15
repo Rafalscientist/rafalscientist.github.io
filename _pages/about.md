@@ -109,16 +109,19 @@ permalink: /
     </div>
   </div>
   
- <!-- SEKCJA: KONTAKT (JEDNA KOLUMNA) -->
+  <!-- SEKCJA: KONTAKT (JEDNA KOLUMNA, DWUJĘZYCZNA) -->
   <span class="cv-style-header" style="font-size: 1.15em; border-bottom: 1px solid #ccc; padding-bottom: 5px;">
     Kontakt / Contact
   </span>
   
-  <div style="margin-top: 15px; text-align: left; line-height: 1.8;">
+  <div style="margin-top: 15px; text-align: left; line-height: 1.8; font-size: 0.95em;">
     <div class="lang-pl" style="border: none; padding: 0; opacity: 1;">
       <b>e-mail:</b> <a href="mailto:rafal.bogaczewicz@pwr.edu.pl" class="pub-link">rafal.bogaczewicz@pwr.edu.pl</a><br>
-      Instytut Fizyki Teoretycznej / Institute of Theoretical Physics<br>
-      Politechnika Wrocławska / Wrocław University of Science and Technology<br>
+      
+      Instytut Fizyki Teoretycznej <span style="opacity: 0.7;">&nbsp;|&nbsp; Institute of Theoretical Physics</span><br>
+      
+      Politechnika Wrocławska <span style="opacity: 0.7;">&nbsp;|&nbsp; Wrocław University of Science and Technology</span><br>
+      
       Wybrzeże Wyspiańskiego 27, 50-370 Wrocław, Poland
     </div>
   </div>
