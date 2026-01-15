@@ -2,6 +2,7 @@
 layout: single
 author_profile: true
 title: "O mnie"
+permalink: /
 ---
 
 Witaj! Jestem doktorantem w **Instytucie Fizyki Teoretycznej PWr**. 
