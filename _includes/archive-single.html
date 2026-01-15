@@ -1,5 +1,3 @@
-{% include base_path %}
-
 {% if post.id %}
   {% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" | strip %}
 {% else %}
@@ -9,26 +7,22 @@
 <div class="{{ include.type | default: 'list' }}__item">
   <article class="archive__item" itemscope itemtype="schema.org" style="margin-bottom: 0.5em; line-height: 1.4;">
     
-    <!-- 1. AUTORZY -->
     {% if post.citation %}
       <span class="archive__item-citation" style="display: block; margin-bottom: 0.1em;">
-        {{ post.citation }},
+        {{ post.citation | replace: "R. A. Bogaczewicz", "<u>R. A. Bogaczewicz</u>" }},
       </span>
     {% endif %}
 
-    <!-- 2. TYTUŁ (Czysty tekst) -->
     <h2 class="archive__item-title" itemprop="headline" style="font-size: 1.1em; margin: 0; display: inline; font-weight: normal;">
-      <span class="title-static">{{ title }}</span>,
+      {{ title }},
     </h2>
 
-    <!-- 3. CZASOPISMO, VOLUME, STRONA I ROK (Jako hiperłącze) -->
     <span style="font-size: 1em; margin-left: 2px;">
       {% if post.collection == 'publications' %}
-        <a href="{{ post.paperurl }}" class="publication-link" rel="permalink">
-          <i>{{ post.venue }}</i> <b>{{ post.volume }}</b>, {{ post.pages }} ({{ post.date | default: "1900-01-01" | date: "%Y" }})
+        <a href="{{ post.paperurl | default: post.link | relative_url }}" class="publication-link">
+          <i>{{ post.venue }}</i> <b>{{ post.volume }}</b>, {{ post.pages }} ({{ post.date | date: "%Y" }})
         </a>
       {% endif %}
     </span>
-
   </article>
 </div>
