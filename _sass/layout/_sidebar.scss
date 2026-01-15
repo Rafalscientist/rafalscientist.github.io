@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SIDEBAR - Rafał A. Bogaczewicz - Version 2026.01.14 (Nuklearne Centrowanie)
+   SIDEBAR - Rafał A. Bogaczewicz - Version 2026.01.15 (Stabilizacja Pionowa Bio)
    ========================================================================== */
 
 .sidebar {
@@ -97,7 +97,6 @@
   font-size: $type-size-5;
   text-align: left; 
 
-  /* Próg 1440px wymusza środek przy zoomie 133% */
   @media screen and (max-width: 1440px) {
     text-align: center !important; 
     display: block !important;
@@ -110,7 +109,6 @@
   font-size: $type-size-6;
   text-align: left; 
 
-  /* Próg 1440px wymusza środek przy zoomie 133% */
   @media screen and (max-width: 1440px) {
     text-align: center !important; 
     display: block !important;
@@ -172,28 +170,43 @@
   }
 }
 
-/* Ukrywanie przycisku "Follow" na desktopie */
 .author__urls-wrapper button {
   display: none;
 }
 
 /* ==========================================================================
-   FINALNA POPRAWKA CENTROWANIA DLA ZOOMU 133% (THRESHOLD: 1440px)
+   POPRAWKA DLA ZOOMU 133% - CENTROWANIE BLOKU Z ZACHOWANIEM LEWEGO PIONU
    ========================================================================== */
 
 @media screen and (max-width: 1440px) {
   .author__avatar {
     text-align: center !important;
     img {
-      margin: 0 auto 15px auto !important; // Środkuje zdjęcie
+      margin: 0 auto 15px auto !important; 
     }
   }
 
   .author__content {
-    text-align: center !important; // Środkuje Imię i Bio
+    /* Stabilizacja pionowa: blok na środku, tekst wewnątrz do lewej */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important; 
+    text-align: left !important;
+  }
+
+  .author__name, 
+  .author__bio {
+    display: inline-block !important;
+    width: auto !important;
+    /* Szerokość dopasowana do zdjęcia, by utrzymać pionową linię */
+    max-width: 175px !important; 
+    text-align: left !important; 
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 
   .author__urls {
-    justify-content: center !important; // Środkuje poziome linki
+    justify-content: center !important;
+    width: 100% !important;
   }
 }
