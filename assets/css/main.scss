@@ -138,50 +138,56 @@ html[data-theme='dark'] {
 }
 
 /* ==========================================================================
-   6. STABILIZACJA SIDEBARU (BIURKO & ZOOM) - POPRAWKI RAFAŁA
+   6. STABILIZACJA SIDEBARU (BIURKO & ZOOM) - FINALNA KOREKTA RAFAŁA
    ========================================================================== */
 @media screen and (max-width: 1440px) {
   .author__avatar {
-    text-align: center !important;
-    img { margin: 0 auto 15px auto !important; }
+    text-align: left !important; /* Zdjęcie do lewej przy 133% */
+    img { margin: 0 0 15px 0 !important; }
   }
 
   .author__content {
     display: flex !important;
     flex-direction: column !important;
-    align-items: flex-start !important; /* Zmiana z center na flex-start - linki do lewej */
+    align-items: flex-start !important; 
     width: 100% !important;
+    padding-left: 0 !important;
   }
 
   .author__name {
     display: block !important;
     white-space: nowrap !important;
-    text-align: left !important; /* Do lewej w trybie pionowym */
+    text-align: left !important;
     margin: 10px 0 !important;
   }
 
   .author__bio {
     display: block !important;
-    width: 100% !important; 
-    max-width: 310px !important; /* Zwiększone, by emotka nie spadała (Pkt 2) */
     text-align: left !important;
-    margin-left: 0 !important; /* Do lewej (Pkt 3) */
-    margin-right: 0 !important; 
-    text-wrap: nowrap !important; /* Wymusza jedną linię w trybie górnym (Pkt 3) */
-  }
+    margin: 10px 0 !important;
+    line-height: 1.4 !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
 
-  /* Naprawa łamania linii dla biogramu w trybie desktopowym (Pkt 2) */
-  @media (min-width: 1024px) {
-    .author__bio {
-       text-wrap: pretty !important; /* Pozwala na 2 linie przy sidebarze */
-       max-width: 300px !important; 
+    /* TRYB KOLUMNOWY (100-120%) - Blokujemy szerokość, by nie najeżdżać na treść */
+    @media (min-width: 1024px) {
+      max-width: 250px !important; /* Zmniejszone z 300, by nie wchodzić na prawą kolumnę */
+      white-space: normal !important; 
+      text-wrap: pretty !important; /* Emotka spadnie do 2. linii przy 100% */
+    }
+
+    /* TRYB GÓRNY (133%+) - Wszystko w jednej linii */
+    @media (max-width: 1023px) {
+      max-width: none !important;
+      white-space: nowrap !important;
     }
   }
 
   .author__urls-wrapper {
     width: 100% !important;
     display: flex !important;
-    justify-content: flex-start !important; /* Linki pod słowem "Lubię" (Pkt 3) */
+    justify-content: flex-start !important; 
+    padding-left: 0 !important;
   }
 }
 
