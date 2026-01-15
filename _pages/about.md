@@ -69,10 +69,10 @@ permalink: /
   <!-- WSTĘP Z LINKAMI -->
   <div class="cv-content-grid" style="margin-top: 10px;">
     <div class="lang-pl">
-      Cześć, jestem fizykiem teoretykiem, doktorantem w&nbsp;<a href="https://www.kft.pwr.edu.pl/" class="pub-link" target="_blank">Instytucie Fizyki Teoretycznej PWr</a>. Pracuję w&nbsp;grupie naukowej <a href="https://pm.kft.pwr.edu.pl/" class="pub-link" target="_blank">prof.&nbsp;Pawła Machnikowskiego</a>.
+      Cześć, jestem fizykiem teoretykiem, doktorantem w&nbsp;<a href="https://www.kft.pwr.edu.pl/" class="pub-link" target="_blank">Instytucie Fizyki Teoretycznej PWr</a>.<br><br>Pracuję w&nbsp;grupie naukowej <a href="https://pm.kft.pwr.edu.pl/" class="pub-link" target="_blank">prof.&nbsp;Pawła Machnikowskiego</a>.
     </div>
     <div class="lang-en">
-      Hey, I&nbsp;am a&nbsp;theoretical physicist, a&nbsp;PhD student at&nbsp;the <a href="https://www.kft.pwr.edu.pl/" class="pub-link" target="_blank">Institute of&nbsp;Theoretical Physics (WUST)</a>. I&nbsp;work in&nbsp;the scientific group of&nbsp;<a href="https://pm.kft.pwr.edu.pl/" class="pub-link" target="_blank">prof.&nbsp;Paweł Machnikowski</a>.
+      Hey, I&nbsp;am a&nbsp;theoretical physicist, a&nbsp;PhD student at&nbsp;the <a href="https://www.kft.pwr.edu.pl/" class="pub-link" target="_blank">Institute of&nbsp;Theoretical Physics (WUST)</a>.<br><br>I&nbsp;work in&nbsp;the scientific group of&nbsp;<a href="https://pm.kft.pwr.edu.pl/" class="pub-link" target="_blank">prof.&nbsp;Paweł Machnikowski</a>.
     </div>
   </div>
 
