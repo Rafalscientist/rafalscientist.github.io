@@ -57,8 +57,14 @@
     <button class="btn btn--inverse">Follow</button>
     <ul class="author__urls social-icons">
       <!-- Font Awesome icons / Biographic information  -->
+      <!-- Lokalizacja: Politechnika Wrocławska (Zamiast pinezki) -->
       {% if author.location %}
-        <li class="author__desktop"><i class="fas fa-fw fa-location-dot icon-pad-right" aria-hidden="true"></i>{{ author.location }}</li>
+        <li class="author__desktop">
+          <img src="{{ '/images/pwr.png' | relative_url }}" 
+               class="sidebar-icon-img" 
+               alt="PWr Logo">
+          {{ author.location }}
+        </li>
       {% endif %}
       <!-- Instytut Fizyki Teoretycznej (IFT) - Wersja z wysokim kontrastem -->
       {% if author.employer %}
