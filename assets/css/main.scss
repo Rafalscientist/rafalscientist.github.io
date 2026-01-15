@@ -191,6 +191,21 @@ html[data-theme='dark'] {
   }
 }
 
+/* BLOKADA ROZJEŻDŻANIA SIĘ KOLUMN (DLA ZOOM < 100%) */
+#main {
+  /* Ta wartość zablokuje kolumny w pozycji, którą lubisz przy 100% */
+  max-width: 1280px !important; 
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Na mniejszych ekranach i dużym zoomie wracamy do elastyczności */
+@media screen and (max-width: 1280px) {
+  #main {
+    max-width: 100% !important;
+  }
+}
+
 /* ==========================================================================
    7. PANCERNA RESPONSYWNOŚĆ (SMARTFON) - PONIŻEJ 1024px
    ========================================================================== */
