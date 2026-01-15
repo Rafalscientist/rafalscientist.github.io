@@ -8,12 +8,13 @@ permalink: /
 {% include base_path %}
 
 <style>
-  /* ZACHOWANE TWOJE STYLE LOKALNE */
+  /* 1. TYTUŁ GŁÓWNY - MORSKA ZIELEŃ */
   h1.page__title { 
     color: #16a085 !important; 
     margin-bottom: 30px !important;
   }
 
+  /* 2. ADAPTACYJNE NAGŁÓWKI SEKCJI */
   .cv-style-header {
     color: var(--global-text-color) !important;
     border-bottom: 1px solid #ccc;
@@ -27,6 +28,7 @@ permalink: /
     letter-spacing: 0.5px;
   }
 
+  /* 3. SIATKA TREŚCI */
   .cv-content-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -34,12 +36,14 @@ permalink: /
     margin-bottom: 20px;
   }
 
+  /* RWD dla urządzeń mobilnych */
   @media (max-width: 600px) {
     .cv-content-grid { grid-template-columns: 1fr; }
   }
 
+  /* WYRÓWNANIE DO LEWEJ - NATURALNY RYTM TEKSTU */
   .lang-pl, .lang-en { 
-    text-align: justify; 
+    text-align: left; 
     font-size: 0.95em; 
     line-height: 1.6; 
     overflow-wrap: break-word;
@@ -51,11 +55,12 @@ permalink: /
     padding-left: 15px; 
   }
 
-  /* TWOJA KLASA LINKU Z PUBLICATIONS */
+  /* STYLIZACJA LINKÓW - SPÓJNA Z PUBLICATIONS, BEZ BOLD */
   .pub-link {
     color: #16a085 !important;
     text-decoration: none !important;
     transition: all 0.2s ease-in-out;
+    font-weight: normal !important;
   }
 
   .pub-link:hover {
@@ -66,13 +71,19 @@ permalink: /
 
 <div class="page-home">
 
-  <!-- WSTĘP Z LINKAMI -->
+  <!-- WSTĘP Z NOWĄ LINIĄ -->
   <div class="cv-content-grid" style="margin-top: 10px;">
     <div class="lang-pl">
-      Cześć, jestem fizykiem teoretykiem, doktorantem w&nbsp;<a href="https://www.kft.pwr.edu.pl/" class="pub-link" target="_blank">Instytucie Fizyki Teoretycznej PWr</a>.<br><br>Pracuję w&nbsp;grupie naukowej <a href="https://pm.kft.pwr.edu.pl/" class="pub-link" target="_blank">prof.&nbsp;Pawła Machnikowskiego</a>.
+      Cześć, jestem fizykiem teoretykiem, doktorantem w&nbsp;<a href="www.kft.pwr.edu.pl" class="pub-link" target="_blank">Instytucie Fizyki Teoretycznej PWr</a>.
+      <span style="display: block; margin-top: 12px;">
+        Pracuję w&nbsp;grupie naukowej <a href="pm.kft.pwr.edu.pl" class="pub-link" target="_blank">prof.&nbsp;Pawła Machnikowskiego</a>.
+      </span>
     </div>
     <div class="lang-en">
-      Hey, I&nbsp;am a&nbsp;theoretical physicist, a&nbsp;PhD student at&nbsp;the <a href="https://www.kft.pwr.edu.pl/" class="pub-link" target="_blank">Institute of&nbsp;Theoretical Physics (WUST)</a>.<br><br>I&nbsp;work in&nbsp;the scientific group of&nbsp;<a href="https://pm.kft.pwr.edu.pl/" class="pub-link" target="_blank">prof.&nbsp;Paweł Machnikowski</a>.
+      Hey, I&nbsp;am a&nbsp;theoretical physicist, a&nbsp;PhD student at&nbsp;the <a href="www.kft.pwr.edu.pl" class="pub-link" target="_blank">Institute of&nbsp;Theoretical Physics (WUST)</a>.
+      <span style="display: block; margin-top: 12px;">
+        I&nbsp;work in&nbsp;the scientific group of&nbsp;<a href="pm.kft.pwr.edu.pl" class="pub-link" target="_blank">prof.&nbsp;Paweł Machnikowski</a>.
+      </span>
     </div>
   </div>
 
