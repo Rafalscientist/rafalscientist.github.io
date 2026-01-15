@@ -1,19 +1,13 @@
 ---
 ---
 
-@-ms-viewport { width: device-width; }
-@viewport { width: device-width; }
-
-/*
- * Jekyll Main SCSS - Rafał A. Bogaczewicz - 2026
- * WERSJA: REAKTYWACJA KLIKALNOŚCI + ZDJĘCIE DO LEWEJ + KOLORY
- */
+/* Jekyll Main SCSS - Rafał A. Bogaczewicz - 2026 */
 
 @import
     "vendor/breakpoint/breakpoint",
     "themes",
-    "theme/{{ site.site_theme | default: 'default' | append: '_light' }}",
-    "theme/{{ site.site_theme | default: 'default' | append: '_dark' }}",
+    "theme/default_light",
+    "theme/default_dark",
     "include/mixins",
     "vendor/susy/susy",
     "layout/reset",
@@ -36,55 +30,7 @@
     "vendor/font-awesome/brands"
 ;
 
-/* ==========================================================================
-   1. FUNDAMENTY I STABILIZACJA MENU (KLIKALNOŚĆ)
-   ========================================================================== */
-
-.masthead {
-  z-index: 50; /* Wysoki z-index, by menu było nad treścią */
-  border-bottom: 1px solid var(--global-border-color);
-  min-height: 2.85rem !important; 
-}
-
-.masthead__inner-wrap {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  min-height: 2.85rem !important;
-  display: flex !important;
-  align-items: center !important;
-}
-
-.greedy-nav {
-  display: flex !important;
-  overflow: visible !important; /* Pozwala linkom reagować na myszkę */
-  position: relative;
-  z-index: 51;
-}
-
-.greedy-nav .visible-links {
-  display: flex !important;
-}
-
-/* PRZYWRÓCENIE KLIKALNOŚCI ZAKŁADEK */
-.greedy-nav .visible-links li,
-.masthead__menu-item a {
-  pointer-events: auto !important; /* Odblokowuje hiperłącza */
-  cursor: pointer !important;
-  position: relative;
-  z-index: 60 !important;
-}
-
-.greedy-nav button {
-  display: block !important;
-  visibility: visible !important;
-  cursor: pointer !important;
-}
-
-/* ==========================================================================
-   2. SIDEBAR: ZDJĘCIE, BIO I KOLOROWE IKONY
-   ========================================================================== */
-
-/* Zdjęcie profilowe do lewej krawędzi */
+/* SIDEBAR: ZDJĘCIE I BIO DO LEWEJ */
 .author__avatar {
   display: block !important;
   text-align: left !important;
@@ -93,105 +39,28 @@
 .author__avatar img {
   margin-left: 0 !important;
   margin-right: auto !important;
-  display: block !important;
 }
 
-/* Wyrównanie treści sidebaru */
 .author__content, .author__urls {
   text-align: left !important;
   align-items: flex-start !important;
-  padding-left: 0 !important;
 }
 
-/* Kolory: Ikony kolorowe, napisy czarno-białe */
-.author__urls-wrapper a {
-  color: var(--global-text-color) !important;
-  text-decoration: none !important;
-}
-
+/* KOLORY IKON */
 i.ai-orcid { color: #A6CE39 !important; }
 i.fa-researchgate { color: #00CCBB !important; }
 i.ai-academia { color: #212429 !important; }
 html[data-theme='dark'] i.ai-academia { color: #ffffff !important; }
 
-/* Logotypy PNG (PWr i IFT) */
-.author__urls li i.fa-location-dot::before,
-.author__urls li i.fa-building-columns::before {
-  content: "" !important;
-  visibility: visible !important;
-  display: inline-block !important;
-  width: 22px !important;
-  height: 22px !important;
-  background-size: contain !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-}
-.author__urls li i.fa-location-dot::before { background-image: url("/images/logopwr.png") !important; }
-.author__urls li i.fa-building-columns::before { background-image: url("/images/logoift.png") !important; }
-
-/* ==========================================================================
-   3. GEOMETRIA GŁÓWNA (ZOOM I SMARTFON)
-   ========================================================================== */
-
+/* GEOMETRIA GŁÓWNA */
 #main {
   margin-top: 1em !important;
-  max-width: 1280px !important; 
+  max-width: 1280px !important;
   margin-left: auto !important;
   margin-right: auto !important;
 }
 
-@media screen and (max-width: 1280px) {
-  #main { max-width: 100% !important; }
-}
-
-@media screen and (max-width: 1440px) {
-  .author__bio {
-    display: block !important;
-    text-align: left !important;
-    margin: 10px 0 !important;
-    line-height: 1.4 !important;
-
-    @media (min-width: 1024px) {
-      max-width: 250px !important;
-      white-space: normal !important;
-      text-wrap: pretty !important;
-    }
-
-    @media (max-width: 1023px) {
-      max-width: none !important;
-      white-space: nowrap !important;
-    }
-  }
-}
-
-/* Pancerna responsywność (Smartfon) */
 @media screen and (max-width: 1024px) {
-  #main {
-    width: 100% !important;
-    padding: 10px !important;
-    margin: 0 !important;
-    overflow-x: hidden !important;
-  }
-  .sidebar { width: 100% !important; float: none !important; margin-bottom: 20px !important; }
-  .page, .archive { width: 100% !important; float: none !important; padding: 0 !important; }
-}
-
-/* ==========================================================================
-   4. INNE POPRAWKI (FOLLOW, LINKI, TRYB CIEMNY)
-   ========================================================================== */
-
-.author__urls-wrapper button, .author__urls-wrapper .btn {
-  display: none !important;
-}
-
-.publication-link, .publication-link:visited {
-  color: var(--moj-zielony) !important;
-}
-
-html[data-theme='dark'] {
-  .author__urls li i.fa-building-columns::before,
-  .author__urls li i.fa-location-dot::before {
-    filter: none !important;
-    background-color: transparent !important;
-  }
+  #main { width: 100% !important; padding: 10px !important; }
+  .sidebar { width: 100% !important; float: none !important; }
 }
